@@ -1,0 +1,53 @@
+id: BR-FR-CO-03
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-3
+- BT-12
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: 'Si le code type de la facture (BT-3) est égal à 262 (Avoir Remise Globale), alors : - Le numéro de contrat (BT-12) doit être présent - La période de facturation (BG-14) doit être renseignée (dates
+    de début et de fin).'
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-CO-03_BT-3
+title:
+  en: A global discount credit note does not give the contract or the period
+  fr: Un avoir de remise globale n'indique pas le contrat ou la période
+brief:
+  en: A global discount credit note (type 262) must give the contract number and the period it covers, start and end.
+  fr: Un avoir de remise globale (type 262) doit indiquer le numéro de contrat et la période couverte, début et fin.
+search:
+  en:
+  - BR-FR-CO-03
+  - credit note 262 contract period
+  - global discount credit note
+  fr:
+  - BR-FR-CO-03
+  - avoir remise globale 262
+  - avoir 262 contrat période
+  - erreur BR-FR-CO-03
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-CO-03.xml
+related:
+- BR-FR-04
+- BR-FR-CO-05
+updated: '2026-11-16'

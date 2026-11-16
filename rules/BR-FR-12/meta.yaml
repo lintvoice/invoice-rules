@@ -1,0 +1,52 @@
+id: BR-FR-12
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-49
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: Le BT-49 est obligatoire.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-12_BT-49
+title:
+  en: The buyer's electronic address is missing
+  fr: L'adresse électronique de l'acheteur manque
+brief:
+  en: 'The invoice must give the buyer''s electronic address: the address where invoices are delivered to the buyer.'
+  fr: 'La facture doit indiquer l''adresse électronique de l''acheteur : l''adresse à laquelle ses factures lui sont remises.'
+search:
+  en:
+  - BR-FR-12
+  - buyer electronic address missing
+  - BT-49 mandatory
+  fr:
+  - BR-FR-12
+  - adresse électronique de l'acheteur manquante
+  - BT-49 obligatoire
+  - erreur BR-FR-12
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-12.xml
+related:
+- BR-FR-13
+- BR-FR-21
+- BR-FR-23
+updated: '2026-11-16'

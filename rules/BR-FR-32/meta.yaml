@@ -1,0 +1,52 @@
+id: BR-FR-32
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms: []
+paths:
+  cii: //ram:SpecifiedLegalOrganization/ram:ID[@schemeID = '0002']
+  ubl: //cac:PartyLegalEntity/cbc:CompanyID[@schemeID = '0002']
+official_message:
+  lang: fr
+  text: Tout identifiant légal d'une Partie avec schemeID = '0002' DOIT être composé de 9 chiffres.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-32-GLOBALID
+- BR-FR-32-ID
+- BR-FR-32-LEGALID
+title:
+  en: A SIREN on the invoice does not have 9 digits
+  fr: Un SIREN de la facture n'a pas 9 chiffres
+brief:
+  en: Every identifier declared with the scheme code 0002 (SIREN) or 0231 must have exactly 9 digits.
+  fr: Tout identifiant déclaré avec le code de schéma 0002 (SIREN) ou 0231 doit compter exactement 9 chiffres.
+search:
+  en:
+  - BR-FR-32
+  - SIREN 9 digits 0002
+  - scheme 0002 identifier
+  fr:
+  - BR-FR-32
+  - SIREN 9 chiffres
+  - identifiant schéma 0002
+  - erreur BR-FR-32
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-32.xml
+related:
+- BR-FR-10
+- BR-FR-09
+updated: '2026-11-16'

@@ -1,0 +1,38 @@
+id: BR-FR-10
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes: [CII, UBL]
+  when:
+    en: Every invoice checked against the French e-invoicing reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms: [BT-30]
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID[@schemeID='0002']
+  ubl: /Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0002']
+official_message:
+  lang: fr
+  text: "Le SIREN du vendeur (ram:ID) est obligatoire et doit être composé exactement de 9 chiffres."
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids: [BR-FR-10_BT-30]
+title:
+  en: The seller's SIREN is missing or not 9 digits
+  fr: Le SIREN du vendeur est absent ou n'a pas 9 chiffres
+brief:
+  en: "The invoice must give the seller's SIREN: 9 digits, no spaces."
+  fr: "La facture doit porter le SIREN du vendeur : 9 chiffres, sans espace."
+search:
+  en: [BR-FR-10, seller SIREN missing, BT-30 SIREN factur-x, schemeID 0002]
+  fr: [BR-FR-10, SIREN vendeur manquant, BT-30 SIREN factur-x, schemeID 0002, erreur BR-FR-10]
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-10.xml
+related: [BR-FR-09, BR-FR-11, BR-FR-32]
+updated: 2026-11-16

@@ -1,0 +1,59 @@
+id: BR-FR-23
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-34
+- BT-49
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication/ram:URIID[@schemeID='0225']
+  ubl: ubl:Invoice/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID[@schemeID='0225'] | cn:CreditNote/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID[@schemeID='0225']
+official_message:
+  lang: fr
+  text: L'adresse électronique (ram:URIID) ne respecte pas le format autorisé.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-23_BT-34
+- BR-FR-23_BT-49
+- BR-FR-23_EXT-FR-FE-12
+- BR-FR-23_EXT-FR-FE-121
+- BR-FR-23_EXT-FR-FE-29
+- BR-FR-23_EXT-FR-FE-52
+- BR-FR-23_EXT-FR-FE-75
+- BR-FR-23_EXT-FR-FE-98
+title:
+  en: The electronic address contains a character that is not allowed
+  fr: L'adresse électronique contient un caractère non autorisé
+brief:
+  en: An electronic address with the scheme code 0225 may contain only letters, digits and the signs - _ .
+  fr: Une adresse électronique au code de schéma 0225 ne peut contenir que des lettres, des chiffres et les signes - _ .
+search:
+  en:
+  - BR-FR-23
+  - electronic address 0225 invalid characters
+  - BT-34 BT-49 format
+  fr:
+  - BR-FR-23
+  - adresse électronique 0225 caractères
+  - format adresse électronique facture
+  - erreur BR-FR-23
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-23.xml
+related:
+- BR-FR-25
+- BR-FR-12
+updated: '2026-11-16'

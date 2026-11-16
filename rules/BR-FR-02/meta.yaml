@@ -1,0 +1,53 @@
+id: BR-FR-02
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-1
+- BT-25
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID
+  ubl: ubl:Invoice/cbc:ID | cn:CreditNote/cbc:ID
+official_message:
+  lang: fr
+  text: L'identifiant de facture (ram:ID) contient des caractères non autorisés.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-02_BT-1
+- BR-FR-02_BT-25
+- BR-FR-02_EXT-FR-FE-136
+title:
+  en: The invoice number contains a character that is not allowed
+  fr: Le numéro de facture contient un caractère non autorisé
+brief:
+  en: The invoice number may contain only letters, digits and the signs + - _ /, with no spaces.
+  fr: Le numéro de facture ne doit contenir que des lettres, des chiffres et les signes + - _ /, sans espace.
+search:
+  en:
+  - BR-FR-02
+  - invoice number invalid characters
+  - invoice number space
+  fr:
+  - BR-FR-02
+  - numéro de facture caractères interdits
+  - numéro de facture espace
+  - erreur BR-FR-02
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-02.xml
+related:
+- BR-FR-01
+updated: '2026-11-16'

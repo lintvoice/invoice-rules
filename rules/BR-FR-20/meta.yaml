@@ -1,0 +1,53 @@
+id: BR-FR-20
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-21
+- BT-22
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:IncludedNote[ram:SubjectCode = 'BAR']
+  ubl: ''
+official_message:
+  lang: fr
+  text: 'Lorsqu’une note a pour code sujet « BAR » (BT-21), la valeur associée (BT-22, contenu de la note) doit être l’une des suivantes : B2B, B2BINT, B2C, B2CINT, OUTOFSCOPE, ARCHIVEONLY.'
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-20_BT-21
+title:
+  en: The operation type (BAR note) has a value that is not allowed
+  fr: Le type d'opération (note BAR) a une valeur non admise
+brief:
+  en: The note coded BAR must be B2B, B2BINT, B2C, B2CINT, OUTOFSCOPE or ARCHIVEONLY.
+  fr: La note codée BAR doit valoir B2B, B2BINT, B2C, B2CINT, OUTOFSCOPE ou ARCHIVEONLY.
+search:
+  en:
+  - BR-FR-20
+  - BAR note B2B B2C
+  - BAR subject code invoice France
+  fr:
+  - BR-FR-20
+  - note BAR B2B
+  - code sujet BAR facture
+  - erreur BR-FR-20
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-20.xml
+related:
+- BR-FR-31
+- BR-FR-11
+- BR-FR-21
+updated: '2026-11-16'

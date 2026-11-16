@@ -1,0 +1,26 @@
+[project]
+name = "lintvoice-rules"
+version = "0.1.0.dev0"
+description = "Rule pages for e-invoicing rules (EN 16931, BR-FR, XRechnung): what each rule checks and how to fix it"
+requires-python = ">=3.10"
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest>=8.4", "pyyaml>=6.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = []
+
+[tool.ruff.lint]
+# Curated set: errors, likely bugs, security, modern syntax, simplifications, Ruff's own rules.
+select = ["E", "F", "W", "B", "S", "UP", "SIM", "RUF", "C4", "PERF"]
+# Long lines are the formatter's call; ×, ✓, « » and other non-ASCII characters are intended; PERF401 flags
+# loops whose side effects (files written, rules seen) a comprehension would hide.
+ignore = ["E501", "RUF001", "RUF002", "RUF003", "PERF401"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S603", "S607", "S310"]  # asserts and subprocesses are what tests are made of

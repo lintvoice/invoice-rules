@@ -1,0 +1,54 @@
+id: BR-FR-CO-05
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-3
+- BT-25
+- BT-26
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: 'Si le type de facture (BT-3) est un avoir (261, 381, 396, 502, 503), alors : - soit au moins une référence à une facture antérieure (BT-25) avec sa date (BT-26) doit être présente au niveau entête,
+    - soit chaque ligne (BG-25) sans subtype (EXT-FR-FE-163) ou avec subtype ''DETAIL'' doit contenir une référence à une facture antérieure (EXT-FR-FE-136) avec sa date (EXT-FR-FE-138).'
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-CO-05_BT-3
+title:
+  en: A credit note does not cite the invoice it corrects
+  fr: Un avoir ne cite pas la facture qu'il corrige
+brief:
+  en: A credit note must cite at least one earlier invoice, with its number and date, at the top or on each of its lines.
+  fr: Un avoir doit citer au moins une facture antérieure, avec son numéro et sa date, en tête ou sur chacune de ses lignes.
+search:
+  en:
+  - BR-FR-CO-05
+  - credit note reference original invoice
+  - credit note 381 earlier invoice
+  fr:
+  - BR-FR-CO-05
+  - avoir référence facture d'origine
+  - avoir 381 facture antérieure
+  - erreur BR-FR-CO-05
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-CO-05.xml
+related:
+- BR-FR-CO-04
+- BR-FR-01
+updated: '2026-11-16'

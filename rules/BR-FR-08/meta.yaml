@@ -1,0 +1,54 @@
+id: BR-FR-08
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-23
+- BT-151
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext
+  ubl: ''
+official_message:
+  lang: fr
+  text: 'La valeur du mode de facturation (ram:ID) est absente ou n’est pas autorisée. Valeurs acceptées : B1, S1, M1, B2, S2, M2, S3, B4, S4, M4, S5, S6, B7, S7, B8, S8, M8, B9, S9, M9.'
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-08_BT-151-2
+- BR-FR-08_BT-23
+title:
+  en: The billing framework is missing or unknown
+  fr: Le cadre de facturation est absent ou inconnu
+brief:
+  en: The invoice must give its billing framework, a 2-character code from the 20 on the French list (such as S1 or B1).
+  fr: La facture doit indiquer son cadre de facturation, un code de 2 caractères parmi les 20 de la liste française (par exemple S1 ou B1).
+search:
+  en:
+  - BR-FR-08
+  - billing framework code BT-23
+  - S1 B1 M1 invoice France
+  fr:
+  - BR-FR-08
+  - cadre de facturation
+  - cadre de facturation S1 B1 M1
+  - BT-23 facture
+  - erreur BR-FR-08
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-08.xml
+related:
+- BR-FR-CO-08
+- BR-FR-CO-09
+updated: '2026-11-16'

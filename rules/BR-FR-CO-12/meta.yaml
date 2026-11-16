@@ -1,0 +1,52 @@
+id: BR-FR-CO-12
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-5
+- BT-6
+- BT-111
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: 'Si la devise de facture (BT-5) est différente de EUR, alors : - la devise de comptabilité (BT-6) doit être présente et égale à EUR, - le montant de TVA en devise de comptabilité (BT-111) doit être
+    renseigné, - et sa devise (BT-111-1) doit être égale à EUR.'
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-CO-12_BT-5
+title:
+  en: An invoice in a foreign currency does not give the VAT in euros
+  fr: Une facture en devise étrangère n'indique pas la TVA en euros
+brief:
+  en: When the invoice is not in euros, it must give the VAT accounting currency (EUR) and the VAT total in euros.
+  fr: Quand la facture n'est pas en euros, elle doit indiquer la devise de comptabilisation de la TVA (EUR) et le total de TVA en euros.
+search:
+  en:
+  - BR-FR-CO-12
+  - foreign currency invoice VAT in EUR
+  - BT-6 BT-111 EUR
+  fr:
+  - BR-FR-CO-12
+  - facture en devise TVA en euros
+  - devise de comptabilisation TVA
+  - erreur BR-FR-CO-12
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-CO-12.xml
+related: []
+updated: '2026-11-16'

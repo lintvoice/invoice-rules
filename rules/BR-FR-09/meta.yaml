@@ -1,0 +1,63 @@
+id: BR-FR-09
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-29
+- BT-46
+- BT-60
+- BT-71
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty
+  ubl: ubl:Invoice/cac:AccountingSupplierParty/cac:Party | cn:CreditNote/cac:AccountingSupplierParty/cac:Party
+official_message:
+  lang: fr
+  text: Le SIRET doit contenir 14 chiffres et commencer par le SIREN.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-09_BT-29
+- BR-FR-09_BT-46
+- BR-FR-09_BT-60
+- BR-FR-09_BT-71
+- BR-FR-09_EXT-FR-FE-06
+- BR-FR-09_EXT-FR-FE-115
+- BR-FR-09_EXT-FR-FE-146
+- BR-FR-09_EXT-FR-FE-46
+- BR-FR-09_EXT-FR-FE-69
+- BR-FR-09_EXT-FR-FE-92
+title:
+  en: The SIRET does not start with the SIREN
+  fr: Le SIRET ne commence pas par le SIREN
+brief:
+  en: When a party on the invoice has a SIRET, it must have 14 digits and start with that party's SIREN.
+  fr: Quand une partie de la facture a un SIRET, il doit compter 14 chiffres et commencer par son SIREN.
+search:
+  en:
+  - BR-FR-09
+  - SIRET SIREN mismatch invoice
+  - SIRET 14 digits
+  fr:
+  - BR-FR-09
+  - SIRET ne commence pas par le SIREN
+  - SIRET 14 chiffres facture
+  - erreur BR-FR-09
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-09.xml
+related:
+- BR-FR-10
+- BR-FR-32
+updated: '2026-11-16'

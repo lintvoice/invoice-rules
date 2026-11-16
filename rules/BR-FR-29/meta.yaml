@@ -1,0 +1,51 @@
+id: BR-FR-29
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-18
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement
+  ubl: ubl:Invoice/cac:AdditionalDocumentReference | cn:CreditNote/cac:AdditionalDocumentReference
+official_message:
+  lang: fr
+  text: Parmi les identifiants d’objets facturés (BT-18), les schémas d’identification "AFL" et "AVV" ne doivent être présents qu’une seule fois chacun.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-29_AFL
+- BR-FR-29_AVV
+- BR-FR-29_BT-18
+title:
+  en: An invoiced object reference of type AFL or AVV is repeated or empty
+  fr: Une référence d'objet facturé de type AFL ou AVV est répétée ou vide
+brief:
+  en: The invoice may give at most one invoiced object reference of type AFL and one of type AVV, and neither may be empty.
+  fr: La facture peut donner au plus une référence d'objet facturé de type AFL et une de type AVV, et aucune ne doit être vide.
+search:
+  en:
+  - BR-FR-29
+  - invoiced object identifier AFL AVV
+  - BT-18 AFL
+  fr:
+  - BR-FR-29
+  - objet facturé AFL AVV
+  - BT-18 AFL AVV
+  - erreur BR-FR-29
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-29.xml
+related: []
+updated: '2026-11-16'

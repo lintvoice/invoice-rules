@@ -1,0 +1,55 @@
+id: BR-FR-CO-04
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-3
+- BT-4
+- BT-25
+- BT-26
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: Si le type de facture (BT-3) est une facture rectificative (384, 471, 472, 473), alors **une et une seule** référence à une facture antérieure (BT-25) avec sa date (BT-26) doit être présente.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-CO-04_BT-3
+- BR-FR-CO-04_BT-4
+title:
+  en: A corrective invoice does not cite exactly one earlier invoice
+  fr: Une facture rectificative ne cite pas exactement une facture antérieure
+brief:
+  en: A corrective invoice must cite one, and only one, earlier invoice, with its number and its date.
+  fr: Une facture rectificative doit citer une, et une seule, facture antérieure, avec son numéro et sa date.
+search:
+  en:
+  - BR-FR-CO-04
+  - corrective invoice 384 reference
+  - corrective invoice earlier invoice
+  fr:
+  - BR-FR-CO-04
+  - facture rectificative 384
+  - facture rectificative référence facture antérieure
+  - erreur BR-FR-CO-04
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-CO-04.xml
+related:
+- BR-FR-CO-05
+- BR-FR-04
+updated: '2026-11-16'

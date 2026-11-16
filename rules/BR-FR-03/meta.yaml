@@ -1,0 +1,70 @@
+id: BR-FR-03
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-2
+- BT-7
+- BT-9
+- BT-26
+- BT-72
+- BT-73
+- BT-74
+- BT-134
+- BT-135
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:IssueDateTime/udt:DateTimeString
+  ubl: ubl:Invoice/cbc:IssueDate | cn:CreditNote/cbc:IssueDate
+official_message:
+  lang: fr
+  text: La date d’émission (udt:DateTimeString) doit contenir une année comprise entre 2000 et 2099, au format AAAAMMJJ.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-03_BT-134
+- BR-FR-03_BT-135
+- BR-FR-03_BT-2
+- BR-FR-03_BT-26
+- BR-FR-03_BT-7
+- BR-FR-03_BT-72
+- BR-FR-03_BT-73
+- BR-FR-03_BT-74
+- BR-FR-03_BT-9
+- BR-FR-03_EXT-FR-FE-134
+- BR-FR-03_EXT-FR-FE-135
+- BR-FR-03_EXT-FR-FE-138
+- BR-FR-03_EXT-FR-FE-158
+title:
+  en: A date on the invoice does not have a year between 2000 and 2099
+  fr: Une date de la facture n'a pas une année entre 2000 et 2099
+brief:
+  en: Every date on the invoice must be a real date, with a year between 2000 and 2099.
+  fr: Chaque date de la facture doit être une vraie date, avec une année comprise entre 2000 et 2099.
+search:
+  en:
+  - BR-FR-03
+  - invoice date year 2000 2099
+  - invalid invoice date
+  fr:
+  - BR-FR-03
+  - date de facture invalide
+  - année entre 2000 et 2099
+  - erreur BR-FR-03
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-03.xml
+related:
+- BR-FR-CO-07
+updated: '2026-11-16'

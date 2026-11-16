@@ -1,0 +1,51 @@
+id: BR-FR-31
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-21
+- BT-22
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: 'Lorsque plusieurs notes ont le code sujet « BAR » (BT-21), Il ne peut y avoir qu''une seule valeur associée (BT-22, contenu de la note) parmi l’une des suivantes : B2B, B2BINT, B2C, OUTOFSCOPE,
+    ARCHIVEONLY.'
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-31_BT-21
+title:
+  en: The invoice has more than one BAR note
+  fr: La facture a plus d'une note BAR
+brief:
+  en: An invoice may carry only one note coded BAR, with a single value.
+  fr: Une facture ne peut porter qu'une seule note codée BAR, avec une seule valeur.
+search:
+  en:
+  - BR-FR-31
+  - BAR note twice
+  - two BAR notes invoice
+  fr:
+  - BR-FR-31
+  - note BAR en double
+  - deux notes BAR facture
+  - erreur BR-FR-31
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-31.xml
+related:
+- BR-FR-20
+updated: '2026-11-16'

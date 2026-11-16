@@ -1,0 +1,60 @@
+id: BR-FR-01
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-1
+- BT-25
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID
+  ubl: ubl:Invoice/cbc:ID | cn:CreditNote/cbc:ID
+official_message:
+  lang: fr
+  text: L'identifiant de facture (ram:ID) ne doit pas dépasser 35 caractères.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-01_BT-1
+- BR-FR-01_BT-1-1
+- BR-FR-01_BT-1-2
+- BR-FR-01_BT-25
+- BR-FR-01_BT-25-1
+- BR-FR-01_BT-25-2
+- BR-FR-01_EXT-FR-FE-136
+- BR-FR-01_EXT-FR-FE-136-1
+- BR-FR-01_EXT-FR-FE-136-2
+title:
+  en: The invoice number is longer than 35 characters
+  fr: Le numéro de facture dépasse 35 caractères
+brief:
+  en: The invoice number, and the number of any invoice it refers to, must not exceed 35 characters.
+  fr: Le numéro de la facture, et celui d'une facture qu'elle cite, ne doivent pas dépasser 35 caractères.
+search:
+  en:
+  - BR-FR-01
+  - invoice number too long
+  - invoice number 35 characters
+  fr:
+  - BR-FR-01
+  - numéro de facture trop long
+  - numéro de facture 35 caractères
+  - erreur BR-FR-01
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-01.xml
+related:
+- BR-FR-02
+- BR-FR-CO-05
+updated: '2026-11-16'

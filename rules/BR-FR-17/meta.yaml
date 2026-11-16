@@ -1,0 +1,50 @@
+id: BR-FR-17
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-123
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:AdditionalReferencedDocument[ram:TypeCode = '916']
+  ubl: cac:AdditionalDocumentReference
+official_message:
+  lang: fr
+  text: Le code de qualification de la pièce jointe "[…]" est invalide. Il doit appartenir à la liste des codes autorisés.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-17_BT-123
+title:
+  en: The type of an attachment is not on the French list
+  fr: Le type d'une pièce jointe n'est pas dans la liste française
+brief:
+  en: Each attachment must be described with one of the 12 codes of the French list, such as RIB, BON_COMMANDE or LISIBLE.
+  fr: Chaque pièce jointe doit être décrite par un des 12 codes de la liste française, par exemple RIB, BON_COMMANDE ou LISIBLE.
+search:
+  en:
+  - BR-FR-17
+  - attachment code e-invoice France
+  - BT-123 attachment code
+  fr:
+  - BR-FR-17
+  - code pièce jointe facture électronique
+  - pièce jointe RIB LISIBLE
+  - erreur BR-FR-17
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-17.xml
+related:
+- BR-FR-18
+updated: '2026-11-16'

@@ -1,0 +1,73 @@
+id: BR-FR-CO-10
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-29
+- BT-46
+- BT-60
+- BT-71
+paths:
+  cii: rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty
+  ubl: cac:AccountingSupplierParty/cac:Party
+official_message:
+  lang: fr
+  text: Si l’identifiant global du vendeur (BT-29) est renseigné, alors son schéma (BT-29-1) doit également être renseigné.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-CO-10_BT-29-1
+- BR-FR-CO-10_BT-29-2
+- BR-FR-CO-10_BT-46-1
+- BR-FR-CO-10_BT-46-2
+- BR-FR-CO-10_BT-60-1
+- BR-FR-CO-10_BT-60-2
+- BR-FR-CO-10_BT-71-1
+- BR-FR-CO-10_BT-71-2
+- BR-FR-CO-10_EXT-FR-FE-06-1
+- BR-FR-CO-10_EXT-FR-FE-06-2
+- BR-FR-CO-10_EXT-FR-FE-115-1
+- BR-FR-CO-10_EXT-FR-FE-115-2
+- BR-FR-CO-10_EXT-FR-FE-146-1
+- BR-FR-CO-10_EXT-FR-FE-146-2
+- BR-FR-CO-10_EXT-FR-FE-46-1
+- BR-FR-CO-10_EXT-FR-FE-46-2
+- BR-FR-CO-10_EXT-FR-FE-69-1
+- BR-FR-CO-10_EXT-FR-FE-69-2
+- BR-FR-CO-10_EXT-FR-FE-92-1
+- BR-FR-CO-10_EXT-FR-FE-92-2
+title:
+  en: A party identifier has no scheme, or a scheme is repeated
+  fr: Un identifiant de partie n'a pas de schéma, ou un schéma est répété
+brief:
+  en: Each identifier of a party must give its scheme code, and a party cannot have two identifiers with the same scheme.
+  fr: Chaque identifiant d'une partie doit indiquer son code de schéma, et une partie ne peut pas avoir deux identifiants du même schéma.
+search:
+  en:
+  - BR-FR-CO-10
+  - identifier scheme missing
+  - schemeID repeated
+  fr:
+  - BR-FR-CO-10
+  - identifiant sans schéma
+  - schemeID en double
+  - erreur BR-FR-CO-10
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-CO-10.xml
+related:
+- BR-FR-09
+- BR-FR-24
+updated: '2026-11-16'

@@ -1,0 +1,52 @@
+id: BR-FR-11
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-47
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: Si une note contient le code sujet BAR avec la valeur 'B2B', alors le SIREN de l’acheteur (BT-47, ram:ID) est obligatoire et doit être composé exactement de 9 chiffres.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-11_BT-47
+title:
+  en: The buyer's SIREN is missing on a business-to-business invoice
+  fr: Le SIREN de l'acheteur manque sur une facture entre entreprises
+brief:
+  en: When the invoice is declared business-to-business (B2B), it must give the buyer's SIREN, 9 digits.
+  fr: Quand la facture est déclarée entre entreprises (B2B), elle doit porter le SIREN de l'acheteur, sur 9 chiffres.
+search:
+  en:
+  - BR-FR-11
+  - buyer SIREN missing
+  - B2B invoice buyer SIREN
+  fr:
+  - BR-FR-11
+  - SIREN acheteur manquant
+  - SIREN client facture B2B
+  - erreur BR-FR-11
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-11.xml
+related:
+- BR-FR-10
+- BR-FR-20
+- BR-FR-21
+updated: '2026-11-16'

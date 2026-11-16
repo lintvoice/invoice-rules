@@ -1,0 +1,51 @@
+id: BR-FR-27
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-160
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic
+  ubl: ubl:Invoice/cac:Item/cac:AdditionalItemProperty | cn:CreditNote/cac:Item/cac:AdditionalItemProperty
+official_message:
+  lang: fr
+  text: 'Le groupe Attribut d’article (BG-32) doit contenir soit un nom d’attribut d’article (BT-160 : ram:Description), soit un code d’attribut d’article (EXT-FR-FE-159 : ram:TypeCode).'
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-27_BG-32
+- BR-FR-27_BT-160
+- BR-FR-27_EXT-FR-FE-159
+title:
+  en: An item attribute has neither a name nor a code
+  fr: Une caractéristique d'article n'a ni nom ni code
+brief:
+  en: Each item attribute must have a name or a code, and neither may be empty.
+  fr: Chaque caractéristique d'article doit avoir un nom ou un code, et aucun des deux ne doit être vide.
+search:
+  en:
+  - BR-FR-27
+  - item attribute name empty
+  - BG-32 item attribute
+  fr:
+  - BR-FR-27
+  - caractéristique d'article vide
+  - attribut d'article BG-32
+  - erreur BR-FR-27
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-27.xml
+related: []
+updated: '2026-11-16'

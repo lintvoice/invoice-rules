@@ -1,0 +1,59 @@
+id: BR-FR-DEC-04
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-96
+- BT-103
+- BT-119
+- BT-152
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:CategoryTradeTax/ram:RateApplicablePercent
+  ubl: cac:AllowanceCharge/cac:TaxCategory/cbc:Percent
+official_message:
+  lang: fr
+  text: 'Le taux de TVA « […] » est invalide. Il doit : - être un nombre strictement positif (sans signe « - »), - comporter au plus 2 décimales (séparateur « . »), - contenir au maximum 4 caractères (hors
+    séparateur).'
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-DEC-04_BT-119
+- BR-FR-DEC-04_BT-152
+- BR-FR-DEC-04_BT-96_BT-103
+title:
+  en: A VAT rate has more than 2 decimals or is negative
+  fr: Un taux de TVA a plus de 2 décimales ou est négatif
+brief:
+  en: Each VAT rate must be positive, with at most 2 decimals and at most 4 digits.
+  fr: Chaque taux de TVA doit être positif, avec au plus 2 décimales et 4 chiffres au plus.
+search:
+  en:
+  - BR-FR-DEC-04
+  - VAT rate decimals format
+  - VAT rate 20.000
+  fr:
+  - BR-FR-DEC-04
+  - taux de TVA décimales
+  - format taux de TVA facture
+  - erreur BR-FR-DEC-04
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-DEC-04.xml
+related:
+- BR-FR-DEC-01
+- BR-FR-DEC-02
+- BR-FR-DEC-03
+- BR-FR-16
+updated: '2026-11-16'

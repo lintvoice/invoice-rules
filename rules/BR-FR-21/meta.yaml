@@ -1,0 +1,55 @@
+id: BR-FR-21
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-3
+- BT-47
+- BT-49
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: Si le traitement est BAR/B2B et que le type de document (BT-3) n’est pas en autofacture (389, 501, 500, 471, 473, 261, 502), alors le BT-49 (EndpointID) doit commencer par le SIREN (BT-47) et le
+    BT-49-1 (schemeID) doit être égal à "0225".
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-21_BT-49
+title:
+  en: The buyer's electronic address does not start with its SIREN
+  fr: L'adresse électronique de l'acheteur ne commence pas par son SIREN
+brief:
+  en: On a business-to-business invoice, the buyer's electronic address must start with its SIREN and use the scheme code 0225.
+  fr: Sur une facture entre entreprises, l'adresse électronique de l'acheteur doit commencer par son SIREN et utiliser le code de schéma 0225.
+search:
+  en:
+  - BR-FR-21
+  - buyer electronic address SIREN 0225
+  - BT-49 0225
+  fr:
+  - BR-FR-21
+  - adresse électronique acheteur SIREN
+  - BT-49 schéma 0225
+  - erreur BR-FR-21
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-21.xml
+related:
+- BR-FR-12
+- BR-FR-22
+- BR-FR-11
+updated: '2026-11-16'

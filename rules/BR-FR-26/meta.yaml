@@ -1,0 +1,51 @@
+id: BR-FR-26
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-29
+- BT-46
+paths:
+  cii: rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:GlobalID[@schemeID='0224']
+  ubl: ubl:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='0224'] | cn:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='0224']
+official_message:
+  lang: fr
+  text: L'identifiant privé (ram:GlobalID) dépasse 100 caractères.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-26_BT-29
+- BR-FR-26_BT-46
+title:
+  en: A private identifier is longer than 100 characters
+  fr: Un identifiant privé dépasse 100 caractères
+brief:
+  en: A seller or buyer identifier with the scheme code 0224 must be at most 100 characters long.
+  fr: Un identifiant de vendeur ou d'acheteur au code de schéma 0224 doit compter au plus 100 caractères.
+search:
+  en:
+  - BR-FR-26
+  - private identifier 0224 too long
+  fr:
+  - BR-FR-26
+  - identifiant privé trop long
+  - schéma 0224 100 caractères
+  - erreur BR-FR-26
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-26.xml
+related:
+- BR-FR-24
+updated: '2026-11-16'

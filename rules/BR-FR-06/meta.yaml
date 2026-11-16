@@ -1,0 +1,57 @@
+id: BR-FR-06
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-21
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: Le code sujet PMT (indemnité forfaitaire pour frais de recouvrement) ne doit apparaître qu'une seule fois dans les notes (BG-1).
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-06_BT-21-1
+- BR-FR-06_BT-21-2
+- BR-FR-06_BT-21-3
+- BR-FR-06_BT-21-4
+- BR-FR-06_BT-21_AAB
+- BR-FR-06_BT-21_PMD
+- BR-FR-06_BT-21_PMT
+- BR-FR-06_BT-21_TXD
+title:
+  en: A coded statement appears more than once
+  fr: Une mention codée apparaît plus d'une fois
+brief:
+  en: Each of the coded statements PMT, PMD, AAB and TXD may appear only once in the invoice notes.
+  fr: Chacune des mentions codées PMT, PMD, AAB et TXD ne doit figurer qu'une fois dans les notes de la facture.
+search:
+  en:
+  - BR-FR-06
+  - duplicate invoice note PMT
+  - note subject code twice
+  fr:
+  - BR-FR-06
+  - mention en double facture
+  - code sujet note doublon
+  - erreur BR-FR-06
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-06.xml
+related:
+- BR-FR-05
+updated: '2026-11-16'

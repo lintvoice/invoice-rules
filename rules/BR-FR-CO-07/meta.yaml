@@ -1,0 +1,54 @@
+id: BR-FR-CO-07
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-2
+- BT-9
+- BT-23
+paths:
+  cii: ''
+  ubl: ''
+official_message:
+  lang: fr
+  text: La date d’échéance (BT-9), si présente, doit être postérieure ou égale à la date de facture (BT-2), sauf si la facture est de type acompte (386, 500, 503) ou si le cadre de facturation (BT-23) est
+    B2, S2 ou M2.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-CO-07_BT-9
+title:
+  en: The due date is before the invoice date
+  fr: La date d'échéance est avant la date de facture
+brief:
+  en: The due date cannot be before the issue date, except on a prepayment invoice or an invoice already paid.
+  fr: La date d'échéance ne peut pas précéder la date d'émission, sauf pour une facture d'acompte ou une facture déjà payée.
+search:
+  en:
+  - BR-FR-CO-07
+  - due date before invoice date
+  - BT-9 before BT-2
+  fr:
+  - BR-FR-CO-07
+  - date d'échéance avant date de facture
+  - échéance antérieure à la facture
+  - erreur BR-FR-CO-07
+examples:
+  source: invoice-examples
+  version: 0.1.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-FR-CO-07.xml
+related:
+- BR-FR-03
+- BR-FR-CO-09
+updated: '2026-11-16'
