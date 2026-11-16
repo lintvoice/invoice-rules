@@ -1,0 +1,54 @@
+id: BR-CO-10
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-106
+- BT-131
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:LineTotalAmount
+  ubl: /Invoice/cac:LegalMonetaryTotal/cbc:LineExtensionAmount
+official_message:
+  lang: en
+  text: Sum of Invoice line net amount (BT-106) = Σ Invoice line net amount (BT-131).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CO-10
+title:
+  en: The sum of line net amounts is not the total of the lines
+  fr: Le total des lignes HT n'est pas la somme des lignes
+brief:
+  en: The sum of line net amounts must be exactly the total of each line's net amount, to the cent.
+  fr: Le total des lignes HT doit être exactement la somme des montants HT de chaque ligne, au centime près.
+search:
+  en:
+  - BR-CO-10
+  - sum of invoice line net amount mismatch
+  - BT-106 BT-131
+  - LineTotalAmount
+  - LineExtensionAmount
+  fr:
+  - BR-CO-10
+  - total des lignes HT incohérent facture électronique
+  - BT-106 BT-131
+  - erreur BR-CO-10 factur-x
+examples:
+  source: invoice-examples
+  version: 0.3.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-CO-10.xml
+related:
+- BR-CO-13
+- BR-CO-15
+updated: '2026-11-16'

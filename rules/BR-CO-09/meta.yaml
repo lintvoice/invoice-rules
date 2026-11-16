@@ -1,0 +1,54 @@
+id: BR-CO-09
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-31
+- BT-63
+- BT-48
+paths:
+  cii: //ram:SpecifiedTaxRegistration/ram:ID[@schemeID='VA']
+  ubl: //cac:PartyTaxScheme/cbc:CompanyID
+official_message:
+  lang: en
+  text: The Seller VAT identifier (BT-31), the Seller tax representative VAT identifier (BT-63) and the Buyer VAT identifier (BT-48) shall have a prefix in accordance with ISO code ISO 3166-1 alpha-2 by
+    which the country of issue may be identified. Nevertheless, Greece may use the prefix ‘EL’.
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CO-09
+title:
+  en: A VAT number does not start with a country code
+  fr: Un numéro de TVA ne commence pas par un code pays
+brief:
+  en: A VAT identification number starts with the two-letter code of its country, FR for France.
+  fr: Un numéro de TVA intracommunautaire commence par les deux lettres de son pays, FR pour la France.
+search:
+  en:
+  - BR-CO-09
+  - VAT number country prefix
+  - BT-31 BT-48 BT-63
+  - SpecifiedTaxRegistration schemeID VA
+  fr:
+  - BR-CO-09
+  - numéro de TVA intracommunautaire préfixe pays
+  - BT-31 BT-48
+  - erreur BR-CO-09 factur-x
+examples:
+  source: invoice-examples
+  version: 0.3.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-CO-09.xml
+related:
+- BR-CO-26
+updated: '2026-11-16'

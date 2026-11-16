@@ -1,0 +1,54 @@
+id: BR-CO-19
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-73
+- BT-74
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:BillingSpecifiedPeriod
+  ubl: /Invoice/cac:InvoicePeriod
+official_message:
+  lang: en
+  text: If Invoicing period (BG-14) is used, the Invoicing period start date (BT-73) or the Invoicing period end date (BT-74) shall be filled, or both.
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CO-19
+title:
+  en: The invoicing period has neither a start date nor an end date
+  fr: La période de facturation n'a ni date de début ni date de fin
+brief:
+  en: If the invoice gives an invoicing period, give at least its start date or its end date.
+  fr: Si la facture indique une période de facturation, donnez au moins sa date de début ou sa date de fin.
+search:
+  en:
+  - BR-CO-19
+  - invoicing period start date end date
+  - BG-14 BT-73 BT-74
+  - BillingSpecifiedPeriod
+  - InvoicePeriod
+  fr:
+  - BR-CO-19
+  - période de facturation sans date facture électronique
+  - BT-73 BT-74
+  - erreur BR-CO-19 factur-x
+examples:
+  source: invoice-examples
+  version: 0.3.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-CO-19.xml
+related:
+- BR-CO-20
+- BR-FR-03
+updated: '2026-11-16'

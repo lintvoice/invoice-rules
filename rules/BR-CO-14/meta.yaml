@@ -1,0 +1,53 @@
+id: BR-CO-14
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-110
+- BT-117
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount
+  ubl: /Invoice/cac:TaxTotal/cbc:TaxAmount
+official_message:
+  lang: en
+  text: Invoice total VAT amount (BT-110) = Σ VAT category tax amount (BT-117).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CO-14
+title:
+  en: The VAT total is not the sum of the VAT for each rate
+  fr: Le total de TVA n'est pas la somme de la TVA de chaque taux
+brief:
+  en: The VAT total must be exactly the sum of the VAT amounts computed for each rate, to the cent.
+  fr: Le total de TVA doit être exactement la somme des montants de TVA calculés pour chaque taux, au centime près.
+search:
+  en:
+  - BR-CO-14
+  - invoice total VAT amount mismatch
+  - BT-110 BT-117
+  - TaxTotalAmount CalculatedAmount
+  fr:
+  - BR-CO-14
+  - total TVA incohérent facture électronique
+  - BT-110 BT-117
+  - erreur BR-CO-14 factur-x
+examples:
+  source: invoice-examples
+  version: 0.3.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-CO-14.xml
+related:
+- BR-CO-15
+- BR-CO-17
+updated: '2026-11-16'
