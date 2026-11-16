@@ -1,4 +1,4 @@
-# lintvoice rules
+# E-invoicing rules, explained
 
 What each e-invoicing rule checks, why it matters and how to fix it, in plain words, with a valid and an invalid
 example. One page per rule, in English and French, for the business rules of EN 16931 and of the French reform (BR-FR).
@@ -40,5 +40,5 @@ The examples come from [invoice-examples](https://github.com/lintvoice/invoice-e
 
 ## Licences
 
-- Page text: [CC BY-SA 4.0](LICENSE). Reuse it, credit "lintvoice rules", share alike.
+- Page text: [CC BY-SA 4.0](LICENSE). Reuse it, credit "invoice-rules (lintvoice)", share alike.
 - XML examples: CC0, from invoice-examples.
