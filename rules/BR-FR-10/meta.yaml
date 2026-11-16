@@ -30,7 +30,7 @@ search:
   fr: [BR-FR-10, SIREN vendeur manquant, BT-30 SIREN factur-x, schemeID 0002, erreur BR-FR-10]
 examples:
   source: invoice-examples
-  version: 0.1.0
+  version: 0.2.0
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-10.xml

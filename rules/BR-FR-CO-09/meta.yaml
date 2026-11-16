@@ -47,7 +47,7 @@ search:
   - erreur BR-FR-CO-09
 examples:
   source: invoice-examples
-  version: 0.1.0
+  version: 0.2.0
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-CO-09.xml
