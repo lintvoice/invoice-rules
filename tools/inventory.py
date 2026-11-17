@@ -12,7 +12,8 @@ import re
 import sys
 from pathlib import Path
 
-ASSERT = re.compile(r"<(?:\w+:)?assert\b([^>]*)>(.*?)</(?:\w+:)?assert>", re.S)
+# the attributes may hold ">" inside quotes (a test like "a >= b"): match quoted values whole
+ASSERT = re.compile(r"<(?:\w+:)?assert\b((?:[^>\"]|\"[^\"]*\")*)>(.*?)</(?:\w+:)?assert>", re.S)
 ATTR = re.compile(r'(\w+)="([^"]*)"')
 
 

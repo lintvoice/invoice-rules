@@ -16,7 +16,8 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).parent.parent
-ASSERT = re.compile(r"<(?:\w+:)?assert\b([^>]*)>(.*?)</(?:\w+:)?assert>", re.S)
+# the attributes may hold ">" inside quotes (a test like "a >= b"): match quoted values whole
+ASSERT = re.compile(r"<(?:\w+:)?assert\b((?:[^>\"]|\"[^\"]*\")*)>(.*?)</(?:\w+:)?assert>", re.S)
 RULE = re.compile(r"<(?:\w+:)?rule\b([^>]*)>(.*?)</(?:\w+:)?rule>", re.S)
 ATTR = re.compile(r'(\w+)="([^"]*)"')
 EN16931_TAG = "validation-{v}"
