@@ -47,6 +47,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-CO-03.xml
+topic: vat
 related:
 - BR-FR-03
 updated: '2026-11-16'

@@ -41,9 +41,26 @@ examples:                            # from lintvoice/invoice-examples, CC0
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-10.xml   # or null when the target does not exist yet
+topic: identifiers                   # what the rule is about on the invoice (list below)
 related: [BR-FR-09, BR-FR-11]
 updated: 2026-11-05
 ```
+
+**`topic`**, one per rule, from this fixed list: what the rule is about on the invoice, in the words of the people who
+invoice. The rules index groups and filters by it. A new value comes only with a new subject (for example the rules
+for several sellers or billing on behalf of a third party).
+
+| `topic` | Subject |
+| --- | --- |
+| `addresses` | Electronic addresses |
+| `identifiers` | Company identifiers: SIREN, SIRET, VAT numbers |
+| `payment` | Payment and mandatory notes |
+| `totals` | Amounts and totals |
+| `vat` | VAT |
+| `invoice` | Invoice number, dates and type |
+| `lines` | Lines, allowances and charges |
+| `corrections` | Credit notes, corrected invoices and advance payments |
+| `attachments` | Attachments |
 
 ## `en.md` and `fr.md`
 

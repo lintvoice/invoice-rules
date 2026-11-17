@@ -65,6 +65,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-03.xml
+topic: invoice
 related:
 - BR-FR-CO-07
 updated: '2026-11-16'

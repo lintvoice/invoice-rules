@@ -47,6 +47,7 @@ examples:
   target: fr
   valid: examples/fr/fixed/BR-CO-22.xml
   invalid: examples/fr/invalid/BR-CO-22.xml
+topic: lines
 related:
 - BR-CO-12
 - BR-38

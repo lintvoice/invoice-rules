@@ -44,7 +44,10 @@ REQUIRED = [
     "examples",
     "related",
     "updated",
+    "topic",
 ]
+# What a rule is about on the invoice, one per rule, from this fixed list (FORMAT.md): the rules index groups by it.
+TOPICS = {"addresses", "identifiers", "payment", "totals", "vat", "invoice", "lines", "corrections", "attachments"}
 FORBIDDEN = re.compile(r"certif|complian|conform", re.I)  # we help check; we never certify (FORMAT.md)
 EXAMPLES_REPO = ROOT.parent / "invoice-examples"
 
@@ -67,6 +70,7 @@ def test_rule_folder_is_complete(folder):
     ), "the rule set source is pinned to a commit or a tag"
     assert set(m["paths"]) == {"cii", "ubl"}
     assert all(re.fullmatch(r"BT-\d+", bt) for bt in m["business_terms"])
+    assert m["topic"] in TOPICS, f"topic {m['topic']!r} is not one of {sorted(TOPICS)}"
 
 
 @pytest.mark.parametrize("lang", ["en", "fr"])

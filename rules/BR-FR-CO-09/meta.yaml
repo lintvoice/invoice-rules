@@ -51,6 +51,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-CO-09.xml
+topic: totals
 related:
 - BR-FR-08
 - BR-FR-CO-07

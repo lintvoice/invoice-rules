@@ -47,6 +47,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-CO-03.xml
+topic: corrections
 related:
 - BR-FR-04
 - BR-FR-CO-05

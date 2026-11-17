@@ -52,6 +52,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-16.xml
+topic: vat
 related:
 - BR-FR-15
 - BR-FR-DEC-04

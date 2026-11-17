@@ -45,6 +45,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-17.xml
+topic: attachments
 related:
 - BR-FR-18
 updated: '2026-11-16'

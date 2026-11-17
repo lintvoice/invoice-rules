@@ -34,5 +34,6 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-CO-15.xml
+topic: totals
 related: [BR-CO-13, BR-CO-14, BR-CO-16]
 updated: 2026-11-16

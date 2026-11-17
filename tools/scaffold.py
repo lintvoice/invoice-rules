@@ -1,6 +1,6 @@
 """Write the facts of a rule page (meta.yaml) from the official rule files and the invoice-examples manifest:
 the rule set, severity, the ids validators report, where the rule looks in CII and UBL, the official message and
-the example files. The words (title, brief, search terms, when, related) stay to be written; an existing
+the example files. The words (title, brief, search terms, when, topic, related) stay to be written; an existing
 meta.yaml is never overwritten.
 
     uv run python tools/scaffold.py RULES_CACHE EXAMPLES_MANIFEST PAGE_ID [PAGE_ID ...]
@@ -141,6 +141,7 @@ def facts(page_id, found, manifest):
             "valid": f"examples/{manifest['target']}/valid.xml",
             "invalid": f"examples/{manifest['target']}/{chosen['files']['xml']}" if chosen else None,
         },
+        "topic": "TODO",  # one of FORMAT.md's list: the tests refuse TODO
         "related": [],
         "updated": date.today().isoformat(),
     }

@@ -48,6 +48,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-21.xml
+topic: addresses
 related:
 - BR-FR-12
 - BR-FR-22

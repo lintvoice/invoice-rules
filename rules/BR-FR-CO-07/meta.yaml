@@ -48,6 +48,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-CO-07.xml
+topic: payment
 related:
 - BR-FR-03
 - BR-FR-CO-09

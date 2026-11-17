@@ -46,6 +46,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-32.xml
+topic: identifiers
 related:
 - BR-FR-10
 - BR-FR-09

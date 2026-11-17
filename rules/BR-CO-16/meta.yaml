@@ -50,6 +50,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-CO-16.xml
+topic: totals
 related:
 - BR-CO-15
 updated: '2026-11-16'

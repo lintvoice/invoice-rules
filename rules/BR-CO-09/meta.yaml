@@ -49,6 +49,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-CO-09.xml
+topic: identifiers
 related:
 - BR-CO-26
 updated: '2026-11-16'

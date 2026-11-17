@@ -46,6 +46,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-31.xml
+topic: payment
 related:
 - BR-FR-20
 updated: '2026-11-16'

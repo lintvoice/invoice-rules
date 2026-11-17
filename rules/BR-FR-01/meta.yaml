@@ -54,6 +54,7 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: examples/fr/invalid/BR-FR-01.xml
+topic: invoice
 related:
 - BR-FR-02
 - BR-FR-CO-05
