@@ -39,4 +39,4 @@ BR-CO-21, [artefacts de validation EN 16931 1.3.17](https://github.com/Connectin
 
 - [BR-CO-11](../BR-CO-11/) : le total des remises doit être la somme des remises globales.
 - [BR-33](../BR-33/) : la règle de base qui exige le motif d'une remise globale.
-- [BR-CO-22](../BR-CO-22/) : chaque frais global doit avoir un motif, en texte ou en code.
+- [BR-CO-22](../BR-CO-22/) : les frais globaux doivent avoir un motif, en texte ou en code.

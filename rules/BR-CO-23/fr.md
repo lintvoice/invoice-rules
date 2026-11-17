@@ -37,6 +37,6 @@ BR-CO-23, [artefacts de validation EN 16931 1.3.17](https://github.com/Connectin
 
 ## Règles voisines
 
-- [BR-CO-24](../BR-CO-24/) : chaque frais sur ligne doit avoir un motif, en texte ou en code.
+- [BR-CO-24](../BR-CO-24/) : les frais sur ligne doivent avoir un motif, en texte ou en code.
 - [BR-42](../BR-42/) : la règle de base qui exige le motif d'une remise sur ligne.
 - [BR-CO-21](../BR-CO-21/) : chaque remise globale doit avoir un motif, en texte ou en code.

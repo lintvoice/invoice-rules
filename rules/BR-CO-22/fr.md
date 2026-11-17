@@ -14,7 +14,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 ## Comment corriger
 
-1. Dans votre logiciel de facturation, renseignez le motif de des frais globaux, par exemple « Frais de port ».
+1. Dans votre logiciel de facturation, renseignez le motif des frais globaux, par exemple « Frais de port ».
 2. Si votre logiciel propose des codes de motif, choisissez celui qui correspond.
 3. Si le motif est saisi mais absent de la facture électronique, signalez-le à l'éditeur du logiciel en citant BR-CO-22.
 

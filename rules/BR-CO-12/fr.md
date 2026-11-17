@@ -25,7 +25,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 ## Détails techniques
 
-Le total des frais au niveau du document est BT-108, le montant de chaque frais BT-99 (groupe BG-21). En CII, la règle compare `ram:ChargeTotalAmount` à la somme des `ram:ActualAmount` des `ram:SpecifiedTradeAllowanceCharge` de `ram:ApplicableHeaderTradeSettlement` dont `ram:ChargeIndicator` vaut true ; en UBL, `cac:LegalMonetaryTotal/cbc:ChargeTotalAmount` à la somme des `cac:AllowanceCharge/cbc:Amount` dont `cbc:ChargeIndicator` vaut true. Les frais des lignes (BG-28) n'entrent pas dans ce total.
+Le total des frais au niveau du document est BT-108, le montant de chacun des frais BT-99 (groupe BG-21). En CII, la règle compare `ram:ChargeTotalAmount` à la somme des `ram:ActualAmount` des `ram:SpecifiedTradeAllowanceCharge` de `ram:ApplicableHeaderTradeSettlement` dont `ram:ChargeIndicator` vaut true ; en UBL, `cac:LegalMonetaryTotal/cbc:ChargeTotalAmount` à la somme des `cac:AllowanceCharge/cbc:Amount` dont `cbc:ChargeIndicator` vaut true. Les frais des lignes (BG-28) n'entrent pas dans ce total.
 
 ## Texte officiel
 
@@ -37,4 +37,4 @@ BR-CO-12, [artefacts de validation EN 16931 1.3.17](https://github.com/Connectin
 
 - [BR-CO-11](../BR-CO-11/) : le total des remises doit être la somme des remises accordées sur l'ensemble de la facture.
 - [BR-CO-13](../BR-CO-13/) : le total HT doit être le total des lignes, moins les remises, plus les frais.
-- [BR-CO-22](../BR-CO-22/) : chaque frais global doit avoir un motif, en texte ou en code.
+- [BR-CO-22](../BR-CO-22/) : les frais globaux doivent avoir un motif, en texte ou en code.

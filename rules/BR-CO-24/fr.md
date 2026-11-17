@@ -14,7 +14,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 ## Comment corriger
 
-1. Dans votre logiciel de facturation, renseignez le motif de des frais sur ligne, par exemple « Emballage ».
+1. Dans votre logiciel de facturation, renseignez le motif des frais sur ligne, par exemple « Emballage ».
 2. Si votre logiciel propose des codes de motif, choisissez celui qui correspond.
 3. Si le motif est saisi mais absent de la facture électronique, signalez-le à l'éditeur du logiciel en citant BR-CO-24.
 
@@ -39,4 +39,4 @@ BR-CO-24, [artefacts de validation EN 16931 1.3.17](https://github.com/Connectin
 
 - [BR-CO-23](../BR-CO-23/) : chaque remise sur ligne doit avoir un motif, en texte ou en code.
 - [BR-44](../BR-44/) : la règle de base qui exige le motif de frais sur ligne.
-- [BR-CO-22](../BR-CO-22/) : chaque frais global doit avoir un motif, en texte ou en code.
+- [BR-CO-22](../BR-CO-22/) : les frais globaux doivent avoir un motif, en texte ou en code.
