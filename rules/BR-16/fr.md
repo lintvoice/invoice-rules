@@ -28,7 +28,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 Une ligne de facture est le groupe BG-25. En CII, la règle cherche au moins un `ram:IncludedSupplyChainTradeLineItem` dans le document ; en UBL, au moins un `cac:InvoiceLine` (`cac:CreditNoteLine` dans un avoir).
 
-Cette page n'a pas de fichier d'exemple : le [schéma XML de Factur-X EN 16931](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/Factur-X/EN16931/1xsd) exige au moins une ligne, alors que les exemples de [invoice-examples](https://github.com/lintvoice/invoice-examples) restent valides au schéma pour n'échouer qu'à des règles métier. Le [schéma CII complet de l'UN/CEFACT (D22B)](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/1xsd-CII_D22B_uncoupled) laisse en revanche les lignes facultatif : une facture CII peut donc passer ce schéma-là et échouer à la règle.
+Cette page n'a pas de fichier d'exemple : le [schéma XML de Factur-X EN 16931](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/Factur-X/EN16931/1xsd) exige au moins une ligne, alors que les exemples de [invoice-examples](https://github.com/lintvoice/invoice-examples) restent valides au schéma pour n'échouer qu'à des règles métier. Le [schéma CII complet de l'UN/CEFACT (D22B)](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/1xsd-CII_D22B_uncoupled) n'exige en revanche aucune ligne : une facture CII peut donc passer ce schéma-là et échouer à la règle.
 
 ## Texte officiel
 
