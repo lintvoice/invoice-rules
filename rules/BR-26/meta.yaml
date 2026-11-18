@@ -46,6 +46,10 @@ examples:
   target: fr
   valid: examples/fr/valid.xml
   invalid: null
+  none:
+    en: 'No example invoice for this rule: the Factur-X format already refuses a line without a net unit price, before this rule runs. Our examples only show mistakes the format lets through.'
+    fr: 'Pas de facture d''exemple pour cette règle : le format Factur-X refuse déjà une ligne sans prix unitaire net, avant même cette règle. Nos exemples ne montrent que des erreurs que le format laisse
+      passer.'
 topic: lines
 related:
 - BR-27

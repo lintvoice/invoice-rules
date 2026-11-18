@@ -101,7 +101,9 @@ def test_wording(folder, lang):
 def test_examples_exist_and_fail_the_rule(folder):
     ex = meta(folder)["examples"]
     if ex["invalid"] is None:
-        pytest.skip(f"no {ex['target']} target in invoice-examples yet")
+        # the page says why it has no example, in both languages, so that a visitor does not take it for a bug
+        assert set(ex.get("none") or {}) == {"en", "fr"}, "a page without an example says why (examples.none)"
+        pytest.skip("no example file for this rule")
     for key in ("valid", "invalid"):
         assert (EXAMPLES_REPO / ex[key]).exists(), ex[key]
     manifest = json.loads((EXAMPLES_REPO / "examples" / ex["target"] / "manifest.json").read_text(encoding="utf-8"))

@@ -40,7 +40,8 @@ examples:                            # from lintvoice/invoice-examples, CC0
   version: 0.1.0
   target: fr
   valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-FR-10.xml   # or null when the target does not exist yet
+  invalid: examples/fr/invalid/BR-FR-10.xml   # or null when there is no example
+  none: {en: "...", fr: "..."}   # with invalid: null, why there is no example, in plain words (shown on the page)
 topic: identifiers                   # what the rule is about on the invoice (list below)
 related: [BR-FR-09, BR-FR-11]
 updated: 2026-11-05
