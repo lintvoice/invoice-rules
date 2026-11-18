@@ -44,7 +44,7 @@ examples:
   source: invoice-examples
   version: 0.4.0
   target: fr
-  valid: examples/fr/valid.xml
+  valid: examples/fr/fixed/BR-27.xml
   invalid: examples/fr/invalid/BR-27.xml
 topic: lines
 related:

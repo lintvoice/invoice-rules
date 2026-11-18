@@ -138,7 +138,8 @@ def facts(page_id, found, manifest):
             "source": "invoice-examples",
             "version": manifest["generator"].split()[-1],
             "target": manifest["target"],
-            "valid": f"examples/{manifest['target']}/valid.xml",
+            # the same invoice without the mistake: the fixed counterpart when the example first adds something
+            "valid": f"examples/{manifest['target']}/{(chosen or {}).get('fixed', {}).get('xml', 'valid.xml')}",
             "invalid": f"examples/{manifest['target']}/{chosen['files']['xml']}" if chosen else None,
         },
         "topic": "TODO",  # one of FORMAT.md's list: the tests refuse TODO

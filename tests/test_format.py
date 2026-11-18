@@ -110,3 +110,6 @@ def test_examples_exist_and_fail_the_rule(folder):
     )
     # a rule can be reported under several ids (one per field it checks); the example fails at least one of them
     assert set(meta(folder)["reported_ids"]) & set(entry["fires"])
+    # the fix shown is the same invoice without the mistake: the fixed counterpart when the example first adds something
+    fixed = entry.get("fixed", {}).get("xml")
+    assert ex["valid"] == f"examples/{ex['target']}/{fixed or 'valid.xml'}"
