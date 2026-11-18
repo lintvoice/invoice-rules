@@ -1,6 +1,6 @@
-# A party identifier has no scheme, or a scheme is repeated
+# A party identifier does not state its type, or a type is repeated
 
-An identifier of a party has no scheme code, or the party has two identifiers with the same scheme.
+An identifier of a party does not state its type, or the party has two identifiers of the same type.
 
 ## What the rule checks
 
@@ -26,7 +26,7 @@ BR-FR-CO-10 is one of the rules of the French e-invoicing reform, published by F
 
 ## Technical details
 
-Global identifiers `ram:GlobalID` and their `schemeID` attribute: BT-29 (seller), BT-46 (buyer), BT-60 (payee), BT-71 (delivery place) and the French extension's parties. Ids ending in `-1`: scheme missing; `-2`: scheme repeated.
+An identifier's type is its `schemeID` attribute. In CII, the rule checks only the global identifiers `ram:GlobalID`: an identifier in `ram:ID`, without a scheme, passes. In UBL, it checks every `cac:PartyIdentification/cbc:ID`, and the delivery place's `cbc:ID`. Parties checked: BT-29 (seller), BT-46 (buyer), BT-60 (payee), BT-71 (delivery place) and the French extension's parties. Ids ending in `-1`: scheme missing; `-2`: scheme repeated.
 
 ## Official text
 

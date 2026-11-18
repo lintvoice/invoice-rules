@@ -1,6 +1,6 @@
-# Un identifiant de partie n'a pas de schéma, ou un schéma est répété
+# Un identifiant de partie n'indique pas son type, ou un type est répété
 
-Un identifiant d'une partie n'a pas de code de schéma, ou la partie a deux identifiants du même schéma.
+Un identifiant d'une partie ne dit pas de quel type il est, ou la partie a deux identifiants du même type.
 
 ## Ce que vérifie la règle
 
@@ -26,7 +26,7 @@ BR-FR-CO-10 fait partie des règles de la réforme française de la facturation 
 
 ## Détails techniques
 
-Identifiants globaux `ram:GlobalID` et leur attribut `schemeID` : BT-29 (vendeur), BT-46 (acheteur), BT-60 (bénéficiaire), BT-71 (livraison) et parties de l'extension française. Identifiants terminés par `-1` : schéma absent ; `-2` : schéma répété.
+Le type d'un identifiant est son attribut `schemeID`. En CII, la règle ne vérifie que les identifiants globaux `ram:GlobalID` : un identifiant en `ram:ID`, sans schéma, passe. En UBL, elle vérifie chaque `cac:PartyIdentification/cbc:ID`, et le `cbc:ID` du lieu de livraison. Parties vérifiées : BT-29 (vendeur), BT-46 (acheteur), BT-60 (bénéficiaire), BT-71 (livraison) et parties de l'extension française. Identifiants terminés par `-1` : schéma absent ; `-2` : schéma répété.
 
 ## Texte officiel
 

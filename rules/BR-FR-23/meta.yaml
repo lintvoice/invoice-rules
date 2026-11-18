@@ -35,8 +35,8 @@ title:
   en: The electronic address contains a character that is not allowed
   fr: L'adresse électronique contient un caractère non autorisé
 brief:
-  en: An electronic address declared as a French reform address may contain only letters, digits and the signs - _ .
-  fr: Une adresse électronique déclarée comme adresse de la réforme française ne peut contenir que des lettres, des chiffres et les signes - _ .
+  en: An electronic address declared as a French reform address may contain only unaccented letters, digits and the signs + - _ .
+  fr: Une adresse électronique déclarée comme adresse de la réforme française ne peut contenir que des lettres sans accent, des chiffres et les signes + - _ .
 search:
   en:
   - BR-FR-23

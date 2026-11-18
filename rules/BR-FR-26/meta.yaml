@@ -29,8 +29,8 @@ title:
   en: A private identifier is longer than 100 characters
   fr: Un identifiant privé dépasse 100 caractères
 brief:
-  en: A seller or buyer identifier with the scheme code 0224 must be at most 100 characters long.
-  fr: Un identifiant de vendeur ou d'acheteur au code de schéma 0224 doit compter au plus 100 caractères.
+  en: A private identifier of the seller or the buyer must be at most 100 characters long.
+  fr: Un identifiant privé du vendeur ou de l'acheteur doit compter au plus 100 caractères.
 search:
   en:
   - BR-FR-26
@@ -49,4 +49,4 @@ examples:
 topic: identifiers
 related:
 - BR-FR-24
-updated: '2026-11-16'
+updated: '2026-11-18'

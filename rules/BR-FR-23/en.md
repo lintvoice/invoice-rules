@@ -4,7 +4,7 @@ An electronic address declared with the scheme code 0225 contains a space, an ac
 
 ## What the rule checks
 
-Electronic addresses declared with the scheme code 0225, the code used for the French reform's addresses, may contain only letters without accents, digits and the signs `-`, `_` and `.`. Spaces, the @ sign and other signs are refused. The rule checks the address of every party: seller, buyer, payee, agents, payer, invoicee, invoicer.
+Electronic addresses declared with the scheme code 0225, the code used for the French reform's addresses, may contain only letters without accents, digits and the signs `+`, `-`, `_` and `.`. Spaces, the @ sign and other signs are refused. The rule checks the address of every party: seller, buyer, payee, agents, payer, invoicee, invoicer.
 
 ## Why it matters
 

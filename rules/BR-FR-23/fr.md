@@ -4,7 +4,7 @@ Une adresse électronique déclarée avec le code de schéma 0225 contient un es
 
 ## Ce que vérifie la règle
 
-Les adresses électroniques déclarées avec le code de schéma 0225, celui des adresses de la réforme française, ne peuvent contenir que des lettres sans accent, des chiffres et les signes `-`, `_` et `.`. Les espaces, l'arobase (@) et les autres signes sont refusés. La règle vérifie l'adresse de chaque partie : vendeur, acheteur, bénéficiaire, agents, payeur, facturé, facturant.
+Les adresses électroniques déclarées avec le code de schéma 0225, celui des adresses de la réforme française, ne peuvent contenir que des lettres sans accent, des chiffres et les signes `+`, `-`, `_` et `.`. Les espaces, l'arobase (@) et les autres signes sont refusés. La règle vérifie l'adresse de chaque partie : vendeur, acheteur, bénéficiaire, agents, payeur, facturé, facturant.
 
 ## Pourquoi c'est important
 

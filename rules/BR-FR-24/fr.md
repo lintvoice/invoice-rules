@@ -4,7 +4,7 @@ Un identifiant de vendeur ou d'acheteur déclaré avec le code de schéma 0224 c
 
 ## Ce que vérifie la règle
 
-Le vendeur et l'acheteur peuvent être identifiés par un identifiant privé, déclaré avec le code de schéma 0224. Il ne peut contenir que des lettres sans accent, des chiffres et les signes `-`, `_` et `.` ; les espaces sont refusés.
+Le vendeur et l'acheteur peuvent être identifiés par un identifiant privé, déclaré avec le code de schéma 0224. Il ne peut contenir que des lettres sans accent, des chiffres et les signes `+`, `-`, `_` et `.` ; les espaces sont refusés.
 
 ## Pourquoi c'est important
 
@@ -24,7 +24,7 @@ BR-FR-24 fait partie des règles de la réforme française de la facturation él
 
 ## Détails techniques
 
-Identifiant du vendeur BT-29 et de l'acheteur BT-46 (`ram:GlobalID` en CII) au schéma `0224`. Expression contrôlée : `^[A-Za-z0-9+\-_.]+$`, qui accepte aussi `+`.
+Identifiant du vendeur BT-29 et de l'acheteur BT-46 (`ram:GlobalID` en CII) au schéma `0224`. Expression contrôlée : `^[A-Za-z0-9+\-_.]+$`.
 
 ## Texte officiel
 

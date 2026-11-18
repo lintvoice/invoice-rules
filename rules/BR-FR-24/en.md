@@ -4,7 +4,7 @@ A seller or buyer identifier declared with the scheme code 0224 contains a space
 
 ## What the rule checks
 
-The seller and the buyer may be identified by a private identifier, declared with the scheme code 0224. It may contain only letters without accents, digits and the signs `-`, `_` and `.`; spaces are refused.
+The seller and the buyer may be identified by a private identifier, declared with the scheme code 0224. It may contain only letters without accents, digits and the signs `+`, `-`, `_` and `.`; spaces are refused.
 
 ## Why it matters
 
@@ -24,7 +24,7 @@ BR-FR-24 is one of the rules of the French e-invoicing reform, published by FNFE
 
 ## Technical details
 
-Seller identifier BT-29 and buyer identifier BT-46 (`ram:GlobalID` in CII) whose scheme is `0224`. Pattern checked: `^[A-Za-z0-9+\-_.]+$`, which also accepts `+`.
+Seller identifier BT-29 and buyer identifier BT-46 (`ram:GlobalID` in CII) whose scheme is `0224`. Pattern checked: `^[A-Za-z0-9+\-_.]+$`.
 
 ## Official text
 

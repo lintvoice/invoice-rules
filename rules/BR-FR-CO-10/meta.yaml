@@ -46,11 +46,11 @@ reported_ids:
 - BR-FR-CO-10_EXT-FR-FE-92-1
 - BR-FR-CO-10_EXT-FR-FE-92-2
 title:
-  en: A party identifier has no scheme, or a scheme is repeated
-  fr: Un identifiant de partie n'a pas de schéma, ou un schéma est répété
+  en: A party identifier does not state its type, or a type is repeated
+  fr: Un identifiant de partie n'indique pas son type, ou un type est répété
 brief:
-  en: Each identifier of a party must give its scheme code, and a party cannot have two identifiers with the same scheme.
-  fr: Chaque identifiant d'une partie doit indiquer son code de schéma, et une partie ne peut pas avoir deux identifiants du même schéma.
+  en: Each identifier of a party must state its type (SIRET, GLN…), and a party cannot have two identifiers of the same type.
+  fr: Chaque identifiant d'une partie doit dire de quel type il est (SIRET, GLN…), et une partie ne peut pas avoir deux identifiants du même type.
 search:
   en:
   - BR-FR-CO-10
@@ -71,4 +71,4 @@ topic: identifiers
 related:
 - BR-FR-09
 - BR-FR-24
-updated: '2026-11-16'
+updated: '2026-11-18'

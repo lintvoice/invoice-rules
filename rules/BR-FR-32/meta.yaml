@@ -28,8 +28,8 @@ title:
   en: A SIREN on the invoice does not have 9 digits
   fr: Un SIREN de la facture n'a pas 9 chiffres
 brief:
-  en: Every identifier declared with the scheme code 0002 (SIREN) or 0231 must have exactly 9 digits.
-  fr: Tout identifiant déclaré avec le code de schéma 0002 (SIREN) ou 0231 doit compter exactement 9 chiffres.
+  en: Every number declared as a SIREN on the invoice, or as the identifier of a VAT group member, must have exactly 9 digits.
+  fr: Tout numéro déclaré comme SIREN sur la facture, ou comme identifiant de membre d'un groupe TVA, doit compter exactement 9 chiffres.
 search:
   en:
   - BR-FR-32
@@ -50,4 +50,4 @@ topic: identifiers
 related:
 - BR-FR-10
 - BR-FR-09
-updated: '2026-11-16'
+updated: '2026-11-18'
