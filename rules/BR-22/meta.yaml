@@ -1,0 +1,53 @@
+id: BR-22
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-129
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeDelivery/ram:BilledQuantity
+  ubl: /Invoice/cac:InvoiceLine/cbc:InvoicedQuantity
+official_message:
+  lang: en
+  text: Each Invoice line (BG-25) shall have an Invoiced quantity (BT-129).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-22
+title:
+  fr: Une ligne n'a pas de quantité
+  en: A line has no quantity
+brief:
+  fr: 'Chaque ligne doit indiquer une quantité facturée : 1 pour un forfait.'
+  en: 'Each line must give an invoiced quantity: 1 for a flat fee.'
+search:
+  en:
+  - BR-22
+  - invoice line quantity missing
+  - BT-129
+  - BilledQuantity InvoicedQuantity
+  fr:
+  - BR-22
+  - quantité facturée manquante facture électronique
+  - BT-129
+  - erreur BR-22 factur-x
+examples:
+  source: invoice-examples
+  version: 0.4.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: null
+topic: lines
+related:
+- BR-23
+- BR-26
+updated: '2026-11-18'

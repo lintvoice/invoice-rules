@@ -30,8 +30,8 @@ title:
   en: On a self-billed invoice, the seller's electronic address does not start with its SIREN
   fr: Sur une autofacture, l'adresse électronique du vendeur ne commence pas par son SIREN
 brief:
-  en: On a self-billed business-to-business invoice, the seller's electronic address must start with its SIREN and use the scheme code 0225.
-  fr: Sur une autofacture entre entreprises, l'adresse électronique du vendeur doit commencer par son SIREN et utiliser le code de schéma 0225.
+  en: On a self-billed business-to-business invoice, the seller's electronic address must start with the seller's SIREN and be declared as a French reform address.
+  fr: Sur une autofacture entre entreprises, l'adresse électronique du vendeur doit commencer par son SIREN et être déclarée comme adresse de la réforme française.
 search:
   en:
   - BR-FR-22
@@ -52,4 +52,4 @@ topic: addresses
 related:
 - BR-FR-21
 - BR-FR-13
-updated: '2026-11-16'
+updated: '2026-11-18'

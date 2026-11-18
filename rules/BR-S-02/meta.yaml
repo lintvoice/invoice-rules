@@ -1,0 +1,59 @@
+id: BR-S-02
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that has a line in the VAT category S, for any VAT rate above zero (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui a une ligne de la catégorie de TVA S, celle de tout taux supérieur à zéro (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française
+      et allemande).
+business_terms:
+- BT-31
+- BT-32
+- BT-63
+- BT-151
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedTaxRegistration/ram:ID
+  ubl: /Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID
+official_message:
+  lang: en
+  text: An Invoice that contains an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is "Standard rated" shall contain the Seller VAT Identifier (BT-31), the Seller tax registration
+    identifier (BT-32) and/or the Seller tax representative VAT identifier (BT-63).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-S-02
+title:
+  fr: Le numéro de TVA du vendeur manque
+  en: The seller's VAT number is missing
+brief:
+  fr: Une facture dont des lignes sont soumises à la TVA doit indiquer le numéro de TVA du vendeur dans ses données, pas seulement sur le PDF.
+  en: An invoice with lines subject to VAT must give the seller's VAT number in its data, not only on the PDF.
+search:
+  en:
+  - BR-S-02
+  - seller VAT identifier missing
+  - BT-31 seller VAT number
+  - SpecifiedTaxRegistration schemeID VA
+  fr:
+  - BR-S-02
+  - numéro de TVA du vendeur manquant facture électronique
+  - BT-31
+  - erreur BR-S-02 factur-x
+examples:
+  source: invoice-examples
+  version: 0.4.0
+  target: fr
+  valid: examples/fr/valid.xml
+  invalid: examples/fr/invalid/BR-S-02.xml
+topic: identifiers
+related:
+- BR-CO-26
+- BR-CO-09
+- BR-E-10
+updated: '2026-11-18'
