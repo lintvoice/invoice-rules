@@ -1,0 +1,10 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "lintvoice invoice rules",
+  "description": "Plain-language explanations of e-invoicing business rules, from the European standard EN 16931 and from each country's rules, starting with the French reform's BR-FR: what each rule checks, why it matters, how to fix a failing invoice, the common causes and the official text.",
+  "folders": ["rules"],
+  "rules": [
+    "An error code with a suffix, such as BR-FR-16_BT-152, belongs to the rule before the suffix (BR-FR-16).",
+    "Each rule's page is also on https://lintvoice.com/rules/<ID>/, in English, and https://lintvoice.com/fr/regles/<ID>/, in French."
+  ]
+}
