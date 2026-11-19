@@ -1,5 +1,7 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
+  "url": "https://context7.com/lintvoice/invoice-rules",
+  "public_key": "pk_etmoIrTyBlY9jlr5FyBt3",
   "projectTitle": "lintvoice invoice rules",
   "description": "Plain-language explanations of e-invoicing business rules, from the European standard EN 16931 and from each country's rules, starting with the French reform's BR-FR: what each rule checks, why it matters, how to fix a failing invoice, the common causes and the official text.",
   "folders": ["rules"],
