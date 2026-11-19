@@ -12,7 +12,14 @@ applies_to:
   when:
     en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
     fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
-business_terms: []
+business_terms:
+- BT-29
+- BT-30
+- BT-46
+- BT-47
+- BT-60
+- BT-61
+- BT-71
 paths:
   cii: //ram:SpecifiedLegalOrganization/ram:ID[@schemeID = '0002']
   ubl: //cac:PartyLegalEntity/cbc:CompanyID[@schemeID = '0002']

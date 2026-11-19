@@ -14,7 +14,6 @@ applies_to:
     fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
 business_terms:
 - BT-3
-- BT-4
 - BT-25
 - BT-26
 paths:
