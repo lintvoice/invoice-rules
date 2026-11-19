@@ -63,6 +63,10 @@ for several sellers or billing on behalf of a third party).
 | `corrections` | Credit notes, corrected invoices and advance payments |
 | `attachments` | Attachments |
 
+**`updated`**: the day the page's text last changed (its title, brief or sections, in either language). A fix of form
+(a typo, grammar) or a change to the other fields keeps it. The site shows it on the page and dates the page with it
+in its sitemap (both languages), so a search engine reads the same date in both places.
+
 ## `en.md` and `fr.md`
 
 The same sections, in this order. The tests check them.
