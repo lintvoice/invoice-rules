@@ -1,0 +1,59 @@
+id: BR-DEC-01
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-92
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:ActualAmount
+  ubl: /Invoice/cac:AllowanceCharge/cbc:Amount
+official_message:
+  lang: en
+  text: The allowed maximum number of decimals for the Document level allowance amount (BT-92) is 2.
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-DEC-01
+title:
+  en: The amount of an allowance on the whole invoice has more than 2 decimals
+  fr: Le montant d'une remise globale a plus de 2 décimales
+brief:
+  en: The amount of an allowance on the whole invoice must be written with at most 2 decimals, rounded to the cent.
+  fr: Le montant d'une remise globale doit être écrit avec au plus 2 décimales, arrondi au centime.
+search:
+  en:
+  - BR-DEC-01
+  - the amount of an allowance on the whole invoice more than 2 decimals
+  - BT-92
+  - ActualAmount decimals
+  fr:
+  - BR-DEC-01
+  - le montant d'une remise globale plus de 2 décimales
+  - BT-92
+  - erreur BR-DEC-01 factur-x
+examples:
+  source: invoice-examples
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-DEC-01.xml
+      invalid: examples/en16931/invalid/BR-DEC-01.xml
+    fr:
+      valid: examples/fr/fixed/BR-FR-DEC-01-BT-92.xml
+      invalid: examples/fr/invalid/BR-FR-DEC-01-BT-92.xml
+topic: lines
+related:
+- BR-DEC-02
+- BR-DEC-10
+- BR-CO-11
+- BR-FR-DEC-01
+updated: '2026-11-23'

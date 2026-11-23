@@ -6,9 +6,9 @@ What each e-invoicing rule checks, why it matters and how to fix it, in plain wo
 example. One page per rule, in English and French, for the business rules of EN 16931 and of the French reform (BR-FR),
 and a glossary of the words of e-invoicing.
 
-> Status: 67 pages: the French reform rules (BR-FR) that have an example file, the EN 16931 rules BR-CO, and the
-> first core and VAT rules of EN 16931 (BR-16, BR-22, BR-23, BR-26, BR-27, BR-S-02, BR-S-08, BR-E-10). Published on
-> [lintvoice.com/rules](https://lintvoice.com/rules/) ([en français](https://lintvoice.com/fr/regles/)).
+> Status: 88 pages: the French reform rules (BR-FR) that have an example file, the EN 16931 rules BR-CO and BR-DEC
+> (the decimals of amounts), and the first core and VAT rules of EN 16931 (BR-16, BR-22, BR-23, BR-26, BR-27,
+> BR-S-02, BR-S-08, BR-E-10). Published on [lintvoice.com/rules](https://lintvoice.com/rules/) ([en français](https://lintvoice.com/fr/regles/)).
 
 ## Layout
 

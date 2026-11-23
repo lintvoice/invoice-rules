@@ -1,0 +1,58 @@
+id: BR-DEC-12
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-109
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxBasisTotalAmount
+  ubl: /Invoice/cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount
+official_message:
+  lang: en
+  text: The allowed maximum number of decimals for the Invoice total amount without VAT (BT-109) is 2.
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-DEC-12
+title:
+  en: The total without VAT has more than 2 decimals
+  fr: Le total HT a plus de 2 décimales
+brief:
+  en: The total without VAT must be written with at most 2 decimals, rounded to the cent.
+  fr: Le total HT doit être écrit avec au plus 2 décimales, arrondi au centime.
+search:
+  en:
+  - BR-DEC-12
+  - the total without VAT more than 2 decimals
+  - BT-109
+  - TaxBasisTotalAmount decimals
+  fr:
+  - BR-DEC-12
+  - le total HT plus de 2 décimales
+  - BT-109
+  - erreur BR-DEC-12 factur-x
+examples:
+  source: invoice-examples
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-DEC-12.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-FR-DEC-01-BT-109.xml
+topic: totals
+related:
+- BR-DEC-09
+- BR-CO-13
+- BR-FR-DEC-01
+updated: '2026-11-23'
