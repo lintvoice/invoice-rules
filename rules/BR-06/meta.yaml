@@ -1,0 +1,57 @@
+id: BR-06
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-27
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:Name
+  ubl: /Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName
+official_message:
+  lang: en
+  text: An Invoice shall contain the Seller name (BT-27).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-06
+title:
+  en: The seller's name is missing
+  fr: Le nom du vendeur manque
+brief:
+  en: Every invoice must give the seller's name.
+  fr: Toute facture doit indiquer le nom du vendeur.
+search:
+  en:
+  - BR-06
+  - seller name missing
+  - BT-27 seller name
+  - error BR-06
+  fr:
+  - BR-06
+  - nom du vendeur manquant
+  - BT-27
+  - erreur BR-06 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-06.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-06.xml
+topic: parties
+related:
+- BR-07
+- BR-08
+updated: '2026-11-23'

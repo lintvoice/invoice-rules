@@ -47,7 +47,7 @@ REQUIRED = [
     "topic",
 ]
 # What a rule is about on the invoice, one per rule, from this fixed list (FORMAT.md): the rules index groups by it.
-TOPICS = {"addresses", "identifiers", "payment", "totals", "vat", "invoice", "lines", "corrections", "attachments"}
+TOPICS = {"addresses", "parties", "identifiers", "payment", "totals", "vat", "invoice", "lines", "corrections", "attachments"}
 FORBIDDEN = re.compile(r"certif|complian|conform", re.I)  # we help check; we never certify (FORMAT.md)
 EXAMPLES_REPO = ROOT.parent / "invoice-examples"
 

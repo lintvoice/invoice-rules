@@ -1,0 +1,57 @@
+id: BR-08
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms: []
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress
+  ubl: /Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress
+official_message:
+  lang: en
+  text: An Invoice shall contain the Seller postal address (BG-5).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-08
+title:
+  en: The seller has no postal address
+  fr: Le vendeur n'a pas d'adresse postale
+brief:
+  en: Every invoice must give the seller's postal address, with at least its country.
+  fr: Toute facture doit indiquer l'adresse postale du vendeur, avec au moins son pays.
+search:
+  en:
+  - BR-08
+  - seller postal address missing
+  - BG-5 seller address
+  - error BR-08
+  fr:
+  - BR-08
+  - adresse du vendeur manquante
+  - BG-5 adresse postale
+  - erreur BR-08 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-08.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-08.xml
+topic: parties
+related:
+- BR-09
+- BR-06
+- BR-10
+updated: '2026-11-23'

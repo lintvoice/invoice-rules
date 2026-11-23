@@ -1,0 +1,57 @@
+id: BR-CL-24
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-125
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:AdditionalReferencedDocument/ram:AttachmentBinaryObject/@mimeCode
+  ubl: /Invoice/cac:AdditionalDocumentReference/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode
+official_message:
+  lang: en
+  text: For Mime code in attribute use MIMEMediaType.
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CL-24
+title:
+  en: An attached file's type is not allowed
+  fr: Le type d'un fichier joint n'est pas admis
+brief:
+  en: A file attached to the invoice must be a PDF, a PNG or JPEG image, a CSV file or a spreadsheet (XLSX, ODS), declared with its type.
+  fr: Un fichier joint à la facture doit être un PDF, une image PNG ou JPEG, un fichier CSV ou un tableur (XLSX, ODS), déclaré avec son type.
+search:
+  en:
+  - BR-CL-24
+  - attachment mimeCode not allowed
+  - BT-125 mimeCode
+  - error BR-CL-24
+  fr:
+  - BR-CL-24
+  - mimeCode pièce jointe non admis
+  - BT-125 mimeCode
+  - erreur BR-CL-24 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-CL-24.xml
+      invalid: examples/en16931/invalid/BR-CL-24.xml
+    fr:
+      valid: examples/fr/fixed/BR-CL-24.xml
+      invalid: examples/fr/invalid/BR-CL-24.xml
+topic: attachments
+related:
+- BR-52
+- BR-FR-17
+updated: '2026-11-23'

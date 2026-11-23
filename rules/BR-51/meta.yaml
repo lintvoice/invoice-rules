@@ -1,0 +1,58 @@
+id: BR-51
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-87
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans/ram:ApplicableTradeSettlementFinancialCard/ram:ID
+  ubl: /Invoice/cac:PaymentMeans/cac:CardAccount/cbc:PrimaryAccountNumberID
+official_message:
+  lang: en
+  text: In accordance with card payments security standards an invoice should never include a full card primary account number (BT-97). At the moment PCI Security Standards Council has defined that the
+    first 6 digits and last 4 digits are the maximum number of digits to be shown.
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-51
+title:
+  en: The invoice shows a full card number
+  fr: La facture montre un numéro de carte complet
+brief:
+  en: 'An invoice must never give a payment card''s full number: 10 characters at most, such as its last 4 digits.'
+  fr: 'Une facture ne doit jamais indiquer le numéro complet d''une carte de paiement : 10 caractères au plus, comme ses 4 derniers chiffres.'
+search:
+  en:
+  - BR-51
+  - full card primary account number
+  - BT-87 card number
+  - error BR-51
+  fr:
+  - BR-51
+  - numéro de carte complet facture
+  - BT-87
+  - erreur BR-51 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-51.xml
+      invalid: examples/en16931/invalid/BR-51.xml
+    fr:
+      valid: examples/fr/fixed/BR-51.xml
+      invalid: examples/fr/invalid/BR-51.xml
+topic: payment
+related:
+- BR-49
+- BR-CL-16
+updated: '2026-11-23'

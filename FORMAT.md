@@ -64,6 +64,7 @@ for several sellers or billing on behalf of a third party).
 | `topic` | Subject |
 | --- | --- |
 | `addresses` | Electronic addresses |
+| `parties` | The seller, the buyer and the other parties: names and postal addresses |
 | `identifiers` | Company identifiers: SIREN, SIRET, VAT numbers |
 | `payment` | Payment and mandatory notes |
 | `totals` | Amounts and totals |

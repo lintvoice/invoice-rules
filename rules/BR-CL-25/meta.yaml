@@ -1,0 +1,59 @@
+id: BR-CL-25
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-34
+- BT-49
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication/ram:URIID/@schemeID
+  ubl: /Invoice/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID/@schemeID
+official_message:
+  lang: en
+  text: Endpoint identifier scheme identifier MUST belong to the CEF EAS code list
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CL-25
+title:
+  en: An electronic address's kind is not a valid code
+  fr: Le type d'une adresse électronique n'est pas un code valide
+brief:
+  en: The code that says what kind of electronic address a party has must be in the EAS list, such as EM for an e-mail address.
+  fr: Le code qui dit de quel type est l'adresse électronique d'une partie doit être dans la liste EAS, comme EM pour une adresse e-mail.
+search:
+  en:
+  - BR-CL-25
+  - endpoint scheme not in EAS code list
+  - BT-34 schemeID EAS
+  - error BR-CL-25
+  fr:
+  - BR-CL-25
+  - schéma adresse électronique invalide EAS
+  - BT-34 schemeID 0225
+  - erreur BR-CL-25 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-CL-25.xml
+      invalid: examples/en16931/invalid/BR-CL-25.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CL-25.xml
+topic: addresses
+related:
+- BR-62
+- BR-63
+- BR-FR-21
+updated: '2026-11-23'

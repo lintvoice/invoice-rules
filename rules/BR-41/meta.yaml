@@ -1,0 +1,55 @@
+id: BR-41
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-136
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:ActualAmount
+  ubl: /Invoice/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount
+official_message:
+  lang: en
+  text: Each Invoice line allowance (BG-27) shall have an Invoice line allowance amount (BT-136).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-41
+title:
+  en: A line allowance has no amount
+  fr: Une remise sur ligne n'a pas de montant
+brief:
+  en: Each line allowance must give its amount.
+  fr: Chaque remise sur ligne doit indiquer son montant.
+search:
+  en:
+  - BR-41
+  - invoice line allowance amount missing
+  - BT-136
+  - error BR-41
+  fr:
+  - BR-41
+  - montant de remise sur ligne manquant
+  - BT-136
+  - erreur BR-41 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets: {}
+  none:
+    en: 'No example invoice for this rule: the Factur-X format already refuses a line allowance without its amount, before this rule runs. Our examples only show mistakes the format lets through.'
+    fr: 'Pas de facture d''exemple pour cette règle : le format Factur-X refuse déjà une remise sur ligne sans son montant, avant même cette règle. Nos exemples ne montrent que des erreurs que le format
+      laisse passer.'
+topic: lines
+related:
+- BR-42
+- BR-43
+updated: '2026-11-23'

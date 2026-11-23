@@ -1,0 +1,59 @@
+id: BR-32
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-95
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:CategoryTradeTax/ram:CategoryCode
+  ubl: /Invoice/cac:AllowanceCharge/cac:TaxCategory/cbc:ID
+official_message:
+  lang: en
+  text: Each Document level allowance (BG-20) shall have a Document level allowance VAT category code (BT-95).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-32
+title:
+  en: An allowance on the whole invoice has no VAT category
+  fr: Une remise globale n'a pas de catégorie de TVA
+brief:
+  en: Each allowance on the whole invoice must give its VAT category, so that the VAT breakdown can take it into account.
+  fr: Chaque remise globale doit indiquer sa catégorie de TVA, pour que la ventilation de TVA en tienne compte.
+search:
+  en:
+  - BR-32
+  - document level allowance VAT category code missing
+  - BT-95
+  - error BR-32
+  fr:
+  - BR-32
+  - catégorie de TVA de remise globale manquante
+  - BT-95
+  - erreur BR-32 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-32.xml
+      invalid: examples/en16931/invalid/BR-32.xml
+    fr:
+      valid: examples/fr/fixed/BR-32.xml
+      invalid: examples/fr/invalid/BR-32.xml
+topic: vat
+related:
+- BR-31
+- BR-33
+- BR-S-08
+- BR-CL-17
+updated: '2026-11-23'

@@ -1,0 +1,58 @@
+id: BR-56
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-63
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:SpecifiedTaxRegistration/ram:ID
+  ubl: /Invoice/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID
+official_message:
+  lang: en
+  text: Each Seller tax representative party (BG-11) shall have a Seller tax representative VAT identifier (BT-63).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-56
+title:
+  en: The tax representative has no VAT number
+  fr: Le représentant fiscal n'a pas de numéro de TVA
+brief:
+  en: When the seller has a tax representative, the invoice must give the representative's VAT number.
+  fr: Quand le vendeur a un représentant fiscal, la facture doit indiquer le numéro de TVA du représentant.
+search:
+  en:
+  - BR-56
+  - seller tax representative VAT identifier missing
+  - BT-63
+  - error BR-56
+  fr:
+  - BR-56
+  - numéro de TVA du représentant fiscal manquant
+  - BT-63
+  - erreur BR-56 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-56.xml
+      invalid: examples/en16931/invalid/BR-56.xml
+    fr:
+      valid: examples/fr/fixed/BR-56.xml
+      invalid: examples/fr/invalid/BR-56.xml
+topic: identifiers
+related:
+- BR-18
+- BR-19
+- BR-CO-09
+updated: '2026-11-23'

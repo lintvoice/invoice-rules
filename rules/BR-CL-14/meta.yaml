@@ -1,0 +1,62 @@
+id: BR-CL-14
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-40
+- BT-55
+- BT-69
+- BT-80
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountryID
+  ubl: /Invoice//cac:Country/cbc:IdentificationCode
+official_message:
+  lang: en
+  text: Country codes in an invoice MUST be coded using ISO code list 3166-1
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CL-14
+title:
+  en: A country is not written as a country code
+  fr: Un pays n'est pas écrit sous forme de code pays
+brief:
+  en: Every country of the invoice's addresses must be a two-letter ISO 3166-1 code, such as DE or FR.
+  fr: Chaque pays des adresses de la facture doit être un code ISO 3166-1 à deux lettres, comme DE ou FR.
+search:
+  en:
+  - BR-CL-14
+  - country code not valid ISO 3166-1
+  - CountryID
+  - error BR-CL-14
+  fr:
+  - BR-CL-14
+  - code pays invalide facture électronique
+  - CountryID ISO 3166-1
+  - erreur BR-CL-14 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-CL-14.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CL-14.xml
+topic: parties
+related:
+- BR-09
+- BR-11
+- BR-57
+- BR-CL-15
+updated: '2026-11-23'

@@ -1,0 +1,57 @@
+id: BR-65
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-158
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listID
+  ubl: /Invoice/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID
+official_message:
+  lang: en
+  text: The Item classification identifier (BT-158) shall have a Scheme identifier.
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-65
+title:
+  en: An item's classification does not say what kind of classification it is
+  fr: La classification d'un article ne dit pas de quel type de classification il s'agit
+brief:
+  en: An item's classification must say, with a standard code, what kind of classification it is.
+  fr: La classification d'un article doit dire, avec un code normalisé, de quel type de classification il s'agit.
+search:
+  en:
+  - BR-65
+  - item classification identifier scheme missing
+  - BT-158 listID
+  - error BR-65
+  fr:
+  - BR-65
+  - classification d'article sans schéma
+  - BT-158 listID
+  - erreur BR-65 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-65.xml
+      invalid: examples/en16931/invalid/BR-65.xml
+    fr:
+      valid: examples/fr/fixed/BR-65.xml
+      invalid: examples/fr/invalid/BR-65.xml
+topic: lines
+related:
+- BR-CL-13
+- BR-64
+updated: '2026-11-23'

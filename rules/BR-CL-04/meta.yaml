@@ -1,0 +1,58 @@
+id: BR-CL-04
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-5
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode
+  ubl: /Invoice/cbc:DocumentCurrencyCode
+official_message:
+  lang: en
+  text: Invoice currency code MUST be coded using ISO code list 4217 alpha-3
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CL-04
+title:
+  en: The invoice currency is not a valid code
+  fr: La devise de la facture n'est pas un code valide
+brief:
+  en: The invoice currency must be a three-letter ISO 4217 code, such as EUR.
+  fr: La devise de la facture doit être un code ISO 4217 à trois lettres, comme EUR.
+search:
+  en:
+  - BR-CL-04
+  - invoice currency code not valid
+  - BT-5 ISO 4217
+  - error BR-CL-04
+  fr:
+  - BR-CL-04
+  - code devise de la facture invalide
+  - BT-5 ISO 4217
+  - erreur BR-CL-04 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-CL-04.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CL-04.xml
+topic: invoice
+related:
+- BR-05
+- BR-CL-03
+- BR-CL-05
+updated: '2026-11-23'

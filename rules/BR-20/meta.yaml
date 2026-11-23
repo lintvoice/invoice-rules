@@ -1,0 +1,58 @@
+id: BR-20
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-69
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:PostalTradeAddress/ram:CountryID
+  ubl: /Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode
+official_message:
+  lang: en
+  text: The Seller tax representative postal address (BG-12) shall contain a Tax representative country code (BT-69), if the Seller (BG-4) has a Seller tax representative party (BG-11).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-20
+title:
+  en: The tax representative's address has no country
+  fr: L'adresse du représentant fiscal n'a pas de pays
+brief:
+  en: When the seller has a tax representative, its postal address must give its country, with its two-letter code.
+  fr: Quand le vendeur a un représentant fiscal, son adresse postale doit indiquer son pays, avec son code à deux lettres.
+search:
+  en:
+  - BR-20
+  - tax representative country code missing
+  - BT-69
+  - error BR-20
+  fr:
+  - BR-20
+  - code pays du représentant fiscal manquant
+  - BT-69
+  - erreur BR-20 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-20.xml
+      invalid: examples/en16931/invalid/BR-20.xml
+    fr:
+      valid: examples/fr/fixed/BR-20.xml
+      invalid: examples/fr/invalid/BR-20.xml
+topic: parties
+related:
+- BR-19
+- BR-CL-14
+- BR-56
+updated: '2026-11-23'

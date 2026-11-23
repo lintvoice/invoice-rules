@@ -1,0 +1,57 @@
+id: BR-03
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-2
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:IssueDateTime/udt:DateTimeString
+  ubl: /Invoice/cbc:IssueDate
+official_message:
+  lang: en
+  text: An Invoice shall have an Invoice issue date (BT-2).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-03
+title:
+  en: The invoice date is missing
+  fr: La date de facture manque
+brief:
+  en: Every invoice must give its issue date, written as a date.
+  fr: Toute facture doit indiquer sa date d'émission, écrite comme une date.
+search:
+  en:
+  - BR-03
+  - invoice issue date missing
+  - BT-2 DateTimeString format 102
+  - error BR-03
+  fr:
+  - BR-03
+  - date d'émission manquante facture électronique
+  - BT-2 format 102
+  - erreur BR-03 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-03.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-03.xml
+topic: invoice
+related:
+- BR-02
+- BR-FR-03
+updated: '2026-11-23'

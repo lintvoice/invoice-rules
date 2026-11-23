@@ -1,0 +1,60 @@
+id: BR-CL-11
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-30
+- BT-47
+- BT-61
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedLegalOrganization/ram:ID/@schemeID
+  ubl: /Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID
+official_message:
+  lang: en
+  text: Any registration identifier identification scheme identifier MUST be coded using one of the ISO 6523 ICD list.
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CL-11
+title:
+  en: A registration number's kind is not a valid code
+  fr: Le type d'un numéro d'immatriculation n'est pas un code valide
+brief:
+  en: When a party's legal registration number gives the register it comes from, the code must be in the ISO 6523 list, such as 0002 for a SIREN.
+  fr: Quand le numéro d'immatriculation légale d'une partie indique le registre dont il vient, ce code doit être dans la liste ISO 6523, comme 0002 pour un SIREN.
+search:
+  en:
+  - BR-CL-11
+  - registration identifier scheme not in ISO 6523 ICD
+  - schemeID BT-30
+  - error BR-CL-11
+  fr:
+  - BR-CL-11
+  - schemeID SIREN invalide
+  - BT-30 schemeID 0002
+  - erreur BR-CL-11 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-CL-11.xml
+      invalid: examples/en16931/invalid/BR-CL-11.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CL-11.xml
+topic: identifiers
+related:
+- BR-CL-10
+- BR-FR-10
+- BR-FR-09
+updated: '2026-11-23'

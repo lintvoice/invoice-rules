@@ -1,0 +1,58 @@
+id: BR-57
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-80
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeDelivery/ram:ShipToTradeParty/ram:PostalTradeAddress/ram:CountryID
+  ubl: /Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:Country/cbc:IdentificationCode
+official_message:
+  lang: en
+  text: Each Deliver to address (BG-15) shall contain a Deliver to country code (BT-80).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-57
+title:
+  en: The delivery address has no country
+  fr: L'adresse de livraison n'a pas de pays
+brief:
+  en: When the invoice gives a delivery address, it must give its country, with its two-letter code.
+  fr: Quand la facture indique une adresse de livraison, elle doit en indiquer le pays, avec son code à deux lettres.
+search:
+  en:
+  - BR-57
+  - deliver to country code missing
+  - BT-80
+  - error BR-57
+  fr:
+  - BR-57
+  - pays de livraison manquant
+  - BT-80
+  - erreur BR-57 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-57.xml
+      invalid: examples/en16931/invalid/BR-57.xml
+    fr:
+      valid: examples/fr/fixed/BR-57.xml
+      invalid: examples/fr/invalid/BR-57.xml
+topic: parties
+related:
+- BR-CL-14
+- BR-09
+- BR-11
+updated: '2026-11-23'

@@ -1,0 +1,59 @@
+id: BR-CL-18
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-118
+- BT-151
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:CategoryCode
+  ubl: /Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID
+official_message:
+  lang: en
+  text: Invoice tax categories MUST be coded using UNCL 5305 code list
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-CL-18
+title:
+  en: A VAT category is not a valid code
+  fr: Une catégorie de TVA n'est pas un code valide
+brief:
+  en: The VAT category of each line and of each VAT rate must be one of the codes EN 16931 uses, such as S.
+  fr: La catégorie de TVA de chaque ligne et de chaque taux doit être l'un des codes qu'EN 16931 utilise, comme S.
+search:
+  en:
+  - BR-CL-18
+  - VAT category code not valid
+  - BT-118 BT-151 UNCL 5305
+  - error BR-CL-18
+  fr:
+  - BR-CL-18
+  - catégorie de TVA invalide
+  - BT-118 BT-151
+  - erreur BR-CL-18 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-CL-18.xml
+      invalid: examples/en16931/invalid/BR-CL-18.xml
+    fr:
+      valid: examples/fr/fixed/BR-CL-18.xml
+      invalid: examples/fr/invalid/BR-CL-18.xml
+topic: vat
+related:
+- BR-47
+- BR-CL-17
+- BR-FR-15
+updated: '2026-11-23'

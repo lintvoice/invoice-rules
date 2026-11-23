@@ -1,0 +1,57 @@
+id: BR-52
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-122
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:AdditionalReferencedDocument/ram:IssuerAssignedID
+  ubl: /Invoice/cac:AdditionalDocumentReference/cbc:ID
+official_message:
+  lang: en
+  text: Each Additional supporting document (BG-24) shall contain a Supporting document reference (BT-122).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-52
+title:
+  en: A supporting document has no reference
+  fr: Un justificatif n'a pas de référence
+brief:
+  en: Each supporting document an invoice refers to must give its reference.
+  fr: Chaque justificatif auquel une facture fait référence doit indiquer sa référence.
+search:
+  en:
+  - BR-52
+  - supporting document reference missing
+  - BT-122
+  - error BR-52
+  fr:
+  - BR-52
+  - référence de justificatif manquante
+  - BT-122
+  - erreur BR-52 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-52.xml
+      invalid: examples/en16931/invalid/BR-52.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-FR-29-AFL.xml
+topic: attachments
+related:
+- BR-FR-29
+- BR-CL-24
+updated: '2026-11-23'

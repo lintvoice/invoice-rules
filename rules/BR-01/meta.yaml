@@ -1,0 +1,58 @@
+id: BR-01
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931, the European standard (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931, la norme européenne (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-24
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID
+  ubl: /Invoice/cbc:CustomizationID
+official_message:
+  lang: en
+  text: An Invoice shall have a Specification identifier (BT-24).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-01
+title:
+  en: The invoice does not say which rules it follows
+  fr: La facture ne dit pas quelles règles elle suit
+brief:
+  en: Every e-invoice must name the specification it follows, such as EN 16931 or a profile built on it.
+  fr: Toute facture électronique doit nommer la spécification qu'elle suit, comme EN 16931 ou un profil fondé sur elle.
+search:
+  en:
+  - BR-01
+  - specification identifier missing
+  - BT-24 CustomizationID
+  - GuidelineSpecifiedDocumentContextParameter
+  fr:
+  - BR-01
+  - identifiant de spécification manquant
+  - BT-24
+  - erreur BR-01 factur-x
+examples:
+  source: invoice-examples
+  version: 0.8.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-01.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-01.xml
+topic: invoice
+related:
+- BR-02
+- BR-03
+- BR-04
+updated: '2026-11-23'
