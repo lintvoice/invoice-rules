@@ -15,7 +15,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 ## Comment corriger
 
 1. Arrondissez la TVA de chaque taux au centime, puis additionnez ces montants arrondis pour obtenir le total de TVA.
-2. Ne calculez pas le total de TVA ligne par ligne à partir de montants non arrondis.
+2. Vérifiez que la facture électronique écrit le total de TVA arrondi au centime.
 3. Si votre logiciel écrit le total de TVA avec plus de décimales, signalez-le à son éditeur en citant BR-DEC-13.
 
 ## Causes fréquentes
@@ -25,9 +25,9 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 ## Détails techniques
 
-Le total de TVA est BT-110, dans le groupe BG-22. En CII, la règle lit la valeur du `ram:TaxTotalAmount` dont le `currencyID` est la devise de la facture (BT-5), et non son écriture, donc `194.750` passe et `194.754` échoue. En UBL, le test des fichiers 1.3.17 compare la devise du montant à un code devise qu'il cherche sous le montant lui-même, où il n'y en a pas, donc la règle ne se déclenche pas ; la règle de syntaxe UBL UBL-DT-01, qui n'admet que 2 décimales au plus dans chaque montant, repère un tel montant.
+Le total de TVA est BT-110, dans le groupe BG-22. En CII, la règle lit la valeur du `ram:TaxTotalAmount` dont le `currencyID` est la devise de la facture (BT-5), et non son écriture, donc `194.750` passe et `194.754` échoue. En UBL, le test des fichiers 1.3.17 cherche le code devise sous le montant lui-même, où il n'y en a pas, donc la règle ne se déclenche jamais. C'est la règle de syntaxe UBL UBL-DT-01, qui n'admet que 2 décimales au plus dans un montant, qui repère alors un tel montant.
 
-Un total de TVA non arrondi au centime n'est plus la somme de la ventilation de TVA, arrondie taux par taux, donc BR-CO-14 échoue avec lui, et la facture d'exemple échoue aux deux règles. Sur une facture française, la règle BR-FR-DEC-01 vérifie aussi ce montant, donc la facture d'exemple française échoue à ces trois règles.
+Un total de TVA non arrondi au centime n'est plus la somme de la ventilation de TVA, arrondie taux par taux. BR-CO-14 échoue donc avec lui, et la facture d'exemple échoue aux deux règles. Sur une facture française, la règle BR-FR-DEC-01 vérifie aussi ce montant, donc la facture d'exemple française échoue à ces trois règles.
 
 ## Texte officiel
 

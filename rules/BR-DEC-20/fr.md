@@ -15,17 +15,17 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 ## Comment corriger
 
 1. Arrondissez le montant de TVA de chaque taux au centime.
-2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop (`1230.50`, pas `1230.500`).
+2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop.
 3. Si votre logiciel écrit plus de décimales, signalez-le à son éditeur en citant BR-DEC-20.
 
 ## Causes fréquentes
 
 - **Un montant de TVA calculé comme la base HT multipliée par le taux**, sans arrondi.
-- **Un export qui écrit les montants avec 3 décimales ou plus** (`1230.500`), même arrondis.
+- **Un export qui écrit chaque montant avec 3 décimales**, même arrondi.
 
 ## Détails techniques
 
-Le montant de TVA d'un taux est BT-117, dans le groupe BG-23. En CII, la règle lit `ram:CalculatedAmount` de chaque `ram:ApplicableTradeTax` de `ram:ApplicableHeaderTradeSettlement` ; en UBL, `cbc:TaxAmount` de chaque `cac:TaxSubtotal`. Elle compte les décimales écrites après le point, donc un zéro final compte aussi, et `10.250` échoue bien qu'il vaille `10.25`.
+Le montant de TVA d'un taux est BT-117, dans le groupe BG-23. En CII, la règle lit `ram:CalculatedAmount` de chaque `ram:ApplicableTradeTax` de `ram:ApplicableHeaderTradeSettlement` ; en UBL, `cbc:TaxAmount` de chaque `cac:TaxSubtotal`. Elle compte les décimales telles qu'elles sont écrites après le point.
 
 Sur une facture française, la règle BR-FR-DEC-01 vérifie aussi ce montant, donc la facture d'exemple française échoue aux deux règles.
 

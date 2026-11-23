@@ -25,7 +25,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## Technical details
 
-The VAT total in the VAT accounting currency is BT-111, in group BG-22. The invoice must give it when it names a VAT accounting currency (BT-6), which must differ from the invoice currency (BT-5), as rule BR-53 requires. In CII, it is the `ram:TaxTotalAmount` whose `currencyID` is the VAT accounting currency, and the rule reads its value, not how it is written, so `179.480` passes and `179.482` fails. In UBL, the test of the 1.3.17 files compares the amount's currency with a currency code it looks for under the amount itself, where there is none, so the rule does not fire; the UBL syntax rule UBL-DT-01, which allows at most 2 decimals in every amount, catches such an amount.
+The VAT total in the VAT accounting currency is BT-111, in group BG-22. The invoice must give it when it names a VAT accounting currency (BT-6), which must differ from the invoice currency (BT-5), as rule BR-53 requires. In CII, it is the `ram:TaxTotalAmount` whose `currencyID` is the VAT accounting currency, and the rule reads its value, not how it is written, so `179.480` passes and `179.482` fails. In UBL, the test of the 1.3.17 files looks for the currency code under the amount itself, where there is none, so the rule never fires. The UBL syntax rule UBL-DT-01, which allows at most 2 decimals in any amount, catches such an amount instead.
 
 ## Official text
 

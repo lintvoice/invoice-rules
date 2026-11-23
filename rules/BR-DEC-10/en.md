@@ -15,17 +15,17 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 ## How to fix it
 
 1. Compute the allowance total from the allowances rounded to the cent.
-2. Check that the e-invoice writes this amount with at most 2 decimals, without extra zeros (`1230.50`, not `1230.500`).
+2. Check that the e-invoice writes this amount with at most 2 decimals, without extra zeros.
 3. If your software writes more decimals, report it to the software's publisher, quoting BR-DEC-10.
 
 ## Common causes
 
 - **A total computed from amounts that are not rounded**, and not rounded at the end.
-- **An export that writes amounts with 3 decimals or more** (`1230.500`), even when they are rounded.
+- **An export that writes every amount with 3 decimals**, even when it is rounded.
 
 ## Technical details
 
-The allowance total is BT-107, in group BG-22. In CII, the rule reads `ram:AllowanceTotalAmount` of `ram:SpecifiedTradeSettlementHeaderMonetarySummation`; in UBL, `cbc:AllowanceTotalAmount` of `cac:LegalMonetaryTotal`. It counts the decimals written after the dot, so a trailing zero counts too, and `10.250` fails although it is worth `10.25`.
+The allowance total is BT-107, in group BG-22. In CII, the rule reads `ram:AllowanceTotalAmount` of `ram:SpecifiedTradeSettlementHeaderMonetarySummation`; in UBL, `cbc:AllowanceTotalAmount` of `cac:LegalMonetaryTotal`. It counts the decimals as written after the dot.
 
 ## Official text
 

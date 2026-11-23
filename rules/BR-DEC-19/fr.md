@@ -15,17 +15,17 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 ## Comment corriger
 
 1. Calculez la base HT de chaque taux à partir des lignes, remises et frais à ce taux, arrondis au centime.
-2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop (`1230.50`, pas `1230.500`).
+2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop.
 3. Si votre logiciel écrit plus de décimales, signalez-le à son éditeur en citant BR-DEC-19.
 
 ## Causes fréquentes
 
 - **Une base HT calculée à partir de montants de lignes non arrondis.**
-- **Un export qui écrit les montants avec 3 décimales ou plus** (`1230.500`), même arrondis.
+- **Un export qui écrit chaque montant avec 3 décimales**, même arrondi.
 
 ## Détails techniques
 
-La base HT d'un taux est BT-116, dans le groupe BG-23. En CII, la règle lit `ram:BasisAmount` de chaque `ram:ApplicableTradeTax` de `ram:ApplicableHeaderTradeSettlement` ; en UBL, `cbc:TaxableAmount` de chaque `cac:TaxSubtotal`. Elle compte les décimales écrites après le point, donc un zéro final compte aussi, et `10.250` échoue bien qu'il vaille `10.25`.
+La base HT d'un taux est BT-116, dans le groupe BG-23. En CII, la règle lit `ram:BasisAmount` de chaque `ram:ApplicableTradeTax` de `ram:ApplicableHeaderTradeSettlement` ; en UBL, `cbc:TaxableAmount` de chaque `cac:TaxSubtotal`. Elle compte les décimales telles qu'elles sont écrites après le point.
 
 Sur une facture française, la règle BR-FR-DEC-01 vérifie aussi ce montant, donc la facture d'exemple française échoue aux deux règles.
 

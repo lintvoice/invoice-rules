@@ -4,7 +4,7 @@ The rounding amount is written with more than 2 decimals.
 
 ## What the rule checks
 
-The rounding amount is what is added to the total, or taken from it, to round the amount due. The rule checks that the rounding amount is written with at most 2 decimals. For example, `1230.50` passes and `1230.505` fails. Trailing zeros count too, so `1230.500` fails, although it is the same amount.
+The rounding amount is what is added to the total, or taken from it, to round the amount due. The rule checks that the rounding amount is written with at most 2 decimals. For example, `0.02` passes and `0.025` fails. Trailing zeros count too, so `0.020` fails, although it is the same amount.
 
 ## Why it matters
 
@@ -15,17 +15,17 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 ## How to fix it
 
 1. Enter the rounding as an amount in cents, for example `0.02`.
-2. Check that the e-invoice writes this amount with at most 2 decimals, without extra zeros (`1230.50`, not `1230.500`).
+2. Check that the e-invoice writes this amount with at most 2 decimals, without extra zeros.
 3. If your software writes more decimals, report it to the software's publisher, quoting BR-DEC-17.
 
 ## Common causes
 
 - **A rounding computed as the difference with amounts that are not rounded.**
-- **An export that writes amounts with 3 decimals or more** (`1230.500`), even when they are rounded.
+- **An export that writes every amount with 3 decimals**, even when it is rounded.
 
 ## Technical details
 
-The rounding amount is BT-114, in group BG-22. In CII, the rule reads `ram:RoundingAmount` of `ram:SpecifiedTradeSettlementHeaderMonetarySummation`; in UBL, `cbc:PayableRoundingAmount` of `cac:LegalMonetaryTotal`. It counts the decimals written after the dot, so a trailing zero counts too, and `10.250` fails although it is worth `10.25`.
+The rounding amount is BT-114, in group BG-22. In CII, the rule reads `ram:RoundingAmount` of `ram:SpecifiedTradeSettlementHeaderMonetarySummation`; in UBL, `cbc:PayableRoundingAmount` of `cac:LegalMonetaryTotal`. It counts the decimals as written after the dot.
 
 ## Official text
 

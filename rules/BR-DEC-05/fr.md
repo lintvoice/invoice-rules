@@ -15,17 +15,17 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 ## Comment corriger
 
 1. Si les frais sont un pourcentage, arrondissez leur montant au centime dans votre logiciel de facturation.
-2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop (`1230.50`, pas `1230.500`).
+2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop.
 3. Si votre logiciel écrit plus de décimales, signalez-le à son éditeur en citant BR-DEC-05.
 
 ## Causes fréquentes
 
 - **Des frais en pourcentage non arrondis** (1,5 % de 1 234,50 font 18,5175).
-- **Un export qui écrit les montants avec 3 décimales ou plus** (`1230.500`), même arrondis.
+- **Un export qui écrit chaque montant avec 3 décimales**, même arrondi.
 
 ## Détails techniques
 
-Le montant de frais globaux est BT-99, dans le groupe BG-21. En CII, la règle lit `ram:ActualAmount` de chaque `ram:SpecifiedTradeAllowanceCharge` de `ram:ApplicableHeaderTradeSettlement` dont `ram:ChargeIndicator` vaut `true` ; en UBL, `cbc:Amount` de chaque `cac:AllowanceCharge` du document dont `cbc:ChargeIndicator` vaut `true`. Elle compte les décimales écrites après le point, donc un zéro final compte aussi, et `10.250` échoue bien qu'il vaille `10.25`.
+Le montant de frais globaux est BT-99, dans le groupe BG-21. En CII, la règle lit `ram:ActualAmount` de chaque `ram:SpecifiedTradeAllowanceCharge` de `ram:ApplicableHeaderTradeSettlement` dont `ram:ChargeIndicator` vaut `true` ; en UBL, `cbc:Amount` de chaque `cac:AllowanceCharge` du document dont `cbc:ChargeIndicator` vaut `true`. Elle compte les décimales telles qu'elles sont écrites après le point.
 
 Sur une facture française, la règle BR-FR-DEC-01 vérifie aussi ce montant, donc la facture d'exemple française échoue aux deux règles.
 

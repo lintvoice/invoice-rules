@@ -15,17 +15,17 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 ## How to fix it
 
 1. Compute the total without VAT from amounts rounded to the cent: the lines, the allowances and the charges.
-2. Check that the e-invoice writes this amount with at most 2 decimals, without extra zeros (`1230.50`, not `1230.500`).
+2. Check that the e-invoice writes this amount with at most 2 decimals, without extra zeros.
 3. If your software writes more decimals, report it to the software's publisher, quoting BR-DEC-12.
 
 ## Common causes
 
 - **A total computed from amounts that are not rounded**, and not rounded at the end.
-- **An export that writes amounts with 3 decimals or more** (`1230.500`), even when they are rounded.
+- **An export that writes every amount with 3 decimals**, even when it is rounded.
 
 ## Technical details
 
-The total without VAT is BT-109, in group BG-22. In CII, the rule reads `ram:TaxBasisTotalAmount` of `ram:SpecifiedTradeSettlementHeaderMonetarySummation`; in UBL, `cbc:TaxExclusiveAmount` of `cac:LegalMonetaryTotal`. It counts the decimals written after the dot, so a trailing zero counts too, and `10.250` fails although it is worth `10.25`.
+The total without VAT is BT-109, in group BG-22. In CII, the rule reads `ram:TaxBasisTotalAmount` of `ram:SpecifiedTradeSettlementHeaderMonetarySummation`; in UBL, `cbc:TaxExclusiveAmount` of `cac:LegalMonetaryTotal`. It counts the decimals as written after the dot.
 
 ## Official text
 

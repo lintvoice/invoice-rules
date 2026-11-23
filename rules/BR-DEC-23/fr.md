@@ -15,17 +15,17 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 ## Comment corriger
 
 1. Arrondissez le montant net de chaque ligne au centime, après avoir multiplié la quantité par le prix.
-2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop (`1230.50`, pas `1230.500`).
+2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop.
 3. Si votre logiciel écrit plus de décimales, signalez-le à son éditeur en citant BR-DEC-23.
 
 ## Causes fréquentes
 
 - **Une quantité multipliée par un prix sans arrondi** (2,5 heures à 33,33 font 83,325).
-- **Un export qui écrit les montants avec 3 décimales ou plus** (`1230.500`), même arrondis.
+- **Un export qui écrit chaque montant avec 3 décimales**, même arrondi.
 
 ## Détails techniques
 
-Le montant net d'une ligne est BT-131, dans le groupe BG-25. En CII, la règle lit `ram:LineTotalAmount` du `ram:SpecifiedTradeSettlementLineMonetarySummation` de chaque ligne ; en UBL, `cbc:LineExtensionAmount` de chaque `cac:InvoiceLine` (ou `cac:CreditNoteLine`). Elle compte les décimales écrites après le point, donc un zéro final compte aussi, et `10.250` échoue bien qu'il vaille `10.25`.
+Le montant net d'une ligne est BT-131, dans le groupe BG-25. En CII, la règle lit `ram:LineTotalAmount` du `ram:SpecifiedTradeSettlementLineMonetarySummation` de chaque ligne ; en UBL, `cbc:LineExtensionAmount` de chaque `cac:InvoiceLine` (ou `cac:CreditNoteLine`). Elle compte les décimales telles qu'elles sont écrites après le point.
 
 Sur une facture française, la règle BR-FR-DEC-01 vérifie aussi ce montant, donc la facture d'exemple française échoue aux deux règles.
 

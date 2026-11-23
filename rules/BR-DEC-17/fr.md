@@ -4,7 +4,7 @@ L'arrondi est écrit avec plus de 2 décimales.
 
 ## Ce que vérifie la règle
 
-L'arrondi est le montant ajouté au total, ou retiré, pour arrondir le net à payer. La règle vérifie que l'arrondi est écrit avec au plus 2 décimales. Par exemple, `1230.50` passe et `1230.505` échoue. Les zéros à la fin comptent aussi, donc `1230.500` échoue, bien que ce soit le même montant.
+L'arrondi est le montant ajouté au total, ou retiré, pour arrondir le net à payer. La règle vérifie que l'arrondi est écrit avec au plus 2 décimales. Par exemple, `0.02` passe et `0.025` échoue. Les zéros à la fin comptent aussi, donc `0.020` échoue, bien que ce soit le même montant.
 
 ## Pourquoi c'est important
 
@@ -15,17 +15,17 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 ## Comment corriger
 
 1. Saisissez l'arrondi en centimes, par exemple `0.02`.
-2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop (`1230.50`, pas `1230.500`).
+2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop.
 3. Si votre logiciel écrit plus de décimales, signalez-le à son éditeur en citant BR-DEC-17.
 
 ## Causes fréquentes
 
 - **Un arrondi calculé comme l'écart avec des montants non arrondis.**
-- **Un export qui écrit les montants avec 3 décimales ou plus** (`1230.500`), même arrondis.
+- **Un export qui écrit chaque montant avec 3 décimales**, même arrondi.
 
 ## Détails techniques
 
-L'arrondi est BT-114, dans le groupe BG-22. En CII, la règle lit `ram:RoundingAmount` de `ram:SpecifiedTradeSettlementHeaderMonetarySummation` ; en UBL, `cbc:PayableRoundingAmount` de `cac:LegalMonetaryTotal`. Elle compte les décimales écrites après le point, donc un zéro final compte aussi, et `10.250` échoue bien qu'il vaille `10.25`.
+L'arrondi est BT-114, dans le groupe BG-22. En CII, la règle lit `ram:RoundingAmount` de `ram:SpecifiedTradeSettlementHeaderMonetarySummation` ; en UBL, `cbc:PayableRoundingAmount` de `cac:LegalMonetaryTotal`. Elle compte les décimales telles qu'elles sont écrites après le point.
 
 Sur une facture française, la règle BR-FR-DEC-01 vérifie aussi ce montant, donc la facture d'exemple française échoue aux deux règles.
 

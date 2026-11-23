@@ -15,7 +15,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 ## How to fix it
 
 1. Round the VAT of each rate to the cent, then add up these rounded amounts to get the VAT total.
-2. Do not compute the VAT total line by line from amounts that are not rounded.
+2. Check that the e-invoice writes the VAT total rounded to the cent.
 3. If your software writes the VAT total with more decimals, report it to the software's publisher, quoting BR-DEC-13.
 
 ## Common causes
@@ -25,9 +25,9 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## Technical details
 
-The VAT total is BT-110, in group BG-22. In CII, the rule reads the value of the `ram:TaxTotalAmount` whose `currencyID` is the invoice currency (BT-5), not how it is written, so `194.750` passes and `194.754` fails. In UBL, the test of the 1.3.17 files compares the amount's currency with a currency code it looks for under the amount itself, where there is none, so the rule does not fire; the UBL syntax rule UBL-DT-01, which allows at most 2 decimals in every amount, catches such an amount.
+The VAT total is BT-110, in group BG-22. In CII, the rule reads the value of the `ram:TaxTotalAmount` whose `currencyID` is the invoice currency (BT-5), not how it is written, so `194.750` passes and `194.754` fails. In UBL, the test of the 1.3.17 files looks for the currency code under the amount itself, where there is none, so the rule never fires. The UBL syntax rule UBL-DT-01, which allows at most 2 decimals in any amount, catches such an amount instead.
 
-A VAT total that is not rounded to the cent is no longer the sum of the VAT breakdown, which is rounded rate by rate, so BR-CO-14 fails with it, and the example invoice fails both rules.
+A VAT total that is not rounded to the cent is no longer the sum of the VAT breakdown, which is rounded rate by rate. So BR-CO-14 fails with it, and the example invoice fails both rules.
 
 ## Official text
 

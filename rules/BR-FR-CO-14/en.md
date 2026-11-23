@@ -19,7 +19,7 @@ BR-FR-CO-14 is one of the rules of the French e-invoicing reform, published by F
 ## Common causes
 
 - **The VAT group's identifier added to the company record** without the note that goes with it.
-- **The note written in other words**, for example "Member of a VAT group", while the rule wants the exact text.
+- **The note written in other words**, for example "Member of a VAT group". The rule wants the exact text.
 
 ## Technical details
 

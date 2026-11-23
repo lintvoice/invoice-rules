@@ -15,17 +15,17 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 ## Comment corriger
 
 1. Calculez le total TTC à partir du total HT et du total de TVA, arrondis au centime.
-2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop (`1230.50`, pas `1230.500`).
+2. Vérifiez que la facture électronique écrit ce montant avec au plus 2 décimales, sans zéros en trop.
 3. Si votre logiciel écrit plus de décimales, signalez-le à son éditeur en citant BR-DEC-14.
 
 ## Causes fréquentes
 
 - **Un total calculé à partir de montants non arrondis**, sans arrondi final.
-- **Un export qui écrit les montants avec 3 décimales ou plus** (`1230.500`), même arrondis.
+- **Un export qui écrit chaque montant avec 3 décimales**, même arrondi.
 
 ## Détails techniques
 
-Le total TTC est BT-112, dans le groupe BG-22. En CII, la règle lit `ram:GrandTotalAmount` de `ram:SpecifiedTradeSettlementHeaderMonetarySummation` ; en UBL, `cbc:TaxInclusiveAmount` de `cac:LegalMonetaryTotal`. Elle compte les décimales écrites après le point, donc un zéro final compte aussi, et `10.250` échoue bien qu'il vaille `10.25`.
+Le total TTC est BT-112, dans le groupe BG-22. En CII, la règle lit `ram:GrandTotalAmount` de `ram:SpecifiedTradeSettlementHeaderMonetarySummation` ; en UBL, `cbc:TaxInclusiveAmount` de `cac:LegalMonetaryTotal`. Elle compte les décimales telles qu'elles sont écrites après le point.
 
 Sur une facture française, la règle BR-FR-DEC-01 vérifie aussi ce montant. La facture d'exemple française écrit aussi le net à payer avec 3 décimales, donc elle échoue à BR-FR-DEC-01, BR-DEC-14 et BR-DEC-18.
 

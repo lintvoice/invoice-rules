@@ -19,7 +19,7 @@ BR-FR-CO-14 fait partie des règles de la réforme française de la facturation 
 ## Causes fréquentes
 
 - **L'identifiant du groupe TVA ajouté à la fiche de l'entreprise** sans la mention qui va avec.
-- **La mention écrite avec d'autres mots**, par exemple « Membre d'un assujetti unique », alors que la règle attend le texte exact.
+- **La mention écrite avec d'autres mots**, par exemple « Membre d'un assujetti unique ». La règle attend le texte exact.
 
 ## Détails techniques
 
