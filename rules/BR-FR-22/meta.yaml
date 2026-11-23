@@ -45,9 +45,10 @@ search:
 examples:
   source: invoice-examples
   version: 0.2.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-FR-22.xml
+  targets:
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-FR-22.xml
 topic: addresses
 related:
 - BR-FR-21

@@ -46,10 +46,14 @@ search:
   - erreur BR-CO-13 factur-x
 examples:
   source: invoice-examples
-  version: 0.3.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-CO-13.xml
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-CO-13.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CO-13.xml
 topic: totals
 related:
 - BR-CO-10

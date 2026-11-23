@@ -43,10 +43,14 @@ search:
   - erreur BR-E-10 factur-x
 examples:
   source: invoice-examples
-  version: 0.4.0
-  target: fr
-  valid: examples/fr/fixed/BR-E-10.xml
-  invalid: examples/fr/invalid/BR-E-10.xml
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-E-10.xml
+      invalid: examples/en16931/invalid/BR-E-10.xml
+    fr:
+      valid: examples/fr/fixed/BR-E-10.xml
+      invalid: examples/fr/invalid/BR-E-10.xml
 topic: vat
 related:
 - BR-S-02

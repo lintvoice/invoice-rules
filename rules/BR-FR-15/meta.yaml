@@ -55,9 +55,10 @@ search:
 examples:
   source: invoice-examples
   version: 0.2.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-FR-15.xml
+  targets:
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-FR-15.xml
 topic: vat
 related:
 - BR-FR-16

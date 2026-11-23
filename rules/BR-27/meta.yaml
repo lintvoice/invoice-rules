@@ -42,10 +42,14 @@ search:
   - erreur BR-27 factur-x
 examples:
   source: invoice-examples
-  version: 0.4.0
-  target: fr
-  valid: examples/fr/fixed/BR-27.xml
-  invalid: examples/fr/invalid/BR-27.xml
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-27.xml
+      invalid: examples/en16931/invalid/BR-27.xml
+    fr:
+      valid: examples/fr/fixed/BR-27.xml
+      invalid: examples/fr/invalid/BR-27.xml
 topic: lines
 related:
 - BR-26

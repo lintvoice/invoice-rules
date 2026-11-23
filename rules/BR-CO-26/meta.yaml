@@ -44,10 +44,14 @@ search:
   - erreur BR-CO-26 factur-x
 examples:
   source: invoice-examples
-  version: 0.3.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-CO-26.xml
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-CO-26.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CO-26.xml
 topic: identifiers
 related:
 - BR-FR-10

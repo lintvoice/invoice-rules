@@ -30,10 +30,14 @@ search:
   fr: [BR-CO-15, total TTC incohérent facture électronique, BT-112, erreur BR-CO-15 factur-x]
 examples:
   source: invoice-examples
-  version: 0.2.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-CO-15.xml
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-CO-15.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CO-15.xml
 topic: totals
 related: [BR-CO-13, BR-CO-14, BR-CO-16]
 updated: 2026-11-16

@@ -43,10 +43,14 @@ search:
   - erreur BR-CO-22 factur-x
 examples:
   source: invoice-examples
-  version: 0.3.0
-  target: fr
-  valid: examples/fr/fixed/BR-CO-22.xml
-  invalid: examples/fr/invalid/BR-CO-22.xml
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-CO-22.xml
+      invalid: examples/en16931/invalid/BR-CO-22.xml
+    fr:
+      valid: examples/fr/fixed/BR-CO-22.xml
+      invalid: examples/fr/invalid/BR-CO-22.xml
 topic: lines
 related:
 - BR-CO-12

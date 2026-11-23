@@ -31,9 +31,10 @@ search:
 examples:
   source: invoice-examples
   version: 0.3.0
-  target: fr
-  valid: examples/fr/fixed/BR-CO-25.xml
-  invalid: examples/fr/invalid/BR-CO-25.xml
+  targets:
+    fr:
+      valid: examples/fr/fixed/BR-CO-25.xml
+      invalid: examples/fr/invalid/BR-CO-25.xml
 topic: payment
 related: [BR-CO-16, BR-FR-CO-09, BR-FR-05]
 updated: 2026-11-17

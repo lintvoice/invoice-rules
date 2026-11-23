@@ -3,8 +3,10 @@ the rule set, severity, the ids validators report, where the rule looks in CII a
 the example files. The words (title, brief, search terms, when, topic, related) stay to be written; an existing
 meta.yaml is never overwritten.
 
-    uv run python tools/scaffold.py RULES_CACHE EXAMPLES_MANIFEST PAGE_ID [PAGE_ID ...]
-    uv run python tools/scaffold.py RULES_CACHE EXAMPLES_MANIFEST --facts PAGE_ID   # print the raw facts
+    uv run python tools/scaffold.py RULES_CACHE EXAMPLES_DIR PAGE_ID [PAGE_ID ...]
+    uv run python tools/scaffold.py RULES_CACHE EXAMPLES_DIR --facts PAGE_ID   # print the raw facts
+
+EXAMPLES_DIR is invoice-examples' examples/ folder: each target's manifest.json is read, the European one first.
 """
 
 import json
@@ -96,7 +98,39 @@ def _clean(message, assert_id):
     return m.strip()
 
 
-def facts(page_id, found, manifest):
+def chosen(page_id, reported_ids, manifest):
+    """The example of a page in one target: one about the rule (its own name first), else the one that fails it next
+    to the fewest other rules; None when no example fails it."""
+    invalid = [e for e in manifest["examples"] if e["status"] == "invalid"]
+    own = [e for e in invalid if page_of(e["rule"]) == page_id]
+    if own:
+        return next((e for e in own if e["id"] == page_id), own[0])
+    failing = [e for e in invalid if set(e["fires"]) & set(reported_ids)]
+    return min(failing, key=lambda e: len(e["fires"]), default=None)
+
+
+def targets(page_id, reported_ids, manifests):
+    """Each target's files for a page: the failing example and the same invoice without the mistake (its fixed
+    counterpart when the example first adds something)."""
+    out = {}
+    for m in manifests:
+        e = chosen(page_id, reported_ids, m)
+        if e:
+            folder = f"examples/{m['target']}"
+            out[m["target"]] = {
+                "valid": f"{folder}/{e.get('fixed', {}).get('xml', 'valid.xml')}",
+                "invalid": f"{folder}/{e['files']['xml']}",
+            }
+    return out
+
+
+def manifests(examples_dir):
+    """The manifest of each target in invoice-examples' examples/ folder, the European one first."""
+    found = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path(examples_dir).glob("*/manifest.json"))]
+    return sorted(found, key=lambda m: (m["target"] != "en16931", m["target"]))
+
+
+def facts(page_id, found, manifests):
     asserts = found[page_id]
     main = next((a for a in asserts if a["id"].split("_")[0] == page_id and a["syntax"] == "cii"), asserts[0])
     by_syntax = {}
@@ -105,8 +139,6 @@ def facts(page_id, found, manifest):
     bts = sorted(
         {bt for a in asserts for bt in re.findall(r"BT-\d+", a["id"] + " " + a["message"])}, key=lambda b: int(b[3:])
     )
-    examples = [e for e in manifest["examples"] if e["status"] == "invalid" and page_of(e["rule"]) == page_id]
-    chosen = next((e for e in examples if e["id"] == page_id), examples[0] if examples else None)
     is_fr = main["set"] == "brfr"
     return {
         "id": page_id,
@@ -136,11 +168,8 @@ def facts(page_id, found, manifest):
         "search": {"en": [page_id], "fr": [page_id]},
         "examples": {
             "source": "invoice-examples",
-            "version": manifest["generator"].split()[-1],
-            "target": manifest["target"],
-            # the same invoice without the mistake: the fixed counterpart when the example first adds something
-            "valid": f"examples/{manifest['target']}/{(chosen or {}).get('fixed', {}).get('xml', 'valid.xml')}",
-            "invalid": f"examples/{manifest['target']}/{chosen['files']['xml']}" if chosen else None,
+            "version": manifests[0]["generator"].split()[-1],
+            "targets": targets(page_id, sorted({a["id"] for a in asserts}), manifests),
         },
         "topic": "TODO",  # one of FORMAT.md's list: the tests refuse TODO
         "related": [],
@@ -149,8 +178,8 @@ def facts(page_id, found, manifest):
 
 
 def main(argv):
-    cache, manifest_path, *rest = argv
-    found, manifest = collect(cache), json.loads(Path(manifest_path).read_text(encoding="utf-8"))
+    cache, examples_dir, *rest = argv
+    found, found_manifests = collect(cache), manifests(examples_dir)
     if rest and rest[0] == "--facts":
         for page_id in rest[1:]:
             print(json.dumps(found[page_id], ensure_ascii=False, indent=1))
@@ -162,7 +191,7 @@ def main(argv):
             continue
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(
-            yaml.safe_dump(facts(page_id, found, manifest), allow_unicode=True, sort_keys=False, width=200),
+            yaml.safe_dump(facts(page_id, found, found_manifests), allow_unicode=True, sort_keys=False, width=200),
             encoding="utf-8",
         )
         print(f"{page_id}: meta.yaml written")

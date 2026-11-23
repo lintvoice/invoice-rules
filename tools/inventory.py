@@ -1,10 +1,10 @@
 """List the business rules the site covers, from the official rule files lintvoice installs, and which ones
 already have a failing example in invoice-examples.
 
-    uv run python tools/inventory.py RULES_CACHE EXAMPLES_MANIFEST > inventory.json
+    uv run python tools/inventory.py RULES_CACHE EXAMPLES_DIR > inventory.json
 
-RULES_CACHE is lintvoice's rules folder (en16931-<version>/, france-rfe-<version>/); EXAMPLES_MANIFEST is
-invoice-examples' examples/fr/manifest.json.
+RULES_CACHE is lintvoice's rules folder (en16931-<version>/, france-rfe-<version>/); EXAMPLES_DIR is
+invoice-examples' examples/ folder. A rule's examples are named <target>/<example id>, in every target that has one.
 """
 
 import json
@@ -41,7 +41,7 @@ def base_id(assert_id):
     return re.sub(r"_.*$", "", assert_id)
 
 
-def main(cache, manifest):
+def main(cache, examples_dir):
     cache = Path(cache)
     found = {}
     for path in sorted(cache.glob("en16931-*/*/schematron/preprocessed/*.sch")):
@@ -87,11 +87,14 @@ def main(cache, manifest):
                 e["messages"].add(r["message"])
                 e["asserts"].add(r["id"])
                 e.setdefault("profiles", set()).add(profile)
-    examples = json.loads(Path(manifest).read_text(encoding="utf-8"))["examples"]
     fired = {}
-    for ex in examples:
-        for f in ex.get("fires", []):
-            fired.setdefault(base_id(f) if f.startswith("BR-FR") else f, []).append(ex["id"])
+    for path in sorted(Path(examples_dir).glob("*/manifest.json")):
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+        for ex in manifest["examples"]:
+            for f in ex.get("fires", []):
+                fired.setdefault(base_id(f) if f.startswith("BR-FR") else f, []).append(
+                    f"{manifest['target']}/{ex['id']}"
+                )
     out = []
     for rid in sorted(found):
         e = found[rid]

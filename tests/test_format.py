@@ -96,22 +96,33 @@ def test_wording(folder, lang):
     assert not FORBIDDEN.findall(text)
 
 
+TARGETS = {"en16931", "fr"}  # invoice-examples' targets, the European one first
+
+
+@pytest.mark.parametrize("folder", RULES, ids=lambda p: p.name)
+def test_examples_name_known_targets_the_european_one_first(folder):
+    targets = list(meta(folder)["examples"]["targets"])
+    assert set(targets) <= TARGETS
+    assert targets == sorted(targets, key=["en16931", "fr"].index)
+
+
 @pytest.mark.skipif(not EXAMPLES_REPO.exists(), reason="invoice-examples is not checked out next to this repo")
 @pytest.mark.parametrize("folder", RULES, ids=lambda p: p.name)
 def test_examples_exist_and_fail_the_rule(folder):
     ex = meta(folder)["examples"]
-    if ex["invalid"] is None:
+    if not ex["targets"]:
         # the page says why it has no example, in both languages, so that a visitor does not take it for a bug
         assert set(ex.get("none") or {}) == {"en", "fr"}, "a page without an example says why (examples.none)"
         pytest.skip("no example file for this rule")
-    for key in ("valid", "invalid"):
-        assert (EXAMPLES_REPO / ex[key]).exists(), ex[key]
-    manifest = json.loads((EXAMPLES_REPO / "examples" / ex["target"] / "manifest.json").read_text(encoding="utf-8"))
-    entry = next(
-        e for e in manifest["examples"] if e["files"].get("xml") == ex["invalid"].split(f"examples/{ex['target']}/")[1]
-    )
-    # a rule can be reported under several ids (one per field it checks); the example fails at least one of them
-    assert set(meta(folder)["reported_ids"]) & set(entry["fires"])
-    # the fix shown is the same invoice without the mistake: the fixed counterpart when the example first adds something
-    fixed = entry.get("fixed", {}).get("xml")
-    assert ex["valid"] == f"examples/{ex['target']}/{fixed or 'valid.xml'}"
+    for target, files in ex["targets"].items():
+        for key in ("valid", "invalid"):
+            assert (EXAMPLES_REPO / files[key]).exists(), files[key]
+        folder_of = f"examples/{target}/"
+        manifest = json.loads((EXAMPLES_REPO / folder_of / "manifest.json").read_text(encoding="utf-8"))
+        entry = next(e for e in manifest["examples"] if e["files"].get("xml") == files["invalid"].split(folder_of)[1])
+        # a rule can be reported under several ids (one per field it checks); the example fails at least one of them
+        assert set(meta(folder)["reported_ids"]) & set(entry["fires"]), (target, entry["id"])
+        # the fix shown is the same invoice without the mistake: the fixed counterpart when the example first adds
+        # something
+        fixed = entry.get("fixed", {}).get("xml")
+        assert files["valid"] == f"{folder_of}{fixed or 'valid.xml'}"

@@ -28,12 +28,12 @@ The format is specified in [FORMAT.md](FORMAT.md). `uv run pytest` checks:
 ## Tools
 
 ```sh
-uv run python tools/inventory.py RULES_CACHE EXAMPLES_MANIFEST            # every business rule, and which ones have an example
-uv run python tools/scaffold.py RULES_CACHE EXAMPLES_MANIFEST BR-FR-12    # write a page's facts (meta.yaml) from the rule files
+uv run python tools/inventory.py RULES_CACHE EXAMPLES_DIR            # every business rule, and which ones have an example
+uv run python tools/scaffold.py RULES_CACHE EXAMPLES_DIR BR-FR-12    # write a page's facts (meta.yaml) from the rule files
 ```
 
-`RULES_CACHE` is the folder where lintvoice installs the official rule packs; `EXAMPLES_MANIFEST` is
-`examples/fr/manifest.json` in invoice-examples. The words of a page are written by hand.
+`RULES_CACHE` is the folder where lintvoice installs the official rule packs; `EXAMPLES_DIR` is invoice-examples'
+`examples/` folder, one target per subfolder. The words of a page are written by hand.
 
 ## Sources
 

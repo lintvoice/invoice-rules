@@ -54,9 +54,10 @@ search:
 examples:
   source: invoice-examples
   version: 0.2.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-FR-09.xml
+  targets:
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-FR-09.xml
 topic: identifiers
 related:
 - BR-FR-10

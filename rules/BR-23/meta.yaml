@@ -42,10 +42,14 @@ search:
   - erreur BR-23 factur-x
 examples:
   source: invoice-examples
-  version: 0.4.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-23.xml
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-23.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-23.xml
 topic: lines
 related:
 - BR-22

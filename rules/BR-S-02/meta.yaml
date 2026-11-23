@@ -47,10 +47,14 @@ search:
   - erreur BR-S-02 factur-x
 examples:
   source: invoice-examples
-  version: 0.4.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-S-02.xml
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-S-02.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-S-02.xml
 topic: identifiers
 related:
 - BR-CO-26

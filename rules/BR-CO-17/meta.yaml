@@ -44,10 +44,14 @@ search:
   - erreur BR-CO-17 factur-x
 examples:
   source: invoice-examples
-  version: 0.3.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-CO-17.xml
+  version: 0.7.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-CO-17.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CO-17.xml
 topic: vat
 related:
 - BR-CO-14

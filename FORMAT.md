@@ -37,15 +37,25 @@ brief: {en: "...", fr: "..."}        # "In short" / "En bref": one sentence unde
 search: {en: [...], fr: [...]}       # what people type: rule id first, then the problem in their words
 examples:                            # from lintvoice/invoice-examples, CC0
   source: invoice-examples
-  version: 0.1.0
-  target: fr
-  valid: examples/fr/valid.xml
-  invalid: examples/fr/invalid/BR-FR-10.xml   # or null when there is no example
-  none: {en: "...", fr: "..."}   # with invalid: null, why there is no example, in plain words (shown on the page)
+  version: 0.7.0                     # the release whose files are named here
+  targets:                           # one entry per target with an example of the rule, the European one first
+    en16931:                         # a German invoice that follows EN 16931, with no national rule
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-CO-15.xml
+    fr:                              # a French invoice, where the French rules (BR-FR) also apply
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CO-15.xml
+  none: {en: "...", fr: "..."}       # with no target, why there is no example, in plain words (shown on the page)
 topic: identifiers                   # what the rule is about on the invoice (list below)
 related: [BR-FR-09, BR-FR-11]
 updated: 2026-11-05
 ```
+
+**`examples`**: `valid` is the same invoice without the mistake: the target's `valid.xml`, or the example's fixed
+counterpart (`fixed/<name>.xml`) when the failing example first adds something to the invoice. A rule may have an
+example in several targets: an EN 16931 rule has one on the European invoice and one on the French invoice, where a
+French rule on the same data sometimes fails next to it. The site shows one per page: `fr` on the French page,
+`en16931` on the English page, each falling back on the other. Another target of invoice-examples adds an entry.
 
 **`topic`**, one per rule, from this fixed list: what the rule is about on the invoice, in the words of the people who
 invoice. The rules index groups and filters by it. A new value comes only with a new subject (for example the rules
