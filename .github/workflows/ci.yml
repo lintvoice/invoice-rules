@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { path: invoice-rules, persist-credentials: false }
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with: { repository: lintvoice/invoice-examples, ref: v0.4.0, path: invoice-examples, persist-credentials: false }
+        with: { repository: lintvoice/invoice-examples, ref: v0.7.0, path: invoice-examples, persist-credentials: false }
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
       - run: uvx ruff@0.17.2 check .
       - run: uvx ruff@0.17.2 format --check .
@@ -35,7 +35,7 @@ jobs:
         with: { path: invoice-rules, persist-credentials: false }
       # the examples the pages link to, expected next to this repo
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with: { path: invoice-examples, repository: lintvoice/invoice-examples, ref: v0.4.0, persist-credentials: false }
+        with: { path: invoice-examples, repository: lintvoice/invoice-examples, ref: v0.7.0, persist-credentials: false }
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
       - run: uv run pytest -q
         working-directory: invoice-rules
