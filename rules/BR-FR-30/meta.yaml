@@ -1,0 +1,57 @@
+id: BR-FR-30
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-128
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:AdditionalReferencedDocument
+  ubl: /Invoice/cac:InvoiceLine/cac:DocumentReference
+official_message:
+  lang: fr
+  text: Parmi les identifiants d’objets facturés à la ligne (BT-128), les schémas d’identification "AFL" et "AVV" ne doivent être présents qu’une seule fois chacun.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-30_AFL
+- BR-FR-30_AVV
+- BR-FR-30_BT-128
+title:
+  en: A line's invoiced object reference of type AFL or AVV is repeated or empty
+  fr: Une référence d'objet facturé de type AFL ou AVV est répétée ou vide sur une ligne
+brief:
+  en: Each invoice line may give at most one invoiced object reference of type AFL and one of type AVV, and neither may be empty.
+  fr: Chaque ligne de la facture peut donner au plus une référence d'objet facturé de type AFL et une de type AVV, et aucune ne doit être vide.
+search:
+  en:
+  - BR-FR-30
+  - invoice line object identifier AFL AVV
+  - BT-128
+  - DocumentReference
+  fr:
+  - BR-FR-30
+  - référence objet facturé ligne AFL AVV
+  - BT-128
+  - erreur BR-FR-30
+examples:
+  source: invoice-examples
+  version: 0.7.0
+  targets: {}
+  none:
+    en: 'No example invoice for this rule: in a Factur-X or CII invoice, the rule looks for these references where the format never puts them, so it cannot fail. It works on UBL invoices, and our examples
+      are CII invoices.'
+    fr: 'Pas de facture d''exemple pour cette règle : dans une facture Factur-X ou CII, la règle cherche ces références là où le format ne les met jamais, donc elle ne peut pas échouer. Elle fonctionne
+      sur les factures UBL, et nos exemples sont des factures CII.'
+topic: lines
+related:
+- BR-FR-29
+updated: '2026-11-23'

@@ -1,0 +1,57 @@
+id: BR-FR-CO-14
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-29
+- BT-21
+- BT-22
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:GlobalID
+  ubl: /Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID
+official_message:
+  lang: fr
+  text: Si le schéma d’identification du vendeur (BT-29-1) est '0231', cela signifie qu’il est membre d’un assujetti unique. Dans ce cas, une note (BG-1) avec le code sujet 'TXD' (BT-21) et le texte 'MEMBRE_ASSUJETTI_UNIQUE'
+    (BT-22) doit être présente.
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-CO-14_BT-29-1
+title:
+  en: A VAT group member's invoice lacks the note that says so
+  fr: La facture d'un membre d'un groupe TVA n'a pas la mention qui le dit
+brief:
+  en: When the seller is identified as a member of a VAT group, the invoice must carry the tax note MEMBRE_ASSUJETTI_UNIQUE.
+  fr: Quand le vendeur est identifié comme membre d'un groupe TVA, la facture doit porter la mention fiscale « MEMBRE_ASSUJETTI_UNIQUE ».
+search:
+  en:
+  - BR-FR-CO-14
+  - VAT group member note TXD
+  - MEMBRE_ASSUJETTI_UNIQUE
+  - assujetti unique 0231
+  fr:
+  - BR-FR-CO-14
+  - assujetti unique mention TXD
+  - MEMBRE_ASSUJETTI_UNIQUE
+  - erreur BR-FR-CO-14
+examples:
+  source: invoice-examples
+  version: 0.7.0
+  targets:
+    fr:
+      valid: examples/fr/fixed/BR-FR-CO-14.xml
+      invalid: examples/fr/invalid/BR-FR-CO-14.xml
+topic: payment
+related:
+- BR-FR-CO-15
+- BR-FR-32
+updated: '2026-11-23'

@@ -33,4 +33,4 @@ BR-FR-27, [France_RFE 1.4.0.04](https://github.com/fnfempe/France_RFE/tree/97ba0
 
 ## Règles voisines
 
-Pas de règle voisine directe.
+- [BR-FR-28](../BR-FR-28/) : une caractéristique d'article donne sa valeur soit en texte, soit en mesure.

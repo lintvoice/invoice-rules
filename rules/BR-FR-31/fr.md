@@ -22,13 +22,13 @@ BR-FR-31 fait partie des règles de la réforme française de la facturation él
 
 ## Détails techniques
 
-Notes (BG-1) dont le code de sujet BT-21 vaut `BAR` : au plus une.
+Notes (BG-1) dont le code de sujet BT-21 vaut `BAR` : au plus une. Dans le fichier UBL des règles, ce contrôle porte l'identifiant `BR-FR-30_BT-21`, bien que son message cite BR-FR-31.
 
 ## Texte officiel
 
 > Lorsque plusieurs notes ont le code sujet « BAR » (BT-21), Il ne peut y avoir qu'une seule valeur associée (BT-22, contenu de la note) parmi l’une des suivantes : B2B, B2BINT, B2C, OUTOFSCOPE, ARCHIVEONLY.
 
-BR-FR-31, [France_RFE 1.4.0.04](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d), FNFE-MPE. Les validateurs la signalent sous l'identifiant `BR-FR-31_BT-21`.
+BR-FR-31, [France_RFE 1.4.0.04](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d), FNFE-MPE. Les validateurs la signalent sous les identifiants `BR-FR-31_BT-21`, `BR-FR-30_BT-21`.
 
 ## Règles voisines
 

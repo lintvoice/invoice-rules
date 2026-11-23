@@ -1,0 +1,55 @@
+id: BR-FR-CO-15
+rule_set:
+  name: BR-FR (France_RFE, FNFE-MPE)
+  version: 1.4.0.04
+  source: https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d
+  licence: Apache-2.0 (repository); EUPL (Schematron headers)
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against the French reform rules (BR-FR), whatever the profile except Factur-X MINIMUM.
+    fr: Toute facture vérifiée selon les règles de la réforme française (BR-FR), quel que soit le profil sauf Factur-X MINIMUM.
+business_terms:
+- BT-29
+- BT-63
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTaxRepresentativeTradeParty/ram:SpecifiedTaxRegistration/ram:ID
+  ubl: /Invoice/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID
+official_message:
+  lang: fr
+  text: Si le vendeur est membre d’un assujetti unique (BT-29-1 = 0231), alors le bloc représentant fiscal (BG-11) doit être présent et contenir le numéro de TVA de l’assujetti unique (BT-63).
+  source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
+reported_ids:
+- BR-FR-CO-15_BT-29-1
+title:
+  en: A VAT group member's invoice does not give the group's VAT number
+  fr: La facture d'un membre d'un groupe TVA n'indique pas le numéro de TVA du groupe
+brief:
+  en: When the seller is identified as a member of a VAT group, the invoice must give the group's VAT number, as the seller's tax representative.
+  fr: Quand le vendeur est identifié comme membre d'un groupe TVA, la facture doit indiquer le numéro de TVA du groupe, comme représentant fiscal du vendeur.
+search:
+  en:
+  - BR-FR-CO-15
+  - VAT group member tax representative VAT number
+  - BG-11 BT-63
+  - SellerTaxRepresentativeTradeParty
+  fr:
+  - BR-FR-CO-15
+  - assujetti unique représentant fiscal numéro de TVA
+  - BG-11 BT-63
+  - erreur BR-FR-CO-15
+examples:
+  source: invoice-examples
+  version: 0.7.0
+  targets:
+    fr:
+      valid: examples/fr/fixed/BR-FR-CO-15.xml
+      invalid: examples/fr/invalid/BR-FR-CO-15.xml
+topic: identifiers
+related:
+- BR-FR-CO-14
+- BR-FR-32
+updated: '2026-11-23'

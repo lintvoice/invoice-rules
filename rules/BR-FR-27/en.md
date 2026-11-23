@@ -33,4 +33,4 @@ BR-FR-27, [France_RFE 1.4.0.04](https://github.com/fnfempe/France_RFE/tree/97ba0
 
 ## Related rules
 
-No closely related rule.
+- [BR-FR-28](../BR-FR-28/): an item attribute gives its value either as text or as a measure.

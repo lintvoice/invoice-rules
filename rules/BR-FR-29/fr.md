@@ -33,4 +33,4 @@ BR-FR-29, [France_RFE 1.4.0.04](https://github.com/fnfempe/France_RFE/tree/97ba0
 
 ## Règles voisines
 
-Pas de règle voisine directe.
+- [BR-FR-30](../BR-FR-30/) : la même règle pour les références d'objet facturé d'une ligne.

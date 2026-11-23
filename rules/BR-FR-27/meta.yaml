@@ -49,5 +49,5 @@ examples:
       valid: examples/fr/valid.xml
       invalid: examples/fr/invalid/BR-FR-27.xml
 topic: lines
-related: []
-updated: '2026-11-16'
+related: [BR-FR-28]
+updated: '2026-11-23'

@@ -24,6 +24,7 @@ official_message:
   source: https://github.com/fnfempe/France_RFE/blob/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/EN16931/schematron/BR-FR-Flux2-Schematron-CII.sch
 reported_ids:
 - BR-FR-31_BT-21
+- BR-FR-30_BT-21
 title:
   en: The invoice has more than one BAR note
   fr: La facture a plus d'une note BAR
@@ -50,4 +51,4 @@ examples:
 topic: payment
 related:
 - BR-FR-20
-updated: '2026-11-16'
+updated: '2026-11-23'

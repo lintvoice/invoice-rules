@@ -33,4 +33,4 @@ BR-FR-29, [France_RFE 1.4.0.04](https://github.com/fnfempe/France_RFE/tree/97ba0
 
 ## Related rules
 
-No closely related rule.
+- [BR-FR-30](../BR-FR-30/): the same rule for the invoiced object references of a line.
