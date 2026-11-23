@@ -85,6 +85,28 @@ The same sections, in this order. The tests check them.
 The example is not written in the page: the site shows the difference between the failing example file and the
 valid one, so it always matches the files people download.
 
+## The glossary: `glossary.yaml`
+
+The words of e-invoicing, one entry each, in English and French (written natively, like the pages), grouped by
+subject. The site's glossary page is built from it.
+
+```yaml
+groups:
+  - key: formats                      # the group's anchor on the page
+    name: {en: "...", fr: "..."}
+    line: {en: "...", fr: "..."}       # one line under the group's name
+terms:
+  - id: factur-x                      # the word's anchor on the page, the same in both languages: it never changes
+    group: formats                    # a group's key
+    name: {en: "...", fr: "..."}       # where the two differ, each page also shows the other language's name
+    text: {en: "...", fr: "..."}       # what the word means, in a few everyday sentences
+    source: https://...                # the official source of that meaning
+    source_name: {en: "...", fr: "..."}
+    rules: [BR-FR-10]                  # optional: the rules that check it
+```
+
+The writing rules below apply to it too. An id can be added, never renamed or removed: links to the page point to it.
+
 ## Writing rules
 
 - **Everyday words first.** The sections before `Technical details` speak to the people who invoice (business owners,
@@ -98,4 +120,4 @@ valid one, so it always matches the files people download.
 - **"Checks against the official rules" (or "helps check"), never "certified" or "compliant".** An example "passes" or "fails" named rules at named versions.
 - **Titles for search:** the site builds the HTML title as `<problem in plain words> (<RULE-ID>) · validator | lintvoice`;
   the page's H1 is the plain-words title.
-- **Licence:** page text CC BY-SA 4.0 (`LICENSE`); XML examples CC0 (they come from `invoice-examples`).
+- **Licence:** page and glossary text CC BY-SA 4.0 (`LICENSE`); XML examples CC0 (they come from `invoice-examples`).

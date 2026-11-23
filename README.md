@@ -3,7 +3,8 @@
 # E-invoicing rules, explained
 
 What each e-invoicing rule checks, why it matters and how to fix it, in plain words, with a valid and an invalid
-example. One page per rule, in English and French, for the business rules of EN 16931 and of the French reform (BR-FR).
+example. One page per rule, in English and French, for the business rules of EN 16931 and of the French reform (BR-FR),
+and a glossary of the words of e-invoicing.
 
 > Status: 67 pages: the French reform rules (BR-FR) that have an example file, the EN 16931 rules BR-CO, and the
 > first core and VAT rules of EN 16931 (BR-16, BR-22, BR-23, BR-26, BR-27, BR-S-02, BR-S-08, BR-E-10). Published on
@@ -15,10 +16,12 @@ example. One page per rule, in English and French, for the business rules of EN 
 rules/<RULE-ID>/meta.yaml   facts: rule set and version, business terms, XML paths, official message, examples
 rules/<RULE-ID>/en.md       the page in English
 rules/<RULE-ID>/fr.md       the page in French, written natively
+glossary.yaml               the glossary: each word in English and French, its official source, the rules that check it
 ```
 
 The format is specified in [FORMAT.md](FORMAT.md). `uv run pytest` checks:
 - every folder against it: required fields, the same sections in both languages, the official message quoted;
+- the glossary: both languages for every word, a source each, groups and anchors that hold;
 - the wording;
 - that each invalid example fails the rule (with `invoice-examples` checked out next to this repo).
 
@@ -43,5 +46,5 @@ The examples come from [invoice-examples](https://github.com/lintvoice/invoice-e
 
 ## Licences
 
-- Page text: [CC BY-SA 4.0](LICENSE). Reuse it, credit "invoice-rules (lintvoice)", share alike.
+- Page and glossary text: [CC BY-SA 4.0](LICENSE). Reuse it, credit "invoice-rules (lintvoice)", share alike.
 - XML examples: CC0, from invoice-examples.
