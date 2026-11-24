@@ -1,0 +1,62 @@
+id: BR-B-01
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that uses the VAT category B, Italy's split payment (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui utilise la catégorie de TVA B, paiement scindé italien (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-151
+- BT-95
+- BT-102
+- BT-40
+- BT-55
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax/ram:CategoryCode
+  ubl: /Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:ID
+official_message:
+  lang: en
+  text: An Invoice where the VAT category code (BT-151, BT-95 or BT-102) is “Split payment” shall be a domestic Italian invoice.
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-B-01
+title:
+  en: Split payment is for Italian invoices only
+  fr: Le paiement scindé est réservé aux factures italiennes
+brief:
+  en: The VAT category B, Italy's split payment, belongs on an invoice whose parties and addresses are all in Italy.
+  fr: La catégorie de TVA B, le paiement scindé italien, ne va que sur une facture dont les parties et les adresses sont toutes en Italie.
+search:
+  en:
+  - BR-B-01
+  - split payment VAT category B
+  - Italy split payment e-invoice
+  - BT-151 category B
+  fr:
+  - BR-B-01
+  - paiement scindé catégorie de TVA B
+  - scissione dei pagamenti
+  - erreur BR-B-01 factur-x
+examples:
+  source: invoice-examples
+  version: 0.9.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-B-01.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-B-01.xml
+topic: vat
+related:
+- BR-B-02
+- BR-CL-18
+- BR-FR-15
+updated: '2026-11-24'

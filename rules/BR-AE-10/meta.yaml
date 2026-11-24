@@ -1,0 +1,60 @@
+id: BR-AE-10
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that uses the VAT category AE, reverse charge (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui utilise la catégorie de TVA AE, autoliquidation (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-120
+- BT-121
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:ExemptionReason
+  ubl: /Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReason
+official_message:
+  lang: en
+  text: A VAT Breakdown (BG-23) with VAT Category code (BT-118) "Reverse charge" shall have a VAT exemption reason code (BT-121), meaning "Reverse charge" or the VAT exemption reason text (BT-120) "Reverse
+    charge" (or the equivalent standard text in another language).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-AE-10
+title:
+  en: The reverse charge mention is missing
+  fr: La mention d'autoliquidation manque
+brief:
+  en: The VAT breakdown in category AE (reverse charge) gives the reason no VAT is charged, as text or as a code.
+  fr: La ventilation de TVA de la catégorie AE (autoliquidation) indique pourquoi aucune TVA n'est facturée, en texte ou sous forme de code.
+search:
+  en:
+  - BR-AE-10
+  - VAT category AE exemption reason
+  - BT-120 BT-121
+  - VATEX exemption reason code
+  fr:
+  - BR-AE-10
+  - motif d'exonération catégorie AE
+  - BT-120 BT-121 VATEX
+  - erreur BR-AE-10 factur-x
+examples:
+  source: invoice-examples
+  version: 0.9.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-AE-10.xml
+      invalid: examples/en16931/invalid/BR-AE-10.xml
+    fr:
+      valid: examples/fr/fixed/BR-AE-10.xml
+      invalid: examples/fr/invalid/BR-AE-10.xml
+topic: vat
+related:
+- BR-E-10
+- BR-AE-01
+- BR-CL-22
+updated: '2026-11-24'

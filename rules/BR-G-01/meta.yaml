@@ -1,0 +1,62 @@
+id: BR-G-01
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that uses the VAT category G, export outside the EU (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui utilise la catégorie de TVA G, exportation hors de l'UE (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-118
+- BT-151
+- BT-95
+- BT-102
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:CategoryCode
+  ubl: /Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID
+official_message:
+  lang: en
+  text: An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where the VAT category code (BT-151, BT-95 or BT-102) is "Export outside the
+    EU" shall contain in the VAT breakdown (BG-23) exactly one VAT category code (BT-118) equal with "Export outside the EU".
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-G-01
+title:
+  en: Exports outside the EU need exactly one VAT breakdown
+  fr: Les exportations hors de l'UE doivent avoir une ventilation de TVA, une seule
+brief:
+  en: An invoice with a line, an allowance or a charge in the VAT category G (export outside the EU) must have exactly one VAT breakdown for it.
+  fr: Une facture qui a une ligne, une remise ou des frais de la catégorie de TVA G (exportation hors de l'UE) doit avoir une ventilation de TVA pour cette catégorie, et une seule.
+search:
+  en:
+  - BR-G-01
+  - VAT breakdown missing category G
+  - BG-23 BT-118
+  - VAT category G Export outside the EU
+  fr:
+  - BR-G-01
+  - ventilation de TVA manquante catégorie G
+  - BG-23 BT-118
+  - erreur BR-G-01 factur-x
+examples:
+  source: invoice-examples
+  version: 0.9.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-G-01.xml
+      invalid: examples/en16931/invalid/BR-G-01.xml
+    fr:
+      valid: examples/fr/fixed/BR-G-01.xml
+      invalid: examples/fr/invalid/BR-G-01.xml
+topic: vat
+related:
+- BR-G-08
+- BR-CO-18
+- BR-G-02
+updated: '2026-11-24'

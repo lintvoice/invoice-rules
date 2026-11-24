@@ -1,0 +1,57 @@
+id: BR-O-12
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that uses the VAT category O, outside the scope of VAT (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui utilise la catégorie de TVA O, hors du champ de la TVA (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-151
+- BT-118
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax/ram:CategoryCode
+  ubl: /Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:ID
+official_message:
+  lang: en
+  text: An Invoice that contains a VAT breakdown group (BG-23) with a VAT category code (BT-118) "Not subject to VAT" shall not contain an Invoice line (BG-25) where the Invoiced item VAT category code
+    (BT-151) is not "Not subject to VAT".
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-O-12
+title:
+  en: An invoice outside the scope of VAT has a line in another category
+  fr: Une facture hors du champ de la TVA a une ligne d'une autre catégorie
+brief:
+  en: An invoice outside the scope of VAT (O) cannot also have a line in another VAT category.
+  fr: Une facture hors du champ de la TVA (O) ne peut pas avoir aussi une ligne d'une autre catégorie de TVA.
+search:
+  en:
+  - BR-O-12
+  - not subject to VAT invoice with a line in another category
+  - VAT category O
+  - BT-118 BT-151
+  fr:
+  - BR-O-12
+  - facture hors champ de la TVA autre catégorie
+  - catégorie de TVA O
+  - erreur BR-O-12 factur-x
+examples:
+  source: invoice-examples
+  version: 0.9.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-O-12.xml
+      invalid: examples/en16931/invalid/BR-O-12.xml
+topic: vat
+related:
+- BR-O-11
+- BR-O-13
+- BR-O-01
+updated: '2026-11-24'

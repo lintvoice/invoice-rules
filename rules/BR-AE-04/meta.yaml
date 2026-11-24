@@ -1,0 +1,64 @@
+id: BR-AE-04
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that uses the VAT category AE, reverse charge (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui utilise la catégorie de TVA AE, autoliquidation (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-31
+- BT-32
+- BT-47
+- BT-48
+- BT-63
+- BT-102
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedTaxRegistration/ram:ID
+  ubl: /Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID
+official_message:
+  lang: en
+  text: An Invoice that contains a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is "Reverse charge" shall contain the Seller VAT Identifier (BT-31), the Seller
+    tax registration identifier (BT-32) and/or the Seller tax representative VAT identifier (BT-63) and the Buyer VAT identifier (BT-48) and/or the Buyer legal registration identifier (BT-47).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-AE-04
+title:
+  en: A charge under reverse charge requires the seller's VAT number and the buyer's identifier
+  fr: Des frais en autoliquidation exigent le numéro de TVA du vendeur et un identifiant de l'acheteur
+brief:
+  en: An invoice with a charge on the whole invoice in the VAT category AE (reverse charge) must give the seller's VAT number and an identifier of the buyer.
+  fr: Une facture qui a des frais globaux de la catégorie de TVA AE (autoliquidation) doit indiquer le numéro de TVA du vendeur et un identifiant de l'acheteur.
+search:
+  en:
+  - BR-AE-04
+  - VAT category AE VAT identifier
+  - BT-31 BT-48
+  - Reverse charge document level charge
+  fr:
+  - BR-AE-04
+  - numéro de TVA catégorie AE facture électronique
+  - BT-31 BT-48
+  - erreur BR-AE-04 factur-x
+examples:
+  source: invoice-examples
+  version: 0.9.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-AE-04.xml
+      invalid: examples/en16931/invalid/BR-AE-04.xml
+    fr:
+      valid: examples/fr/fixed/BR-AE-04.xml
+      invalid: examples/fr/invalid/BR-AE-04.xml
+topic: vat
+related:
+- BR-AE-02
+- BR-AE-03
+- BR-S-02
+updated: '2026-11-24'

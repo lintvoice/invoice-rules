@@ -1,0 +1,58 @@
+id: BR-G-09
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that uses the VAT category G, export outside the EU (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui utilise la catégorie de TVA G, exportation hors de l'UE (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-117
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:CalculatedAmount
+  ubl: /Invoice/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount
+official_message:
+  lang: en
+  text: The VAT category tax amount (BT-117) in a VAT breakdown (BG-23) where the VAT category code (BT-118) is "Export outside the EU" shall be 0 (zero).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-G-09
+title:
+  en: The VAT amount for exports must be zero
+  fr: Le montant de TVA des exportations doit être nul
+brief:
+  en: 'In the VAT category G (export outside the EU), the invoice charges no VAT: the VAT amount of the category''s breakdown is 0.'
+  fr: 'Dans la catégorie de TVA G (exportation hors de l''UE), la facture ne facture pas de TVA : le montant de TVA de sa ventilation vaut 0.'
+search:
+  en:
+  - BR-G-09
+  - VAT category G VAT amount not zero
+  - BT-117 CalculatedAmount
+  - Export outside the EU tax amount
+  fr:
+  - BR-G-09
+  - montant de TVA catégorie G non nul
+  - BT-117
+  - erreur BR-G-09 factur-x
+examples:
+  source: invoice-examples
+  version: 0.9.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-G-09.xml
+      invalid: examples/en16931/invalid/BR-G-09.xml
+    fr:
+      valid: examples/fr/fixed/BR-G-09.xml
+      invalid: examples/fr/invalid/BR-G-09.xml
+topic: vat
+related:
+- BR-G-08
+- BR-G-05
+- BR-CO-17
+updated: '2026-11-24'

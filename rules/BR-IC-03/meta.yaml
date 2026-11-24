@@ -1,0 +1,62 @@
+id: BR-IC-03
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that uses the VAT category K, intra-Community supply (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui utilise la catégorie de TVA K, livraison intracommunautaire (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-31
+- BT-48
+- BT-63
+- BT-95
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:SpecifiedTaxRegistration/ram:ID
+  ubl: /Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID
+official_message:
+  lang: en
+  text: An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is "Intra-community supply" shall contain the Seller VAT Identifier (BT-31)
+    or the Seller tax representative VAT identifier (BT-63) and the Buyer VAT identifier (BT-48).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-IC-03
+title:
+  en: An allowance on an intra-Community supply requires both VAT numbers
+  fr: Une remise sur une livraison intracommunautaire exige les deux numéros de TVA
+brief:
+  en: An invoice with an allowance on the whole invoice in the VAT category K (intra-Community supply) must give the seller's and the buyer's VAT numbers.
+  fr: Une facture qui a une remise globale de la catégorie de TVA K (livraison intracommunautaire) doit indiquer les numéros de TVA du vendeur et de l'acheteur.
+search:
+  en:
+  - BR-IC-03
+  - VAT category K VAT identifier
+  - BT-31 BT-48
+  - Intra-community supply document level allowance
+  fr:
+  - BR-IC-03
+  - numéro de TVA catégorie K facture électronique
+  - BT-31 BT-48
+  - erreur BR-IC-03 factur-x
+examples:
+  source: invoice-examples
+  version: 0.9.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-IC-03.xml
+      invalid: examples/en16931/invalid/BR-IC-03.xml
+    fr:
+      valid: examples/fr/fixed/BR-IC-03.xml
+      invalid: examples/fr/invalid/BR-IC-03.xml
+topic: vat
+related:
+- BR-IC-02
+- BR-IC-04
+- BR-S-02
+updated: '2026-11-24'

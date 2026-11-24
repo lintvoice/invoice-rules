@@ -1,0 +1,57 @@
+id: BR-O-10
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that uses the VAT category O, outside the scope of VAT (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui utilise la catégorie de TVA O, hors du champ de la TVA (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-120
+- BT-121
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:ExemptionReason
+  ubl: /Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReason
+official_message:
+  lang: en
+  text: A VAT Breakdown (BG-23) with VAT Category code (BT-118) " Not subject to VAT" shall have a VAT exemption reason code (BT-121), meaning " Not subject to VAT" or a VAT exemption reason text (BT-120)
+    " Not subject to VAT" (or the equivalent standard text in another language).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-O-10
+title:
+  en: The invoice does not say why it is outside the scope of VAT
+  fr: La facture ne dit pas pourquoi elle est hors du champ de la TVA
+brief:
+  en: The VAT breakdown in category O (outside the scope of VAT) gives the reason no VAT is charged, as text or as a code.
+  fr: La ventilation de TVA de la catégorie O (hors du champ de la TVA) indique pourquoi aucune TVA n'est facturée, en texte ou sous forme de code.
+search:
+  en:
+  - BR-O-10
+  - VAT category O exemption reason
+  - BT-120 BT-121
+  - VATEX exemption reason code
+  fr:
+  - BR-O-10
+  - motif d'exonération catégorie O
+  - BT-120 BT-121 VATEX
+  - erreur BR-O-10 factur-x
+examples:
+  source: invoice-examples
+  version: 0.9.0
+  targets:
+    en16931:
+      valid: examples/en16931/fixed/BR-O-10.xml
+      invalid: examples/en16931/invalid/BR-O-10.xml
+topic: vat
+related:
+- BR-E-10
+- BR-O-01
+- BR-CL-22
+updated: '2026-11-24'

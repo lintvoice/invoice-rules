@@ -1,0 +1,61 @@
+id: BR-S-09
+rule_set:
+  name: EN 16931 validation artefacts (ConnectingEurope)
+  version: 1.3.17
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+  licence: EUPL-1.2
+severity: fatal
+applies_to:
+  syntaxes:
+  - CII
+  - UBL
+  when:
+    en: Every invoice checked against EN 16931 that uses the VAT category S, standard rate (Factur-X from BASIC, XRechnung, Peppol BIS, French and German reform invoices).
+    fr: Toute facture vérifiée selon EN 16931 qui utilise la catégorie de TVA S, taux normal (Factur-X à partir de BASIC, XRechnung, Peppol BIS, factures de la réforme française et allemande).
+business_terms:
+- BT-116
+- BT-117
+- BT-119
+paths:
+  cii: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:CalculatedAmount
+  ubl: /Invoice/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount
+official_message:
+  lang: en
+  text: The VAT category tax amount (BT-117) in a VAT breakdown (BG-23) where VAT category code (BT-118) is "Standard rated" shall equal the VAT category taxable amount (BT-116) multiplied by the VAT category
+    rate (BT-119).
+  source: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
+reported_ids:
+- BR-S-09
+title:
+  en: The VAT of a standard rate is not its taxable amount times the rate
+  fr: La TVA d'un taux normal n'est pas sa base multipliée par le taux
+brief:
+  en: In the VAT breakdown, the VAT amount of each standard rate is its taxable amount times the rate, rounded to the cent.
+  fr: Dans la ventilation de TVA, le montant de TVA de chaque taux normal est sa base multipliée par le taux, arrondie au centime.
+search:
+  en:
+  - BR-S-09
+  - VAT category tax amount standard rate
+  - BT-117 BT-116 BT-119
+  - Standard rated tax amount
+  fr:
+  - BR-S-09
+  - montant de TVA taux normal incorrect
+  - BT-117
+  - erreur BR-S-09 factur-x
+examples:
+  source: invoice-examples
+  version: 0.9.0
+  targets:
+    en16931:
+      valid: examples/en16931/valid.xml
+      invalid: examples/en16931/invalid/BR-CO-17.xml
+    fr:
+      valid: examples/fr/valid.xml
+      invalid: examples/fr/invalid/BR-CO-17.xml
+topic: vat
+related:
+- BR-CO-17
+- BR-S-08
+- BR-CO-14
+updated: '2026-11-24'
