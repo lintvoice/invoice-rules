@@ -16,7 +16,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 1. Pour une catégorie exonérée, ou un taux de 0 %, écrivez un montant de TVA de 0.
 2. Vérifiez que la facture électronique écrit la ventilation de TVA en entier, un bloc par catégorie et par taux.
-3. Si il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-46.
+3. S'il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-46.
 
 ## Causes fréquentes
 

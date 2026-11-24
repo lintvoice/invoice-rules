@@ -4,7 +4,7 @@ An allowance or a charge on the whole invoice has a VAT category that is not in 
 
 ## What the rule checks
 
-The VAT category is a one- or two-letter code from a list that EN 16931 keeps short: S for a standard rate, Z for a zero rate, E for an exemption, AE for a reverse charge, K for an intra-community supply, G for an export, O for outside the scope of VAT, and L, M and B for local cases. EN 16931 has no code for a lower rate: its category S accepts any rate above zero. The rule checks that the category of each allowance and charge on the whole invoice is one of these codes.
+The VAT category is a code of one or two letters. EN 16931 keeps the list short: S for a standard rate, Z for a zero rate, E for an exemption, AE for a reverse charge, K for an intra-community supply, G for an export, O for outside the scope of VAT, L for the Canary Islands, M for Ceuta and Melilla, B for a VAT transferred in Italy. EN 16931 has no code for a lower rate: its category S accepts any rate above zero. The rule checks that the category of each allowance and charge on the whole invoice is one of these codes.
 
 ## Why it matters
 
@@ -15,7 +15,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 ## How to fix it
 
 1. Give each allowance and charge the VAT category of what it applies to, S for a standard rate.
-2. Check that the e-invoice writes the category, not the tax type VAT nor the rate.
+2. Check that the e-invoice writes the category, rather than the tax type (VAT) or the rate.
 3. If your software writes another value, report it to the software's publisher, quoting BR-CL-17.
 
 ## Common causes

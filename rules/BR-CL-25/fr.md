@@ -4,7 +4,7 @@ Le code qui dit de quel type est l'adresse électronique d'une partie n'est pas 
 
 ## Ce que vérifie la règle
 
-Une facture électronique indique où chaque partie reçoit ses factures, son adresse électronique, avec un code de la liste EAS qui dit de quel type d'adresse il s'agit : EM pour une adresse e-mail, 0088 pour un GLN, 0225 pour une adresse des plateformes de la réforme française… La règle vérifie que ce code vient de cette liste, et non un mot comme « EMAIL ».
+Une facture électronique peut indiquer l'adresse électronique où le vendeur et l'acheteur reçoivent leurs factures. Un code de la liste EAS dit de quel type d'adresse il s'agit : EM pour une adresse e-mail, 0088 pour un GLN, 0225 pour une adresse de facturation de la réforme française… La règle vérifie que ce code vient de cette liste, et non un mot comme « EMAIL ».
 
 ## Pourquoi c'est important
 
@@ -15,7 +15,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 ## Comment corriger
 
 1. Choisissez le type d'adresse électronique dans la liste de votre logiciel.
-2. Vérifiez que la facture électronique en écrit le code, 0225 pour une adresse de la réforme française.
+2. Vérifiez que la facture électronique en écrit le code, 0225 pour une adresse de facturation de la réforme française.
 3. Si votre logiciel écrit une autre valeur, signalez-le à l'éditeur de votre logiciel en citant BR-CL-25.
 
 ## Causes fréquentes

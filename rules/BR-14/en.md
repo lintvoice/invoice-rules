@@ -1,6 +1,6 @@
-# The total with vat is missing
+# The total with VAT is missing
 
-The invoice does not give the total with vat.
+The invoice does not give the total with VAT.
 
 ## What the rule checks
 
@@ -14,20 +14,20 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## How to fix it
 
-1. Check that your software computes this total for every invoice, even when it equals another one.
+1. Check that your software computes this amount for every invoice, even when it equals another one.
 2. Check that the e-invoice writes it, not only the PDF.
 3. If it is missing from the e-invoice, report it to the software's publisher, quoting BR-14.
 
 ## Common causes
 
-- **A total left out because it equals another one**, the total without VAT of an invoice without allowances or charges for example.
+- **An amount left out because it equals another one**, for example the total with VAT of an exempt invoice, equal to its total without VAT.
 - **An export that writes only some of the totals.**
 
 ## Technical details
 
-The total with vat is BT-112, in group BG-22. In CII, it is `ram:GrandTotalAmount` of `ram:SpecifiedTradeSettlementHeaderMonetarySummation`; in UBL, `cbc:TaxInclusiveAmount` of `cac:LegalMonetaryTotal`.
+The total with VAT is BT-112, in group BG-22. In CII, it is `ram:GrandTotalAmount` of `ram:SpecifiedTradeSettlementHeaderMonetarySummation`; in UBL, `cbc:TaxInclusiveAmount` of `cac:LegalMonetaryTotal`.
 
-This page has no example file: the [Factur-X EN 16931 XML schema](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/Factur-X/EN16931/1xsd) requires the total with vat, while the examples of [invoice-examples](https://github.com/lintvoice/invoice-examples) stay schema-valid so that they fail business rules only. The [full UN/CEFACT CII schema (D22B)](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/1xsd-CII_D22B_uncoupled), on the other hand, leaves it optional: a CII invoice can pass that schema and still fail the rule.
+This page has no example file: the [Factur-X EN 16931 XML schema](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/Factur-X/EN16931/1xsd) requires the total with VAT, while the examples of [invoice-examples](https://github.com/lintvoice/invoice-examples) stay schema-valid so that they fail business rules only. The [full UN/CEFACT CII schema (D22B)](https://github.com/fnfempe/France_RFE/tree/97ba0f3d4ef2abed5780e9490d5c3a2be832ab1d/FNFE_RFE_INVOICE/CII/1xsd-CII_D22B_uncoupled), on the other hand, leaves it optional: a CII invoice can pass that schema and still fail the rule.
 
 ## Official text
 
@@ -38,5 +38,5 @@ BR-14, [EN 16931 validation artefacts 1.3.17](https://github.com/ConnectingEurop
 ## Related rules
 
 - [BR-CO-15](../BR-CO-15/): the total with VAT must be exactly the total without VAT plus the VAT, to the cent.
-- [BR-13](../BR-13/): every invoice must give the total without vat.
+- [BR-13](../BR-13/): every invoice must give the total without VAT.
 - [BR-15](../BR-15/): every invoice must give the amount due.

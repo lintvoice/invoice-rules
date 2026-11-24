@@ -4,7 +4,7 @@ Le code qui indique le motif d'une exonération de TVA n'est pas dans la liste V
 
 ## Ce que vérifie la règle
 
-Un taux de TVA qui n'est pas facturé (une exonération, une autoliquidation, une exportation…) indique son motif, en texte, par un code, ou les deux. Les codes viennent de la liste VATEX, qui nomme l'article de la directive TVA de l'UE ou d'une loi nationale derrière chaque cas : VATEX-EU-132 pour les exonérations de l'article 132 de la directive, VATEX-EU-132-1I pour l'enseignement et la formation professionnelle… La règle vérifie que le code est l'un de ceux de la liste.
+Quand aucune TVA n'est facturée (une exonération, une autoliquidation, une exportation…), la ventilation de TVA en indique le motif : en texte, par un code, ou les deux. Les codes viennent de la liste VATEX. Chacun nomme l'article de la directive TVA de l'UE ou de la loi nationale qui fonde le cas : VATEX-EU-132 pour les exonérations de l'article 132 de la directive, VATEX-EU-132-1I pour l'enseignement et la formation professionnelle… La règle vérifie que le code est l'un de ceux de la liste.
 
 ## Pourquoi c'est important
 

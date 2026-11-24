@@ -24,10 +24,10 @@ official_message:
 reported_ids:
 - BR-14
 title:
-  en: The total with vat is missing
+  en: The total with VAT is missing
   fr: Le total TTC manque
 brief:
-  en: Every invoice must give the total with vat.
+  en: Every invoice must give the total with VAT.
   fr: Toute facture doit indiquer le total TTC.
 search:
   en:
@@ -45,7 +45,7 @@ examples:
   version: 0.8.0
   targets: {}
   none:
-    en: 'No example invoice for this rule: the Factur-X format already refuses an invoice without its total with vat, before this rule runs. Our examples only show mistakes the format lets through.'
+    en: 'No example invoice for this rule: the Factur-X format already refuses an invoice without its total with VAT, before this rule runs. Our examples only show mistakes the format lets through.'
     fr: 'Pas de facture d''exemple pour cette règle : le format Factur-X refuse déjà une facture sans le total TTC, avant même cette règle. Nos exemples ne montrent que des erreurs que le format laisse
       passer.'
 topic: totals

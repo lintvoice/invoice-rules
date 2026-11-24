@@ -4,7 +4,7 @@ The code that says what kind of electronic address a party has is not in the EAS
 
 ## What the rule checks
 
-An e-invoice gives where each party receives e-invoices, its electronic address, with a code from the EAS list that says what kind of address it is: EM for an e-mail address, 0088 for a GLN, 0225 for an address of the French reform's platforms… The rule checks that the code comes from that list, not a word such as "EMAIL".
+An e-invoice can give the electronic address where the seller and the buyer receive e-invoices. A code from the EAS list says what kind of address it is: EM for an e-mail address, 0088 for a GLN, 0225 for an invoicing address of the French reform… The rule checks that the code comes from that list, not a word such as "EMAIL".
 
 ## Why it matters
 

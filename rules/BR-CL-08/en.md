@@ -4,7 +4,7 @@ The code that gives a note's subject is not in the official list.
 
 ## What the rule checks
 
-An invoice can carry notes, and each note can give its subject with a code: AAI for general information, PMT for payment information, AAB for payment terms… Some countries use them for required notes: in France, PMT, PMD and AAB carry the notes the law requires on late payment. The rule checks that a note's code comes from the official list, not a word such as "INFO".
+An invoice can carry notes, and each note can give its subject with a code: AAI for general information, PMT for payment information, AAB for payment terms… Some countries use them for required notes: in France, PMT and PMD carry the notes the law requires on late payment, and AAB the one on the early-payment discount. The rule checks that a note's code comes from the official list, not a word such as "INFO".
 
 ## Why it matters
 

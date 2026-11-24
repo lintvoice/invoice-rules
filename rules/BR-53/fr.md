@@ -4,7 +4,7 @@ La facture indique une devise de comptabilisation de la TVA, mais pas de total d
 
 ## Ce que vérifie la règle
 
-Une facture en devise étrangère, en dollars américains par exemple, peut dire dans quelle devise le vendeur comptabilise la TVA, en euros par exemple, et donner son total de TVA converti dans cette devise. Quand la facture indique cette devise, la règle vérifie qu'elle donne le total de TVA dans cette devise. En CII, cette devise doit aussi être différente de celle de la facture.
+Une facture en devise étrangère, en dollars américains par exemple, peut indiquer la devise dans laquelle le vendeur comptabilise la TVA, l'euro par exemple. Dans ce cas, la règle vérifie que la facture donne aussi son total de TVA dans cette devise. En CII, cette devise doit aussi être différente de celle de la facture.
 
 ## Pourquoi c'est important
 

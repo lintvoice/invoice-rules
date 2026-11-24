@@ -4,7 +4,7 @@ Le code qui indique le sujet d'une note n'est pas dans la liste officielle.
 
 ## Ce que vérifie la règle
 
-Une facture peut porter des notes, et chaque note peut indiquer son sujet par un code : AAI pour une information générale, PMT pour une information de paiement, AAB pour des conditions de paiement… Certains pays s'en servent pour des mentions obligatoires : en France, PMT, PMD et AAB portent les mentions que la loi exige sur les retards de paiement. La règle vérifie que le code d'une note vient de la liste officielle, et non un mot comme « INFO ».
+Une facture peut porter des notes, et chaque note peut indiquer son sujet par un code : AAI pour une information générale, PMT pour une information de paiement, AAB pour des conditions de paiement… Certains pays s'en servent pour des mentions obligatoires : en France, PMT et PMD portent les mentions que la loi exige sur les retards de paiement, et AAB celle sur l'escompte pour paiement anticipé. La règle vérifie que le code d'une note vient de la liste officielle, et non un mot comme « INFO ».
 
 ## Pourquoi c'est important
 

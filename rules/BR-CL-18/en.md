@@ -4,7 +4,7 @@ A line or a VAT rate of the invoice has a VAT category that is not in the offici
 
 ## What the rule checks
 
-The VAT category is a one- or two-letter code from a list that EN 16931 keeps short: S for a standard rate, Z for a zero rate, E for an exemption, AE for a reverse charge, K for an intra-community supply, G for an export, O for outside the scope of VAT, and L, M and B for local cases. EN 16931 has no code for a lower rate: its category S accepts any rate above zero. The rule checks that the category of each line and of each rate of the VAT breakdown is one of these codes.
+The VAT category is a code of one or two letters. EN 16931 keeps the list short: S for a standard rate, Z for a zero rate, E for an exemption, AE for a reverse charge, K for an intra-community supply, G for an export, O for outside the scope of VAT, L for the Canary Islands, M for Ceuta and Melilla, B for a VAT transferred in Italy. EN 16931 has no code for a lower rate: its category S accepts any rate above zero. The rule checks that the category of each line and of each rate of the VAT breakdown is one of these codes.
 
 ## Why it matters
 

@@ -4,7 +4,7 @@ Une ligne indique un prix brut inférieur à zéro.
 
 ## Ce que vérifie la règle
 
-Une ligne peut indiquer le prix brut de l'article, son prix catalogue, et le rabais qui mène au prix net. La règle vérifie que le prix brut n'est pas négatif. Un retour ou un remboursement s'écrit par un avoir, ou par une quantité négative, pas par un prix négatif.
+Une ligne peut indiquer le prix brut de l'article (son prix catalogue) et le rabais qui mène au prix net. La règle vérifie que le prix brut n'est pas négatif. Un retour ou un remboursement s'écrit par un avoir, ou par une quantité négative, pas par un prix négatif.
 
 ## Pourquoi c'est important
 

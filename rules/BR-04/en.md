@@ -1,6 +1,6 @@
 # The document type is missing
 
-The code that says what kind of document this is, is empty.
+The code for the kind of document (invoice, credit note…) is empty.
 
 ## What the rule checks
 

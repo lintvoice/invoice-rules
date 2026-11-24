@@ -1,6 +1,6 @@
 # The document type is not a valid code
 
-The code that says what kind of document this is, is not in the official list.
+The code for the kind of document is not in the official list.
 
 ## What the rule checks
 

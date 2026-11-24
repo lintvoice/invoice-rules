@@ -14,13 +14,13 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## How to fix it
 
-1. Check that your software computes this total for every invoice, even when it equals another one.
+1. Check that your software computes this amount for every invoice, even when it equals another one.
 2. Check that the e-invoice writes it, not only the PDF.
 3. If it is missing from the e-invoice, report it to the software's publisher, quoting BR-15.
 
 ## Common causes
 
-- **A total left out because it equals another one**, the total without VAT of an invoice without allowances or charges for example.
+- **An amount left out because it equals another one**, for example the amount due of an invoice with nothing paid in advance, equal to its total with VAT.
 - **An export that writes only some of the totals.**
 
 ## Technical details
@@ -38,4 +38,4 @@ BR-15, [EN 16931 validation artefacts 1.3.17](https://github.com/ConnectingEurop
 ## Related rules
 
 - [BR-CO-16](../BR-CO-16/): the amount due must be exactly the total with VAT, minus the amount already paid, plus any rounding.
-- [BR-14](../BR-14/): every invoice must give the total with vat.
+- [BR-14](../BR-14/): every invoice must give the total with VAT.

@@ -14,7 +14,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## How to fix it
 
-1. For an exempt category, or a rate of 0 %, write the rate 0.
+1. For an exempt category, or a rate of 0%, write the rate 0.
 2. Check that the e-invoice writes the VAT breakdown in full, one block per category and rate.
 3. If it is missing from the e-invoice, report it to the software's publisher, quoting BR-48.
 

@@ -4,7 +4,7 @@ La facture indique le numéro complet d'une carte de paiement.
 
 ## Ce que vérifie la règle
 
-Quand une facture est payée par carte, elle peut dire quelle carte, mais les normes de sécurité des paiements par carte interdisent d'en montrer le numéro complet. Le message officiel indique que les 6 premiers et les 4 derniers chiffres sont le plus qu'on puisse montrer, et la règle vérifie que le numéro écrit a 10 caractères au plus.
+Quand une facture est payée par carte, elle peut dire quelle carte, mais les normes de sécurité des paiements par carte interdisent d'en montrer le numéro complet. Le message officiel admet au plus les 6 premiers et les 4 derniers chiffres. La règle vérifie que le numéro écrit a 10 caractères au plus.
 
 ## Pourquoi c'est important
 
@@ -16,7 +16,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 1. N'écrivez que les 4 derniers chiffres de la carte dans la facture.
 2. Vérifiez que votre logiciel masque le numéro de carte dans la facture électronique aussi, pas seulement sur le PDF.
-3. Si il écrit le numéro complet, signalez-le à l'éditeur de votre logiciel en citant BR-51.
+3. S'il écrit le numéro complet, signalez-le à l'éditeur de votre logiciel en citant BR-51.
 
 ## Causes fréquentes
 

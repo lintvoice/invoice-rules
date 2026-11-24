@@ -14,13 +14,13 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 ## Comment corriger
 
-1. Vérifiez que votre logiciel calcule ce total pour chaque facture, même quand il est égal à un autre.
+1. Vérifiez que votre logiciel calcule ce montant pour chaque facture, même quand il est égal à un autre.
 2. Vérifiez que la facture électronique l'écrit, et pas seulement le PDF.
-3. Si il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-15.
+3. S'il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-15.
 
 ## Causes fréquentes
 
-- **Un total omis parce qu'il est égal à un autre**, par exemple le total HT d'une facture sans remise ni frais.
+- **Un montant omis parce qu'il est égal à un autre**, par exemple le net à payer d'une facture sans acompte, égal à son total TTC.
 - **Un export qui n'écrit qu'une partie des totaux.**
 
 ## Détails techniques

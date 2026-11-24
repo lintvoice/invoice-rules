@@ -4,7 +4,7 @@ A file attached to the invoice declares a type that is not allowed.
 
 ## What the rule checks
 
-An e-invoice can carry files inside it: a timesheet, a delivery note… Each file declares its type, its MIME code, and only six are allowed: application/pdf, image/png, image/jpeg, text/csv, and the XLSX and ODS spreadsheet types. The rule checks that each attached file declares one of them.
+An e-invoice can carry files inside it: a timesheet, a delivery note… Each file declares its type, its MIME code. Only six types are allowed: application/pdf, image/png, image/jpeg, text/csv, and the XLSX and ODS spreadsheet types. The rule checks that each attached file declares one of them.
 
 ## Why it matters
 

@@ -4,7 +4,7 @@ The invoice names a VAT accounting currency, but gives no VAT total in it.
 
 ## What the rule checks
 
-An invoice in a foreign currency, US dollars for example, can say in which currency the seller accounts for VAT, euros for example, and give its VAT total converted into it. When the invoice names that currency, the rule checks that it gives the VAT total in it. In CII, that currency must also differ from the invoice's own.
+An invoice in a foreign currency, US dollars for example, can name the currency in which the seller accounts for VAT, euros for example. When it does, the rule checks that the invoice also gives its VAT total in that currency. In CII, that currency must also differ from the invoice's own.
 
 ## Why it matters
 

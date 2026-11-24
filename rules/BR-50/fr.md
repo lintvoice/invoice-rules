@@ -16,7 +16,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 1. Renseignez l'IBAN de votre compte bancaire dans les paramètres de votre logiciel.
 2. Vérifiez que la facture électronique l'écrit en entier.
-3. Si il reste vide, signalez-le à l'éditeur de votre logiciel en citant BR-50.
+3. S'il reste vide, signalez-le à l'éditeur de votre logiciel en citant BR-50.
 
 ## Causes fréquentes
 

@@ -16,7 +16,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 1. Choisissez le moyen de paiement de chaque facture dans votre logiciel, ou un moyen par défaut.
 2. Vérifiez que la facture électronique en écrit le code.
-3. Si il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-49.
+3. S'il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-49.
 
 ## Causes fréquentes
 

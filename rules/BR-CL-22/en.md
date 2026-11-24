@@ -4,7 +4,7 @@ The code that gives the reason for a VAT exemption is not in the VATEX list.
 
 ## What the rule checks
 
-A VAT rate that is not charged (an exemption, a reverse charge, an export…) gives its reason, as text, as a code, or both. The codes come from the VATEX list, which names the article of the EU VAT directive or of a national law behind each case: VATEX-EU-132 for the exemptions of article 132 of the directive, VATEX-EU-132-1I for education and vocational training… The rule checks that the code is one of the list's.
+When no VAT is charged (an exemption, a reverse charge, an export…), the VAT breakdown gives the reason: as text, as a code, or both. The codes come from the VATEX list. Each one names the article of the EU VAT directive or of a national law behind the case: VATEX-EU-132 for the exemptions of article 132 of the directive, VATEX-EU-132-1I for education and vocational training… The rule checks that the code is one of the list's.
 
 ## Why it matters
 

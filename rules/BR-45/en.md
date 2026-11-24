@@ -14,7 +14,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## How to fix it
 
-1. Check that your software computes the taxable amount of every VAT category, the exempt ones and those at 0 % included.
+1. Check that your software computes the taxable amount of every VAT category, the exempt ones and those at 0% included.
 2. Check that the e-invoice writes the VAT breakdown in full, one block per category and rate.
 3. If it is missing from the e-invoice, report it to the software's publisher, quoting BR-45.
 

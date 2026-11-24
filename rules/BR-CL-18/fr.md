@@ -4,7 +4,7 @@ Une ligne ou un taux de TVA de la facture a une catégorie de TVA qui n'est pas 
 
 ## Ce que vérifie la règle
 
-La catégorie de TVA est un code d'une ou deux lettres d'une liste qu'EN 16931 garde courte : S pour un taux normal, Z pour un taux zéro, E pour une exonération, AE pour une autoliquidation, K pour une livraison intracommunautaire, G pour une exportation, O pour une opération hors du champ de la TVA, et L, M et B pour des cas locaux. EN 16931 n'a pas de code pour un taux réduit : sa catégorie S admet tout taux supérieur à zéro. La règle vérifie que la catégorie de chaque ligne et de chaque taux de la ventilation de TVA est l'un de ces codes.
+La catégorie de TVA est un code d'une ou deux lettres. EN 16931 en garde la liste courte : S pour un taux normal, Z pour un taux zéro, E pour une exonération, AE pour une autoliquidation, K pour une livraison intracommunautaire, G pour une exportation, O pour une opération hors du champ de la TVA, L pour les Canaries, M pour Ceuta et Melilla, B pour une TVA transférée en Italie. EN 16931 n'a pas de code pour un taux réduit : sa catégorie S admet tout taux supérieur à zéro. La règle vérifie que la catégorie de chaque ligne et de chaque taux de la ventilation de TVA est l'un de ces codes.
 
 ## Pourquoi c'est important
 

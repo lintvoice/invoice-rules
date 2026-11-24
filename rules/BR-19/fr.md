@@ -16,7 +16,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 1. Renseignez l'adresse postale du représentant fiscal dans votre logiciel, pays compris.
 2. Vérifiez que la facture électronique donne le nom du représentant, son adresse postale avec son pays, et son numéro de TVA.
-3. Si ils manquent dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-19.
+3. S'ils manquent dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-19.
 
 ## Causes fréquentes
 

@@ -4,7 +4,7 @@ The invoice gives the full number of a payment card.
 
 ## What the rule checks
 
-When an invoice is paid by card, it can say which card, but the card payment security standards forbid showing its full number. The official message says that the first 6 and the last 4 digits are the most that may be shown, and the rule checks that the number written has 10 characters at most.
+When an invoice is paid by card, it can say which card, but the card payment security standards forbid showing its full number. The official message allows at most the first 6 and the last 4 digits. The rule checks that the number written has 10 characters at most.
 
 ## Why it matters
 

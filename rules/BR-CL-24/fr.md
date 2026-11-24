@@ -4,7 +4,7 @@ Un fichier joint à la facture déclare un type qui n'est pas admis.
 
 ## Ce que vérifie la règle
 
-Une facture électronique peut porter des fichiers en elle : une feuille de temps, un bon de livraison… Chaque fichier déclare son type, son code MIME, et seuls six sont admis : application/pdf, image/png, image/jpeg, text/csv, et les types des tableurs XLSX et ODS. La règle vérifie que chaque fichier joint déclare l'un d'eux.
+Une facture électronique peut porter des fichiers en elle : une feuille de temps, un bon de livraison… Chaque fichier déclare son type, son code MIME. Seuls six types sont admis : application/pdf, image/png, image/jpeg, text/csv, et les types des tableurs XLSX et ODS. La règle vérifie que chaque fichier joint déclare l'un d'eux.
 
 ## Pourquoi c'est important
 

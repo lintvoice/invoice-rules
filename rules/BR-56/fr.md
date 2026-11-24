@@ -16,7 +16,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 1. Renseignez le numéro de TVA du représentant fiscal dans votre logiciel.
 2. Vérifiez que la facture électronique l'écrit comme un numéro de TVA, commençant par son code pays.
-3. Si il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-56.
+3. S'il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-56.
 
 ## Causes fréquentes
 

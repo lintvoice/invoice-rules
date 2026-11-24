@@ -4,7 +4,7 @@ A line gives a gross price below zero.
 
 ## What the rule checks
 
-A line can give the item's gross price, its catalogue price, and the price discount that leads to the net price. The rule checks that the gross price is not negative. A return or a refund is written as a credit note, or as a negative quantity, not as a negative price.
+A line can give the item's gross price (its catalogue price) and the price discount that leads to the net price. The rule checks that the gross price is not negative. A return or a refund is written as a credit note, or as a negative quantity, not as a negative price.
 
 ## Why it matters
 

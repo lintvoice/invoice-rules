@@ -16,7 +16,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 1. Indiquez dans votre logiciel le numéro de la facture que vous rectifiez ou que l'avoir annule.
 2. Vérifiez que la facture électronique l'écrit, et pas seulement le PDF.
-3. Si il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-55.
+3. S'il manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-55.
 
 ## Causes fréquentes
 

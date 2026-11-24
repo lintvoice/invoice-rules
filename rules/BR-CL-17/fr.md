@@ -4,7 +4,7 @@ Une remise ou des frais globaux ont une catégorie de TVA qui n'est pas dans la 
 
 ## Ce que vérifie la règle
 
-La catégorie de TVA est un code d'une ou deux lettres d'une liste qu'EN 16931 garde courte : S pour un taux normal, Z pour un taux zéro, E pour une exonération, AE pour une autoliquidation, K pour une livraison intracommunautaire, G pour une exportation, O pour une opération hors du champ de la TVA, et L, M et B pour des cas locaux. EN 16931 n'a pas de code pour un taux réduit : sa catégorie S admet tout taux supérieur à zéro. La règle vérifie que la catégorie de chaque remise et de chaque frais global est l'un de ces codes.
+La catégorie de TVA est un code d'une ou deux lettres. EN 16931 en garde la liste courte : S pour un taux normal, Z pour un taux zéro, E pour une exonération, AE pour une autoliquidation, K pour une livraison intracommunautaire, G pour une exportation, O pour une opération hors du champ de la TVA, L pour les Canaries, M pour Ceuta et Melilla, B pour une TVA transférée en Italie. EN 16931 n'a pas de code pour un taux réduit : sa catégorie S admet tout taux supérieur à zéro. La règle vérifie que la catégorie des remises et des frais globaux est l'un de ces codes.
 
 ## Pourquoi c'est important
 
@@ -14,8 +14,8 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 ## Comment corriger
 
-1. Donnez à chaque remise et à chaque frais la catégorie de TVA de ce à quoi ils s'appliquent, S pour un taux normal.
-2. Vérifiez que la facture électronique écrit la catégorie, et non le type de taxe VAT ni le taux.
+1. Donnez aux remises et aux frais la catégorie de TVA de ce à quoi ils s'appliquent, S pour un taux normal.
+2. Vérifiez que la facture électronique écrit la catégorie, et non le type de taxe (VAT) ou le taux.
 3. Si votre logiciel écrit une autre valeur, signalez-le à l'éditeur de votre logiciel en citant BR-CL-17.
 
 ## Causes fréquentes

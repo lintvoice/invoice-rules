@@ -16,7 +16,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 1. Vérifiez que votre logiciel calcule la base de chaque catégorie de TVA, y compris les exonérées et celles à 0 %.
 2. Vérifiez que la facture électronique écrit la ventilation de TVA en entier, un bloc par catégorie et par taux.
-3. Si ille manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-45.
+3. Si elle manque dans la facture électronique, signalez-le à l'éditeur de votre logiciel en citant BR-45.
 
 ## Causes fréquentes
 
