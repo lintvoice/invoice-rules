@@ -41,4 +41,4 @@ BR-47, [EN 16931 validation artefacts 1.3.17](https://github.com/ConnectingEurop
 
 - [BR-CL-18](../BR-CL-18/): the VAT category of each line and of each VAT rate must be one of the codes EN 16931 uses, such as S.
 - [BR-CO-18](../BR-CO-18/): every invoice must break down its VAT by category and rate, even when the VAT is zero.
-- [BR-48](../BR-48/): each VAT breakdown must give its rate, 0 % included, unless the invoice is outside the scope of VAT.
+- [BR-48](../BR-48/): each VAT breakdown must give its rate, 0% included, unless the invoice is outside the scope of VAT.

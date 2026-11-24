@@ -27,7 +27,7 @@ title:
   en: A VAT category has no rate
   fr: Une catégorie de TVA n'a pas de taux
 brief:
-  en: Each VAT breakdown must give its rate, 0 % included, unless the invoice is outside the scope of VAT.
+  en: Each VAT breakdown must give its rate, 0% included, unless the invoice is outside the scope of VAT.
   fr: Chaque ventilation de TVA doit indiquer son taux, 0 % compris, sauf si la facture est hors du champ de la TVA.
 search:
   en:
