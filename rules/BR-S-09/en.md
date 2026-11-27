@@ -4,7 +4,7 @@ For one of the invoice's VAT rates in category S, the VAT amount is not its taxa
 
 ## What the rule checks
 
-Category S covers VAT charged at a rate above zero, the reduced rates included. In the VAT breakdown, each rate in S has its taxable amount and its VAT amount. The rule checks that the VAT amount is the taxable amount times the rate, within less than 1 (one unit of the currency).
+Category S covers VAT charged at a rate above zero, the reduced rates included. In the VAT breakdown, each rate in S has its taxable amount and its VAT amount. The rule checks that the VAT amount is the taxable amount times the rate, with a gap of less than 1 allowed (one unit of the currency).
 
 ## Why it matters
 

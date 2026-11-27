@@ -4,7 +4,7 @@ The VAT breakdown in category G (export outside the EU) has a VAT amount other t
 
 ## What the rule checks
 
-Category G covers goods sent to a buyer outside the European Union, exempt from VAT. The invoice charges no VAT on it, so the VAT amount of its breakdown is 0. The rule checks it.
+Category G covers goods sent to a buyer outside the European Union, exempt from VAT. No VAT is charged in this category, so the VAT amount of its breakdown is 0. The rule checks it.
 
 ## Why it matters
 
@@ -27,7 +27,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 A category's VAT amount is BT-117. In CII: `ram:CalculatedAmount` of each `ram:ApplicableTradeTax` of `ram:ApplicableHeaderTradeSettlement` whose `ram:CategoryCode` is `G`; in UBL: `cbc:TaxAmount` of each `cac:TaxSubtotal` of category `G`. The rule wants exactly 0.
 
-The example invoice is all in G, and its breakdown gives a VAT amount at the standard rate of its taxable amount, with a rate of 0 %; its VAT total follows. BR-CO-17, which checks the VAT amount against the taxable amount times the rate, fails too.
+The example invoice is all in G, and its breakdown gives a VAT amount at the standard rate of its taxable amount, with a rate of 0%; its VAT total follows. BR-CO-17, which checks the VAT amount against the taxable amount times the rate, fails too.
 
 ## Official text
 
@@ -38,5 +38,5 @@ BR-G-09, [EN 16931 validation artefacts 1.3.17](https://github.com/ConnectingEur
 ## Related rules
 
 - [BR-G-08](../BR-G-08/): in the VAT breakdown, the taxable amount of category G (export outside the EU) is the sum of its lines, plus its charges, minus its allowances.
-- [BR-G-05](../BR-G-05/): in the VAT category G (export outside the EU), the VAT rate of an invoice line is 0 %.
+- [BR-G-05](../BR-G-05/): in the VAT category G (export outside the EU), the VAT rate of an invoice line is 0%.
 - [BR-CO-17](../BR-CO-17/): for each rate, the VAT amount must be the taxable amount times the rate, rounded to the cent.

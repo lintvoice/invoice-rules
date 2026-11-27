@@ -4,7 +4,7 @@ The VAT breakdown in category K (intra-Community supply) has a VAT amount other 
 
 ## What the rule checks
 
-Category K covers goods sold and sent to a business in another EU country, which accounts for the VAT there. The invoice charges no VAT on it, so the VAT amount of its breakdown is 0. The rule checks it.
+Category K covers goods sold and sent to a business in another EU country, which accounts for the VAT there. No VAT is charged in this category, so the VAT amount of its breakdown is 0. The rule checks it.
 
 ## Why it matters
 
@@ -27,7 +27,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 A category's VAT amount is BT-117. In CII: `ram:CalculatedAmount` of each `ram:ApplicableTradeTax` of `ram:ApplicableHeaderTradeSettlement` whose `ram:CategoryCode` is `K`; in UBL: `cbc:TaxAmount` of each `cac:TaxSubtotal` of category `K`. The rule wants exactly 0.
 
-The example invoice is all in K, and its breakdown gives a VAT amount at the standard rate of its taxable amount, with a rate of 0 %; its VAT total follows. BR-CO-17, which checks the VAT amount against the taxable amount times the rate, fails too.
+The example invoice is all in K, and its breakdown gives a VAT amount at the standard rate of its taxable amount, with a rate of 0%; its VAT total follows. BR-CO-17, which checks the VAT amount against the taxable amount times the rate, fails too.
 
 ## Official text
 
@@ -38,5 +38,5 @@ BR-IC-09, [EN 16931 validation artefacts 1.3.17](https://github.com/ConnectingEu
 ## Related rules
 
 - [BR-IC-08](../BR-IC-08/): in the VAT breakdown, the taxable amount of category K (intra-Community supply) is the sum of its lines, plus its charges, minus its allowances.
-- [BR-IC-05](../BR-IC-05/): in the VAT category K (intra-Community supply), the VAT rate of an invoice line is 0 %.
+- [BR-IC-05](../BR-IC-05/): in the VAT category K (intra-Community supply), the VAT rate of an invoice line is 0%.
 - [BR-CO-17](../BR-CO-17/): for each rate, the VAT amount must be the taxable amount times the rate, rounded to the cent.

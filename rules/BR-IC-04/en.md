@@ -15,7 +15,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 ## How to fix it
 
 1. Ask the buyer for its VAT number in its own country, and check it in the European Commission's VIES service.
-2. Fill it in the buyer's record in your software, so that every invoice to that buyer carries it.
+2. Enter it in the buyer's record in your software, so that every invoice to that buyer carries it.
 3. If the number is entered but missing from the e-invoice, report it to the software's publisher, quoting BR-IC-04.
 
 ## Common causes

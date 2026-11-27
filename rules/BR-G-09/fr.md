@@ -4,7 +4,7 @@ La ventilation de TVA de la catégorie G (exportation hors de l'UE) a un montant
 
 ## Ce que vérifie la règle
 
-La catégorie G couvre les biens expédiés à un acheteur hors de l'Union européenne, exonérés de TVA. La facture n'y facture pas de TVA, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
+La catégorie G couvre les biens expédiés à un acheteur hors de l'Union européenne, exonérés de TVA. Aucune TVA n'est facturée dans cette catégorie, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
 
 ## Pourquoi c'est important
 

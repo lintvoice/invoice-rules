@@ -28,7 +28,7 @@ title:
   en: A standard-rated line must have a rate above zero
   fr: Une ligne au taux normal doit avoir un taux supérieur à zéro
 brief:
-  en: 'In the VAT category S (standard rate), the VAT rate of an invoice line is above zero: a 0 % rate belongs to another category.'
+  en: 'In the VAT category S (standard rate), the VAT rate of an invoice line is above zero: a 0% rate belongs to another category.'
   fr: 'Dans la catégorie de TVA S (taux normal), le taux de TVA d''une ligne est supérieur à zéro : un taux de 0 % relève d''une autre catégorie.'
 search:
   en:
@@ -56,4 +56,4 @@ related:
 - BR-S-06
 - BR-S-07
 - BR-Z-05
-updated: '2026-11-24'
+updated: '2026-11-27'

@@ -31,7 +31,7 @@ A category's taxable amount is BT-116, for category S (any rate above zero) and 
 
 In CII, the rule requires an exact match, each sum rounded to the cent. In UBL, it accepts a gap strictly below 1 (one unit of the currency).
 
-The example invoice states a taxable amount of 1,026.00 € for 1,025.00 € of lines at 20 %. Its VAT amount, 205.00 €, is 0.20 € off the taxable amount times the rate: within the tolerance of BR-CO-17 and BR-S-09, which therefore do not fail.
+The example invoice states a taxable amount of 1,026.00 € for 1,025.00 € of lines at 20%. Its VAT amount, 205.00 €, is 0.20 € off the taxable amount times the rate: within the tolerance of BR-CO-17 and BR-S-09, which therefore do not fail.
 
 ## Official text
 

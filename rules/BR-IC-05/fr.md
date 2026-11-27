@@ -4,7 +4,7 @@ Une ligne de livraison intracommunautaire a un taux de TVA autre que 0 %.
 
 ## Ce que vérifie la règle
 
-La catégorie K couvre les biens vendus et expédiés à une entreprise d'un autre pays de l'UE, qui y déclare la TVA. La facture ne porte pas de TVA, donc le taux est de 0 %. La règle vérifie que le taux (BT-152) de chaque ligne en K vaut 0.
+La catégorie K couvre les biens vendus et expédiés à une entreprise d'un autre pays de l'UE, qui y déclare la TVA. Aucune TVA n'est facturée dans cette catégorie, donc le taux est de 0 %. La règle vérifie que le taux (BT-152) de chaque ligne en K vaut 0.
 
 ## Pourquoi c'est important
 

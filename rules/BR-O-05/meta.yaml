@@ -28,7 +28,7 @@ title:
   en: A line outside the scope of VAT has no VAT rate
   fr: Une ligne hors du champ de la TVA n'a pas de taux de TVA
 brief:
-  en: An invoice line outside the scope of VAT (O) gives no VAT rate, not even 0 %.
+  en: An invoice line outside the scope of VAT (O) gives no VAT rate, not even 0%.
   fr: Une ligne hors du champ de la TVA (O) n'indique aucun taux de TVA, pas même 0 %.
 search:
   en:
@@ -53,4 +53,4 @@ related:
 - BR-O-06
 - BR-O-07
 - BR-S-05
-updated: '2026-11-24'
+updated: '2026-11-27'

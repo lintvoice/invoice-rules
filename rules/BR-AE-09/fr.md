@@ -4,7 +4,7 @@ La ventilation de TVA de la catégorie AE (autoliquidation) a un montant de TVA 
 
 ## Ce que vérifie la règle
 
-La catégorie AE couvre les opérations dont l'acheteur, et non le vendeur, déclare la TVA : le vendeur facture sans TVA. La facture n'y facture pas de TVA, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
+La catégorie AE couvre les opérations dont l'acheteur, et non le vendeur, déclare la TVA : le vendeur facture sans TVA. Aucune TVA n'est facturée dans cette catégorie, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
 
 ## Pourquoi c'est important
 

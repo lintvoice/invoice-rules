@@ -4,7 +4,7 @@ Une remise exonérée a un taux de TVA autre que 0 %.
 
 ## Ce que vérifie la règle
 
-La catégorie E couvre les opérations que la loi exonère de TVA, comme le transport de marchandises exportées. La facture ne porte pas de TVA, donc le taux est de 0 %. La règle vérifie que le taux (BT-96) de chaque remise au niveau du document en E vaut 0.
+La catégorie E couvre les opérations que la loi exonère de TVA, comme le transport de marchandises exportées. Aucune TVA n'est facturée dans cette catégorie, donc le taux est de 0 %. La règle vérifie que le taux (BT-96) de chaque remise au niveau du document en E vaut 0.
 
 ## Pourquoi c'est important
 

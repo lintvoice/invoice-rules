@@ -4,7 +4,7 @@ The invoice has a charge on the whole invoice in the VAT category Z (zero rate),
 
 ## What the rule checks
 
-Category Z covers supplies taxed at a rate of 0 %, such as solar panels sold to their operator in Germany. A business that makes supplies in category Z is identified for VAT, and its invoice says so. For each charge in Z, the rule checks that the invoice identifies the seller for VAT. One of these will do: its VAT number (BT-31), its tax registration identifier (BT-32), its tax representative's VAT number (BT-63).
+Category Z covers supplies taxed at a rate of 0%, such as solar panels sold to their operator in Germany. A business that makes supplies in category Z is identified for VAT, and its invoice says so. For each charge in Z, the rule checks that the invoice identifies the seller for VAT. One of these will do: its VAT number (BT-31), its tax registration identifier (BT-32), its tax representative's VAT number (BT-63).
 
 ## Why it matters
 

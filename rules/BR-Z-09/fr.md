@@ -4,7 +4,7 @@ La ventilation de TVA de la catégorie Z (taux zéro) a un montant de TVA autre 
 
 ## Ce que vérifie la règle
 
-La catégorie Z couvre les opérations taxées au taux de 0 %, comme les panneaux solaires vendus à leur exploitant en Allemagne. La facture n'y facture pas de TVA, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
+La catégorie Z couvre les opérations taxées au taux de 0 %, comme les panneaux solaires vendus à leur exploitant en Allemagne. Aucune TVA n'est facturée dans cette catégorie, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
 
 ## Pourquoi c'est important
 

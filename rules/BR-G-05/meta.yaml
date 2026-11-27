@@ -25,10 +25,10 @@ official_message:
 reported_ids:
 - BR-G-05
 title:
-  en: An export line must have a 0 % rate
+  en: An export line must have a 0% rate
   fr: Une ligne d'exportation doit avoir un taux de 0 %
 brief:
-  en: In the VAT category G (export outside the EU), the VAT rate of an invoice line is 0 %.
+  en: In the VAT category G (export outside the EU), the VAT rate of an invoice line is 0%.
   fr: Dans la catégorie de TVA G (exportation hors de l'UE), le taux de TVA d'une ligne est de 0 %.
 search:
   en:
@@ -56,4 +56,4 @@ related:
 - BR-G-06
 - BR-G-07
 - BR-S-05
-updated: '2026-11-24'
+updated: '2026-11-27'

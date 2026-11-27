@@ -25,10 +25,10 @@ official_message:
 reported_ids:
 - BR-IC-06
 title:
-  en: An allowance on an intra-Community supply must have a 0 % rate
+  en: An allowance on an intra-Community supply must have a 0% rate
   fr: Une remise sur une livraison intracommunautaire doit avoir un taux de 0 %
 brief:
-  en: In the VAT category K (intra-Community supply), the VAT rate of a document level allowance is 0 %.
+  en: In the VAT category K (intra-Community supply), the VAT rate of a document level allowance is 0%.
   fr: Dans la catégorie de TVA K (livraison intracommunautaire), le taux de TVA d'une remise au niveau du document est de 0 %.
 search:
   en:
@@ -56,4 +56,4 @@ related:
 - BR-IC-05
 - BR-IC-07
 - BR-S-05
-updated: '2026-11-24'
+updated: '2026-11-27'

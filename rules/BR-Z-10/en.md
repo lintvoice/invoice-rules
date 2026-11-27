@@ -4,7 +4,7 @@ The VAT breakdown in category Z (zero rate) gives an exemption reason, as text o
 
 ## What the rule checks
 
-Category Z covers supplies taxed at a rate of 0 %, such as solar panels sold to their operator in Germany. The supply is taxed, at 0 %: it is not an exemption, so its breakdown gives no exemption reason (BT-120) and no reason code (BT-121). The rule checks that both are absent.
+Category Z covers supplies taxed at a rate of 0%, such as solar panels sold to their operator in Germany. The supply is taxed, at 0%: it is not an exemption, so its breakdown gives no exemption reason (BT-120) and no reason code (BT-121). The rule checks that both are absent.
 
 ## Why it matters
 
@@ -20,7 +20,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## Common causes
 
-- **A reason written for every category**, the name of the rate included.
+- **A reason written for every category**, even a taxed one (the rate's name, for example).
 - **An exempt supply put in category Z**, with its reason kept.
 
 ## Technical details

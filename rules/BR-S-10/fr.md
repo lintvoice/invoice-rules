@@ -20,7 +20,7 @@ Dans les marchés publics, les acheteurs de l'Union européenne doivent accepter
 
 ## Causes fréquentes
 
-- **Un motif écrit pour chaque catégorie**, le nom du taux compris.
+- **Un motif écrit pour chaque catégorie**, même taxée (le nom du taux, par exemple).
 - **Une opération exonérée mise en catégorie S**, avec son motif conservé.
 
 ## Détails techniques

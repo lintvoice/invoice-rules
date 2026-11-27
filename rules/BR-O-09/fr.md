@@ -4,7 +4,7 @@ La ventilation de TVA de la catégorie O (hors du champ de la TVA) a un montant 
 
 ## Ce que vérifie la règle
 
-La catégorie O couvre les opérations auxquelles aucune TVA ne s'applique, comme un service rendu à une entreprise hors de l'UE. La facture n'y facture pas de TVA, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
+La catégorie O couvre les opérations auxquelles aucune TVA ne s'applique, comme un service rendu à une entreprise hors de l'UE. Aucune TVA n'est facturée dans cette catégorie, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
 
 ## Pourquoi c'est important
 

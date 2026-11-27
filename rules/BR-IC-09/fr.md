@@ -4,7 +4,7 @@ La ventilation de TVA de la catégorie K (livraison intracommunautaire) a un mon
 
 ## Ce que vérifie la règle
 
-La catégorie K couvre les biens vendus et expédiés à une entreprise d'un autre pays de l'UE, qui y déclare la TVA. La facture n'y facture pas de TVA, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
+La catégorie K couvre les biens vendus et expédiés à une entreprise d'un autre pays de l'UE, qui y déclare la TVA. Aucune TVA n'est facturée dans cette catégorie, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
 
 ## Pourquoi c'est important
 

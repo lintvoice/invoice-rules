@@ -4,7 +4,7 @@ The invoice uses the VAT category Z (zero rate), but its VAT breakdown leaves it
 
 ## What the rule checks
 
-The VAT breakdown sums up the invoice's VAT: for each category and rate, its taxable amount and its VAT. Category Z covers supplies taxed at a rate of 0 %, such as solar panels sold to their operator in Germany. Its VAT is 0, but it still has a breakdown, one for all its lines, allowances and charges together. The rule checks that the invoice has exactly one.
+The VAT breakdown sums up the invoice's VAT: for each category and rate, its taxable amount and its VAT. Category Z covers supplies taxed at a rate of 0%, such as solar panels sold to their operator in Germany. Its VAT is 0, but it still has a breakdown, one for all its lines, allowances and charges together. The rule checks that the invoice has exactly one.
 
 ## Why it matters
 

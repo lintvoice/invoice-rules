@@ -25,10 +25,10 @@ official_message:
 reported_ids:
 - BR-Z-05
 title:
-  en: A zero-rated line must have a 0 % rate
+  en: A zero-rated line must have a 0% rate
   fr: Une ligne au taux zéro doit avoir un taux de 0 %
 brief:
-  en: In the VAT category Z (zero rate), the VAT rate of an invoice line is 0 %.
+  en: In the VAT category Z (zero rate), the VAT rate of an invoice line is 0%.
   fr: Dans la catégorie de TVA Z (taux zéro), le taux de TVA d'une ligne est de 0 %.
 search:
   en:
@@ -53,4 +53,4 @@ related:
 - BR-Z-06
 - BR-Z-07
 - BR-S-05
-updated: '2026-11-24'
+updated: '2026-11-27'

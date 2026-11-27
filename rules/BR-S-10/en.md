@@ -20,7 +20,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## Common causes
 
-- **A reason written for every category**, the name of the rate included.
+- **A reason written for every category**, even a taxed one (the rate's name, for example).
 - **An exempt supply put in category S**, with its reason kept.
 
 ## Technical details

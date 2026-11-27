@@ -4,7 +4,7 @@ The invoice uses both the VAT category B (split payment) and the category S (sta
 
 ## What the rule checks
 
-In Italy's split payment, the buyer pays the VAT to the tax administration; with the standard rate, it pays the VAT to the seller. The two do not mix on one invoice: the rule checks that an invoice with category B has no line, allowance, charge or breakdown in S.
+In Italy's split payment, the buyer pays the VAT to the tax administration; with the standard rate, it pays the VAT to the seller. The two do not mix on one invoice. The rule checks that an invoice with category B has no line, allowance, charge or breakdown in S.
 
 ## Why it matters
 

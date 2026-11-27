@@ -4,7 +4,7 @@ The taxable amount of the VAT breakdown in category Z (zero rate) does not match
 
 ## What the rule checks
 
-Category Z covers supplies taxed at a rate of 0 %, such as solar panels sold to their operator in Germany. Its VAT is 0, but its breakdown still gives the amount it applies to. The rule checks that this taxable amount adds up the lines in Z, plus the charges and minus the allowances in Z.
+Category Z covers supplies taxed at a rate of 0%, such as solar panels sold to their operator in Germany. Its VAT is 0, but its breakdown still gives the amount it applies to. The rule checks that this taxable amount adds up the lines in Z, plus the charges and minus the allowances in Z.
 
 ## Why it matters
 

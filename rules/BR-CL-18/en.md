@@ -27,7 +27,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 The rule reads the VAT category code of each VAT breakdown (BT-118) and of each line (BT-151). In CII, it is `ram:CategoryCode` of each `ram:ApplicableTradeTax`, in the header and in the lines; in UBL, `cbc:ID` of `cac:ClassifiedTaxCategory` in each line and of `cac:TaxCategory` in each `cac:TaxSubtotal`. The list is the EN 16931 part of UNCL 5305: `AE`, `L`, `M`, `E`, `S`, `Z`, `G`, `O`, `K`, `B`.
 
-The example invoice puts its second line at a reduced rate of 7 %, with the category `AA` in the line and in its VAT breakdown; its fixed counterpart gives `S`. The Factur-X EN 16931 profile checks the same list with its own rules `FX-SCH-A-000587` and `FX-SCH-A-000619`, which fail next to it in a Factur-X invoice.
+The example invoice puts its second line at a reduced rate of 7%, with the category `AA` in the line and in its VAT breakdown; its fixed counterpart gives `S`. The Factur-X EN 16931 profile checks the same list with its own rules `FX-SCH-A-000587` and `FX-SCH-A-000619`, which fail next to it in a Factur-X invoice.
 
 ## Official text
 

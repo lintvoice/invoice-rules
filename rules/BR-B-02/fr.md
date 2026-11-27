@@ -4,7 +4,7 @@ La facture utilise à la fois la catégorie de TVA B (paiement scindé) et la ca
 
 ## Ce que vérifie la règle
 
-Avec le paiement scindé italien, l'acheteur verse la TVA à l'administration fiscale ; au taux normal, il la verse au vendeur. Les deux ne se mêlent pas sur une même facture : la règle vérifie qu'une facture en catégorie B n'a aucune ligne, remise, frais ni ventilation en S.
+Avec le paiement scindé italien, l'acheteur verse la TVA à l'administration fiscale ; au taux normal, il la verse au vendeur. Les deux ne se mêlent pas sur une même facture. La règle vérifie qu'une facture en catégorie B n'a aucune ligne, remise, frais ni ventilation en S.
 
 ## Pourquoi c'est important
 

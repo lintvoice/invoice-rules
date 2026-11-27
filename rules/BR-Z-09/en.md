@@ -4,7 +4,7 @@ The VAT breakdown in category Z (zero rate) has a VAT amount other than 0.
 
 ## What the rule checks
 
-Category Z covers supplies taxed at a rate of 0 %, such as solar panels sold to their operator in Germany. The invoice charges no VAT on it, so the VAT amount of its breakdown is 0. The rule checks it.
+Category Z covers supplies taxed at a rate of 0%, such as solar panels sold to their operator in Germany. No VAT is charged in this category, so the VAT amount of its breakdown is 0. The rule checks it.
 
 ## Why it matters
 
@@ -27,7 +27,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 A category's VAT amount is BT-117. In CII: `ram:CalculatedAmount` of each `ram:ApplicableTradeTax` of `ram:ApplicableHeaderTradeSettlement` whose `ram:CategoryCode` is `Z`; in UBL: `cbc:TaxAmount` of each `cac:TaxSubtotal` of category `Z`. The rule wants exactly 0.
 
-The example invoice is all in Z, and its breakdown gives a VAT amount at the standard rate of its taxable amount, with a rate of 0 %; its VAT total follows. BR-CO-17, which checks the VAT amount against the taxable amount times the rate, fails too.
+The example invoice is all in Z, and its breakdown gives a VAT amount at the standard rate of its taxable amount, with a rate of 0%; its VAT total follows. BR-CO-17, which checks the VAT amount against the taxable amount times the rate, fails too.
 
 ## Official text
 
@@ -38,5 +38,5 @@ BR-Z-09, [EN 16931 validation artefacts 1.3.17](https://github.com/ConnectingEur
 ## Related rules
 
 - [BR-Z-08](../BR-Z-08/): in the VAT breakdown, the taxable amount of category Z (zero rate) is the sum of its lines, plus its charges, minus its allowances.
-- [BR-Z-05](../BR-Z-05/): in the VAT category Z (zero rate), the VAT rate of an invoice line is 0 %.
+- [BR-Z-05](../BR-Z-05/): in the VAT category Z (zero rate), the VAT rate of an invoice line is 0%.
 - [BR-CO-17](../BR-CO-17/): for each rate, the VAT amount must be the taxable amount times the rate, rounded to the cent.

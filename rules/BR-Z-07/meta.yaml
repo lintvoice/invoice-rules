@@ -25,10 +25,10 @@ official_message:
 reported_ids:
 - BR-Z-07
 title:
-  en: A zero-rated charge must have a 0 % rate
+  en: A zero-rated charge must have a 0% rate
   fr: Des frais au taux zéro doivent avoir un taux de 0 %
 brief:
-  en: In the VAT category Z (zero rate), the VAT rate of a document level charge is 0 %.
+  en: In the VAT category Z (zero rate), the VAT rate of a document level charge is 0%.
   fr: Dans la catégorie de TVA Z (taux zéro), le taux de TVA des frais au niveau du document est de 0 %.
 search:
   en:
@@ -53,4 +53,4 @@ related:
 - BR-Z-05
 - BR-Z-06
 - BR-S-05
-updated: '2026-11-24'
+updated: '2026-11-27'

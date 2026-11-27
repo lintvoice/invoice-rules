@@ -6,7 +6,7 @@ A VAT rate on the invoice is not on the list of rates allowed in France, or is w
 
 The rule checks each VAT rate on the invoice (lines, allowances and charges, VAT breakdown). It must:
 
-- be written as a number, without the % sign (`20`, not `20 %`);
+- be written as a number, without the % sign (`20`, not `20%`);
 - be on the list of the official files: 0, 0.9, 1.05, 1.75, 2.1, 5.5, 7, 8.5, 9.2, 9.6, 10, 13, 19.6, 20 and 20.6;
 - have at most two decimals (`20`, `20.0` or `20.00`).
 

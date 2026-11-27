@@ -4,7 +4,7 @@ La facture utilise la catégorie de TVA B (paiement scindé), mais ce n'est pas 
 
 ## Ce que vérifie la règle
 
-Le paiement scindé est un régime italien. La règle vérifie qu'une facture qui utilise la catégorie B n'a que l'Italie pour pays : chacun de ses codes pays, ceux du vendeur et de l'acheteur compris, vaut IT.
+Le paiement scindé est un régime italien. La règle vérifie qu'une facture qui utilise la catégorie B n'a que l'Italie pour pays. Chacun de ses codes pays, ceux du vendeur et de l'acheteur compris, vaut IT.
 
 ## Pourquoi c'est important
 

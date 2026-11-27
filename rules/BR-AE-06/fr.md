@@ -4,7 +4,7 @@ Une remise en autoliquidation a un taux de TVA autre que 0 %.
 
 ## Ce que vérifie la règle
 
-La catégorie AE couvre les opérations dont l'acheteur, et non le vendeur, déclare la TVA : le vendeur facture sans TVA. La facture ne porte pas de TVA, donc le taux est de 0 %. La règle vérifie que le taux (BT-96) de chaque remise au niveau du document en AE vaut 0.
+La catégorie AE couvre les opérations dont l'acheteur, et non le vendeur, déclare la TVA : le vendeur facture sans TVA. Aucune TVA n'est facturée dans cette catégorie, donc le taux est de 0 %. La règle vérifie que le taux (BT-96) de chaque remise au niveau du document en AE vaut 0.
 
 ## Pourquoi c'est important
 

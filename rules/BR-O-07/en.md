@@ -14,18 +14,18 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## How to fix it
 
-1. Leave the VAT rate empty for items outside the scope of VAT: no rate, rather than 0 %.
+1. Leave the VAT rate empty for items outside the scope of VAT: no rate, rather than 0%.
 2. If your software always writes a rate, report it to the software's publisher, quoting BR-O-07.
 
 ## Common causes
 
-- **Software that always writes a rate**, 0 % when no VAT applies.
+- **Software that always writes a rate**, 0% when no VAT applies.
 
 ## Technical details
 
 The document level charge's VAT category is BT-102, its VAT rate BT-103. In CII: `ram:RateApplicablePercent` of the `ram:CategoryTradeTax` of each `ram:SpecifiedTradeAllowanceCharge` whose `ram:ChargeIndicator` is true; in UBL: `cbc:Percent` of the `cac:TaxCategory` of each `cac:AllowanceCharge` whose `cbc:ChargeIndicator` is true.
 
-The example invoice is all outside the scope of VAT, and gives its charge a 0 % rate; its fixed version gives none.
+The example invoice is all outside the scope of VAT, and gives its charge a 0% rate; its fixed version gives none.
 
 ## Official text
 
@@ -35,6 +35,6 @@ BR-O-07, [EN 16931 validation artefacts 1.3.17](https://github.com/ConnectingEur
 
 ## Related rules
 
-- [BR-O-05](../BR-O-05/): an invoice line outside the scope of VAT (O) gives no VAT rate, not even 0 %.
-- [BR-O-06](../BR-O-06/): a document level allowance outside the scope of VAT (O) gives no VAT rate, not even 0 %.
-- [BR-S-05](../BR-S-05/): in the VAT category S (standard rate), the VAT rate of an invoice line is above zero: a 0 % rate belongs to another category.
+- [BR-O-05](../BR-O-05/): an invoice line outside the scope of VAT (O) gives no VAT rate, not even 0%.
+- [BR-O-06](../BR-O-06/): a document level allowance outside the scope of VAT (O) gives no VAT rate, not even 0%.
+- [BR-S-05](../BR-S-05/): in the VAT category S (standard rate), the VAT rate of an invoice line is above zero: a 0% rate belongs to another category.

@@ -4,7 +4,7 @@ The invoice uses the VAT category B (split payment), but it is not a domestic It
 
 ## What the rule checks
 
-Split payment is an Italian scheme. The rule checks that an invoice using category B has only Italy as country: every country code in it, the seller's and the buyer's included, is IT.
+Split payment is an Italian scheme. The rule checks that an invoice using category B has only Italy as country. Every country code in it, the seller's and the buyer's included, is IT.
 
 ## Why it matters
 

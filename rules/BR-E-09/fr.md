@@ -4,7 +4,7 @@ La ventilation de TVA de la catégorie E (exonération) a un montant de TVA autr
 
 ## Ce que vérifie la règle
 
-La catégorie E couvre les opérations que la loi exonère de TVA, comme le transport de marchandises exportées. La facture n'y facture pas de TVA, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
+La catégorie E couvre les opérations que la loi exonère de TVA, comme le transport de marchandises exportées. Aucune TVA n'est facturée dans cette catégorie, donc le montant de TVA de sa ventilation vaut 0. La règle le vérifie.
 
 ## Pourquoi c'est important
 

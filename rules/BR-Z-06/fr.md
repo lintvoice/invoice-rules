@@ -4,7 +4,7 @@ Une remise au taux zéro a un taux de TVA autre que 0 %.
 
 ## Ce que vérifie la règle
 
-La catégorie Z couvre les opérations taxées au taux de 0 %, comme les panneaux solaires vendus à leur exploitant en Allemagne. La facture ne porte pas de TVA, donc le taux est de 0 %. La règle vérifie que le taux (BT-96) de chaque remise au niveau du document en Z vaut 0.
+La catégorie Z couvre les opérations taxées au taux de 0 %, comme les panneaux solaires vendus à leur exploitant en Allemagne. Aucune TVA n'est facturée dans cette catégorie, donc le taux est de 0 %. La règle vérifie que le taux (BT-96) de chaque remise au niveau du document en Z vaut 0.
 
 ## Pourquoi c'est important
 

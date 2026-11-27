@@ -25,10 +25,10 @@ official_message:
 reported_ids:
 - BR-AE-06
 title:
-  en: An allowance under reverse charge must have a 0 % rate
+  en: An allowance under reverse charge must have a 0% rate
   fr: Une remise en autoliquidation doit avoir un taux de 0 %
 brief:
-  en: In the VAT category AE (reverse charge), the VAT rate of a document level allowance is 0 %.
+  en: In the VAT category AE (reverse charge), the VAT rate of a document level allowance is 0%.
   fr: Dans la catégorie de TVA AE (autoliquidation), le taux de TVA d'une remise au niveau du document est de 0 %.
 search:
   en:
@@ -56,4 +56,4 @@ related:
 - BR-AE-05
 - BR-AE-07
 - BR-S-05
-updated: '2026-11-24'
+updated: '2026-11-27'

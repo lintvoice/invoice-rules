@@ -1,10 +1,10 @@
-# A reverse charge line must have a 0 % rate
+# A reverse charge line must have a 0% rate
 
-A reverse charge line has a VAT rate other than 0 %.
+A reverse charge line has a VAT rate other than 0%.
 
 ## What the rule checks
 
-Category AE covers supplies on which the buyer, not the seller, accounts for the VAT: the seller invoices without VAT. No VAT is charged on the invoice, so the rate is 0 %. The rule checks that the rate (BT-152) of each invoice line in AE is 0.
+Category AE covers supplies on which the buyer, not the seller, accounts for the VAT: the seller invoices without VAT. No VAT is charged in this category, so the rate is 0%. The rule checks that the rate (BT-152) of each invoice line in AE is 0.
 
 ## Why it matters
 
@@ -14,7 +14,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 ## How to fix it
 
-1. Set the VAT rate to 0 % on the items in category AE.
+1. Set the VAT rate to 0% on the items in category AE.
 2. If VAT does apply at another rate, the category is not AE: give the item its right category.
 3. If your software keeps the standard rate, report it to the software's publisher, quoting BR-AE-05.
 
@@ -27,7 +27,7 @@ In public procurement, buyers in the European Union must accept e-invoices that 
 
 The invoice line's VAT category is BT-151, its VAT rate BT-152. In CII: `ram:RateApplicablePercent` of the line's `ram:ApplicableTradeTax`; in UBL: `cbc:Percent` of `cac:Item/cac:ClassifiedTaxCategory`.
 
-The example invoice is all in AE, and its first line keeps the standard rate while its category is AE; the VAT breakdown is still at 0 %. Its fixed version gives 0 %.
+The example invoice is all in AE, and its first line keeps the standard rate while its category is AE; the VAT breakdown is still at 0%. Its fixed version gives 0%.
 
 ## Official text
 
@@ -37,6 +37,6 @@ BR-AE-05, [EN 16931 validation artefacts 1.3.17](https://github.com/ConnectingEu
 
 ## Related rules
 
-- [BR-AE-06](../BR-AE-06/): in the VAT category AE (reverse charge), the VAT rate of a document level allowance is 0 %.
-- [BR-AE-07](../BR-AE-07/): in the VAT category AE (reverse charge), the VAT rate of a document level charge is 0 %.
-- [BR-S-05](../BR-S-05/): in the VAT category S (standard rate), the VAT rate of an invoice line is above zero: a 0 % rate belongs to another category.
+- [BR-AE-06](../BR-AE-06/): in the VAT category AE (reverse charge), the VAT rate of a document level allowance is 0%.
+- [BR-AE-07](../BR-AE-07/): in the VAT category AE (reverse charge), the VAT rate of a document level charge is 0%.
+- [BR-S-05](../BR-S-05/): in the VAT category S (standard rate), the VAT rate of an invoice line is above zero: a 0% rate belongs to another category.
